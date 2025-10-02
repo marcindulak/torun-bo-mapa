@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toruń Budget Visualization</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+    <script type="module">
+        import { Map, TileLayer, CircleMarker } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
+
+        const LOCATIONS = [
+            {
+                "name": "Toruń Main Bus Station",
+                "category": "transport",
+                "lat": 53.0138,
+                "lon": 18.5984
+            },
+            {
+                "name": "Voivodeship Specialist Hospital",
+                "category": "health",
+                "lat": 53.0278,
+                "lon": 18.6058
+            },
+            {
+                "name": "Planty Park",
+                "category": "nature",
+                "lat": 53.0103,
+                "lon": 18.6061
+            }
+        ];
+
+        const MAP_CENTER = [53.0138, 18.6003];
+        const MAP_ZOOM = 13;
+        
+        const TILE_LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        
+        const CATEGORY_COLORS = Object.freeze({
+            health: 'red',
+            nature: 'green',
+            transport: 'blue'
+        });
+
+        const MARKER_FILL_OPACITY = 0.7;
+        const MARKER_RADIUS = 8;
+
+        const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
+
+        new TileLayer(TILE_LAYER_URL, {
+            attribution: TILE_LAYER_ATTRIBUTION
+        }).addTo(map);
+
+        LOCATIONS.forEach(location => {
+            const marker = new CircleMarker([location.lat, location.lon], {
+                color: CATEGORY_COLORS[location.category],
+                fillColor: CATEGORY_COLORS[location.category],
+                fillOpacity: MARKER_FILL_OPACITY,
+                radius: MARKER_RADIUS
+            }).addTo(map);
+
+            marker.bindPopup(`<b>${location.name}</b><br>Category: ${location.category}`);
+        });
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>

@@ -49,11 +49,13 @@ bash scripts/test_mypy.sh
 
 # Implementation overview
 
-The frontend, static application is written in vanilla JavaScript, and hosted on Github Pages.
+The frontend is a static HTML application with embedded JavaScript using ES modules, hosted on Github Pages.
 The data originates from https://bip.torun.pl/artykuly/32484/budzet-torunia, and is to be saved manually under the `noupload` folder.
 The saved files are cleaned and curated using Python scripts located in the `preprocessing` folder.
-The outcome of the preprocessing steps is a file in JSON format, that is embedded verbatim in the `index.js` file.
-The visualization uses the Leaflet library to place the budget markers on an Openstreetmap.
-The budget spending range selector is available, together with a budget categories, and a year selector.
+The outcome of the preprocessing steps is a file in JSON format, that is embedded verbatim in the `index.html` file for CORS compatibility.
+The visualization uses Leaflet to place budget markers on an OpenStreetMap.
 
 # Abandoned ideas
+
+- Loading data from separate JSON files: discarded due to CORS restrictions when opening HTML files directly in browsers.
+- Using a web server to serve the application: discarded to avoid hosting requirements.
