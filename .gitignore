@@ -4,4 +4,5 @@
 *.py[c,d,o]
 node_modules
 old
+.venv
 venv

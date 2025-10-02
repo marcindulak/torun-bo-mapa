@@ -8,17 +8,31 @@ Visualization of the budget of the city of Toruń, Poland.
 
 # Usage examples
 
-The full setup instructions follow below.
+1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
-1. Install [Docker Engine](https://docs.docker.com/engine/install/) or [Docker Desktop](https://docs.docker.com/desktop/)
-
-2. Install [Docker Compose](https://docs.docker.com/compose/install/)
-
-3. Clone this repository, and `cd` into it:
+2. Clone this repository:
 
    ```
    git clone https://github.com/marcindulak/torun-budzet-wizualizacja
    cd torun-budzet-wizualizacja
+   ```
+
+3. Fetch machine learning models (this needs to be performed only once):
+
+   ```
+   uv add --no-deps 'pl-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-3.8.0/pl_core_news_sm-3.8.0-py3-none-any.whl'
+   ```
+
+4. Install Python dependencies:
+
+   ```
+   uv sync
+   ```
+
+5. Extract budget data from PDF:
+
+   ```
+   uv run python preprocessing/extract_budzet_obywatelski_2024.py
    ```
 
 # Running tests
