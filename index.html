@@ -15,11 +15,51 @@
             height: 100vh;
             width: 100%;
         }
+        .year-selector {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .year-selector label {
+            margin-right: 8px;
+            font-weight: 500;
+        }
+        .year-selector select {
+            padding: 6px 12px;
+            border: 2px solid #333;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .year-selector button {
+            padding: 6px 12px;
+            border: 2px solid #333;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 8px;
+        }
+        .year-selector button:hover {
+            background: #f0f0f0;
+        }
+        .year-selector .control-group {
+            margin-bottom: 8px;
+        }
     </style>
     <script type="module">
-        import { Map, TileLayer, Marker, DivIcon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
+        import { Map, TileLayer, Marker, DivIcon, Control } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
-      const LOCATIONS = [
+      const DATA_BY_YEAR = {
+          '2024': [
           {
     "name": "Powiększmy park na Bydgoskim - porządki od Martówki w stronę Wisły.",
     "location": "Obszar od ulicy Popiełuszki (bez działek ROD) w stronę wschodnią.",
@@ -529,7 +569,10 @@
     "lat": 53.0410622,
     "lon": 18.5990446
   }
-        ];
+        ]
+      };
+
+      const AVAILABLE_YEARS = Object.keys(DATA_BY_YEAR).sort().reverse();
 
         const MAP_CENTER = [53.0138, 18.6003];
         const MAP_ZOOM = 12;
@@ -596,10 +639,9 @@
         const BASE_RADIUS = 20;
         const MAX_RADIUS = 40;
 
-        const locationsWithCoords = LOCATIONS.filter(loc => loc.lat && loc.lon);
-        const values = locationsWithCoords.map(loc => loc.value);
-        const minValue = Math.min(...values);
-        const maxValue = Math.max(...values);
+        let currentYear = AVAILABLE_YEARS[0];
+        let currentMarkers = [];
+        let minValue, maxValue;
 
         function getRadiusByValue(value) {
             const normalized = Math.sqrt(value / minValue);
@@ -607,17 +649,7 @@
             return BASE_RADIUS + (normalized / maxNormalized) * (MAX_RADIUS - BASE_RADIUS);
         }
 
-        const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
-
-        new TileLayer(TILE_LAYER_URL, {
-            attribution: TILE_LAYER_ATTRIBUTION
-        }).addTo(map);
-
-        LOCATIONS.forEach(location => {
-            if (!location.lat || !location.lon) {
-                return;
-            }
-
+        function createMarker(location) {
             const icon = CATEGORY_ICONS[location.category] || '📍';
             const size = getRadiusByValue(location.value);
             
@@ -630,11 +662,87 @@
 
             const marker = new Marker([location.lat, location.lon], {
                 icon: divIcon
-            }).addTo(map);
+            });
 
             const categoryName = CATEGORY_NAMES[location.category] || location.category;
             marker.bindPopup(`<b>${location.name}</b><br>Value: ${location.value.toLocaleString()} PLN<br>Category: ${categoryName}`);
+            
+            return marker;
+        }
+
+        function loadYear(year) {
+            currentMarkers.forEach(marker => map.removeLayer(marker));
+            currentMarkers = [];
+            currentYear = year;
+
+            const locations = DATA_BY_YEAR[year] || [];
+            const locationsWithCoords = locations.filter(loc => loc.lat && loc.lon);
+            
+            if (locationsWithCoords.length === 0) return;
+
+            const values = locationsWithCoords.map(loc => loc.value);
+            minValue = Math.min(...values);
+            maxValue = Math.max(...values);
+
+            locationsWithCoords.forEach(location => {
+                const marker = createMarker(location);
+                marker.addTo(map);
+                currentMarkers.push(marker);
+            });
+        }
+
+        const YearSelector = Control.extend({
+            options: {
+                position: 'topright'
+            },
+
+            onAdd: function(mapInstance) {
+                const container = document.createElement('div');
+                container.className = 'year-selector leaflet-bar';
+
+                const centerButton = document.createElement('button');
+                centerButton.textContent = 'Wycentruj mapę';
+                centerButton.onclick = () => {
+                    mapInstance.setView(MAP_CENTER, MAP_ZOOM);
+                };
+                container.appendChild(centerButton);
+
+                const selectGroup = document.createElement('div');
+                selectGroup.className = 'control-group';
+
+                const label = document.createElement('label');
+                label.textContent = 'Wybierz rok: ';
+                selectGroup.appendChild(label);
+
+                const select = document.createElement('select');
+                AVAILABLE_YEARS.forEach(year => {
+                    const option = document.createElement('option');
+                    option.value = year;
+                    option.textContent = year;
+                    if (year === currentYear) {
+                        option.selected = true;
+                    }
+                    select.appendChild(option);
+                });
+
+                select.onchange = (e) => {
+                    loadYear(e.target.value);
+                };
+
+                selectGroup.appendChild(select);
+                container.appendChild(selectGroup);
+                return container;
+            }
         });
+
+        const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
+
+        new TileLayer(TILE_LAYER_URL, {
+            attribution: TILE_LAYER_ATTRIBUTION
+        }).addTo(map);
+
+        new YearSelector().addTo(map);
+        loadYear(currentYear);
     </script>
 </head>
 <body>
