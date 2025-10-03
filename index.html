@@ -19,25 +19,516 @@
     <script type="module">
         import { Map, TileLayer, CircleMarker } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
-        const LOCATIONS = [
-            {
-                "name": "Toruń Main Bus Station",
-                "category": "transport",
-                "lat": 53.0138,
-                "lon": 18.5984
-            },
-            {
-                "name": "Voivodeship Specialist Hospital",
-                "category": "health",
-                "lat": 53.0278,
-                "lon": 18.6058
-            },
-            {
-                "name": "Planty Park",
-                "category": "nature",
-                "lat": 53.0103,
-                "lon": 18.6061
-            }
+      const LOCATIONS = [
+          {
+    "name": "Powiększmy park na Bydgoskim - porządki od Martówki w stronę Wisły.",
+    "location": "Obszar od ulicy Popiełuszki (bez działek ROD) w stronę wschodnią.",
+    "address": "Popiełuszki",
+    "address_manual": "",
+    "value": 300000,
+    "category": "900",
+    "description": "Powiększmy park na Bydgoskim - porządki od Martówki w\nstronę Wisły.\nObszar od ulicy Popiełuszki (bez działek ROD) w stronę\nwschodnią.\nZakres: zebranie i utylizacja odpadów, przycięcie drzew,\nuprzątnięcie gałęzi.",
+    "lat": 53.0078988,
+    "lon": 18.5958283
+  },
+  {
+    "name": "Odtworzenie zieleni na wejściu do Parku Miejskiego od ul. Konopnickiej.",
+    "location": "Dz. nr 125/2 w ob. 12.",
+    "address": "",
+    "address_manual": "",
+    "value": 60000,
+    "category": "900",
+    "description": "Odtworzenie zieleni na wejściu do Parku Miejskiego od ul.\nKonopnickiej.\nDz. nr 125/2 w ob. 12.\nZakres: nasadzenia drzew i urządzenie roślinności niskiej w\nobrębie zabytkowej części Parku Miejskiego."
+  },
+  {
+    "name": "Strefa dobrego czasu.",
+    "location": "Ul. Fałata 96, Toruń.",
+    "address": "Fałata 96",
+    "address_manual": "",
+    "value": 95000,
+    "category": "926",
+    "description": "Strefa dobrego czasu.\nUl. Fałata 96, Toruń. Teren zielony przy budynku SP 11 (w\nobiekcie przebywają uczniowie klas 1-3) graniczący z siedzibą\nStowarzyszenia \"Jestem\". Okolice ul. Broniewskiego,\nGagarina, Reja. Teren leży w otoczeniu bloków mieszkalnych.\nJest ogólnodostępny dla mieszkańców.\nZakres: stół do tenisa stołowego, stolik z polami do gry w\nszachy, tablice do rysowania kredą.",
+    "lat": 53.015838,
+    "lon": 18.5644642
+  },
+  {
+    "name": "Rowerowe i piesze udogodnienia na Bydgoskim.",
+    "location": "Obszar całego Bydgoskiego Przedmieścia.",
+    "address": "",
+    "address_manual": "",
+    "value": 60000,
+    "category": "600",
+    "description": "Rowerowe i piesze udogodnienia na Bydgoskim.\nObszar całego Bydgoskiego Przedmieścia.\nOgraniczenie zakresu projektu: wyremontowanie chodnika\nwzdłuż ul. Słowackiego w kierunku ulicy Lindego do stacji\nbenzynowej."
+  },
+  {
+    "name": "LepszeSwiatlo.pl.",
+    "location": "Ulice: Chopina, Danielewskiego, Rybaki, Bydgoska, Mickiewicza i Park Miejski.",
+    "address": "",
+    "address_manual": "",
+    "value": 138313,
+    "category": "600",
+    "description": "LepszeSwiatlo.pl.\nUlice: Chopina, Danielewskiego, Rybaki, Bydgoska,\nMickiewicza i Park Miejski.\nWymiana 56 opraw ledowych ."
+  },
+  {
+    "name": "Akcja reaktywacja, czyli plac zabaw na piątkę przy \"Piątce\"!!!",
+    "location": "Ul. Żwirki i Wigury 1, 87-100 Toruń przy SP 5 im. R. Traugutta w Toruniu.",
+    "address": "Żwirki i Wigury 1",
+    "address_manual": "",
+    "value": 300000,
+    "category": "801",
+    "description": "Akcja reaktywacja, czyli plac zabaw na piątkę przy \"Piątce\"!!!\nUl. Żwirki i Wigury 1, 87-100 Toruń przy SP 5 im. R. Traugutta\nw Toruniu. Teren placu zabaw znajduje się z tyłu szkoły u\nzbiegu ulic Hurynowicz i Długiej.\nZakres: urządzenia zabawowe, kosz na śmieci, dwie ławki\nzwykłe, ławka solarna, lampy led, nawierzchnia bezpieczna.",
+    "lat": 53.0286572,
+    "lon": 18.5860307
+  },
+  {
+    "name": "Nauka i relaks w ZSPSiLO8 w Toruniu.",
+    "location": "ZSPSiLO8, ul. Grunwaldzka 33.",
+    "address": "Grunwaldzka 33",
+    "address_manual": "",
+    "value": 170000,
+    "category": "801",
+    "description": "Nauka i relaks w ZSPSiLO8 w Toruniu.\nZSPSiLO8, ul. Grunwaldzka 33.\nZakres: zewnętrzna sala edukacyjna, montaż ośmiu\nmetalowych stołów ze stali nierdzewnej i 22 ławek, podłoże\nwykonane z polbruku, kosz na śmieci, poidełko dla ptaków,\nnasadzenie kwiatów cebulowych i magnolii.",
+    "lat": 53.0247738,
+    "lon": 18.5859321
+  },
+  {
+    "name": "Utworzenie siłowni zewnętrznej przy Hospicjum Jana Pawła II w Toruniu.",
+    "location": "Centrum Opieki Medycznej Hospicjum im. Jana Pawła II.",
+    "address": "",
+    "address_manual": "",
+    "value": 72968,
+    "category": "926",
+    "description": "Utworzenie siłowni zewnętrznej przy Hospicjum Jana Pawła II\nw Toruniu.\nCentrum Opieki Medycznej Hospicjum im. Jana Pawła II.\nZakres: zmiana miejsca inwestycji, na działkę nr 42, która jest\notwarta i stale dostępna, urządzenia do ćwiczeń, nawierzchnia\nutwardzona."
+  },
+  {
+    "name": "Modernizacja i rewitalizacja boiska wielofunkcyjnego przy ul. Zdrojowej / Włocławskiej w Toruniu - Czerniewicach.",
+    "location": "U zbiegu ul. Zdrojowej / Włocławskiej w Toruniu - Czerniewicach.",
+    "address": "Zdrojowej / Włocławskiej",
+    "address_manual": "",
+    "value": 60000,
+    "category": "926",
+    "description": "Modernizacja i rewitalizacja boiska wielofunkcyjnego przy ul.\nZdrojowej / Włocławskiej w Toruniu - Czerniewicach.\nU zbiegu ul. Zdrojowej / Włocławskiej w Toruniu -\nCzerniewicach.\nZakres: realizacja do limitu środków: montaż dwóch słupów z\noświetleniem LED, montaż opasek wzdłuż dolnej części\nogrodzenia, czyszczenie nawierzchni boiska, montaż dwóch\nsłupów konstrukcyjnych z wysięgnikiem."
+  },
+  {
+    "name": "XXV Parafialno-Patriotyczny Festyn \"Tu są moje Czerniewice\".",
+    "location": "Ul. Włocławska 256 - plac przy kościele.",
+    "address": "Włocławska 256 -",
+    "address_manual": "",
+    "value": 35000,
+    "category": "900",
+    "description": "XXV Parafialno-Patriotyczny Festyn \"Tu są moje Czerniewice\".\nUl. Włocławska 256 - plac przy kościele.\nZakres: organizacja festynu: artyści, zaplecze techniczne\n(scena, namioty, nagłośnienie, oświetlenie, transport),\nnagrody na loterię, atrakcje i animacje dla dzieci. Bez\nmożliwości finansowania wydatków na gastronomię.",
+    "lat": 52.9751076,
+    "lon": 18.6843826
+  },
+  {
+    "name": "OM Solanki - utworzenie nowych miejsc parkingowych.",
+    "location": "Ul. Solankowa na wysokości budynków nr 38-38c i 40-40a.",
+    "address": "Solankowa",
+    "address_manual": "",
+    "value": 76219,
+    "category": "600",
+    "description": "OM Solanki - utworzenie nowych miejsc parkingowych.\nUl. Solankowa na wysokości budynków nr 38-38c i 40-40a.\nZakres: ograniczenie zakresu prac do 10 miejsc postojowych\nwraz z oznakowaniem, nasadzenia roślin.",
+    "lat": 52.9835468,
+    "lon": 18.6834043
+  },
+  {
+    "name": "Szkoła pod żaglami - SP 34 w Toruniu.",
+    "location": "Szkoła Podstawowa nr 34 im. Tony'ego Halika.",
+    "address": "",
+    "address_manual": "",
+    "value": 90000,
+    "category": "801",
+    "description": "Szkoła pod żaglami - SP 34 w Toruniu.\nSzkoła Podstawowa nr 34 im. Tony'ego Halika.\nZakres: nawierzchnia trawiasta z matami przerostowymi,\nławostoły, żagiel, zmiana na inną lokalizację na terenie szkoły\nz uwagi na dużą ilość sieci biegnących we wskazanym miejscu."
+  },
+  {
+    "name": "Zieleń ozdobna przy ul. Zdrojowej na oś.",
+    "location": "Czerniewice.",
+    "address": "Czerniewice",
+    "address_manual": "",
+    "value": 20000,
+    "category": "900",
+    "description": "Zieleń ozdobna przy ul. Zdrojowej na oś. Czerniewice.\nPas drogowy w ul. Zdrojowej, od strony domów\njednorodzinnych, na odcinku od ul. Radosnej do posesji nr 24.\nZakres: nasadzenia roślin ozdobnych i wykonanie elementów\nwykończeniowych - kora drzewna/kamień ozdobny.",
+    "lat": 52.9795233,
+    "lon": 18.6844918
+  },
+  {
+    "name": "Budowa dwóch ławek kamiennych przy Kamiennym Kręgu.",
+    "location": "Zbieg ul. Olsztyńska i Przeskok.",
+    "address": "Olsztyńska i Przeskok",
+    "address_manual": "",
+    "value": 15000,
+    "category": "900",
+    "description": "Budowa dwóch ławek kamiennych przy Kamiennym Kręgu.\nZbieg ul. Olsztyńska i Przeskok. Bezpośrednie sąsiedztwo\nkamiennego kręgu.\nZakres: dwie ławki kamienne wraz z tablicą informacyjną."
+  },
+  {
+    "name": "Rewitalizacja placu zabaw.",
+    "location": "Motyw przewodni: Dżungla.",
+    "address": "",
+    "address_manual": "",
+    "value": 190000,
+    "category": "926",
+    "description": "Rewitalizacja placu zabaw. Motyw przewodni: Dżungla.\nRóg ul. Łąkowej i ul. Sczanieckiego na istniejącym placu\nzabaw.\nZakres: zestaw zabawowy ze zjeżdżalniami, ścianką\nwspinaczkową, rurą do przechodzenia, tablicami aktywności\nJungle, bujak słoń, lew, huśtawka wagowa typu ważka na\nsprężynach, huśtawka wieloosobowa z siedziskiem typu\nbocianie gniazdo, karuzela tarczowa, huśtawka rodzinna,\nnawierzchnia bezpieczna."
+  },
+  {
+    "name": "Ścieżka edukacyjna w SP 2.",
+    "location": "Ul. Targowa 14/17.",
+    "address": "Targowa",
+    "address_manual": "",
+    "value": 120000,
+    "category": "801",
+    "description": "Ścieżka edukacyjna w SP 2.\nUl. Targowa 14/17.\nZakres: montaż kołyski Newtona, kompasu, zegara\nsłonecznego, koła optycznego, ławek, dokonanie nasadzeń\nkrzewów.",
+    "lat": 53.0229819,
+    "lon": 18.6336962
+  },
+  {
+    "name": "Siatkówka plażowa na Batorego!",
+    "location": "Boisko sportowe przy ZSIŚ, ul. Batorego 43/49.",
+    "address": "ZSIŚ",
+    "address_manual": "",
+    "value": 281191,
+    "category": "801",
+    "description": "Siatkówka plażowa na Batorego!\nBoisko sportowe przy ZSIŚ, ul. Batorego 43/49.\nZakres: budowa boiska do gry w piłkę siatkową plażową,\ndokończenie ogrodzenia boiska do gry w piłkę nożną\npiłkochwytami, modernizacja ciągów pieszych."
+  },
+  {
+    "name": "Nowe wyposażenie na torze speedrowerowym w Kaszczorku.",
+    "location": "Ul. Skierki, Toruń.",
+    "address": "Skierki",
+    "address_manual": "",
+    "value": 170000,
+    "category": "926",
+    "description": "Nowe wyposażenie na torze speedrowerowym w Kaszczorku.\nUl. Skierki, Toruń. Działka nr 253/24.\nZakres: zakup i montaż dwóch trybun dwurzędowych 20\nmiejscowych, uzupełnienie nawierzchni, montaż lampy na\njednym z łuków oświetlających tor, wykonanie toru do gry w\nkapsle oraz ogrodu społecznego.",
+    "lat": 53.0059242,
+    "lon": 18.7052517
+  },
+  {
+    "name": "Budowa wjazdu na teren rekreacyjny przy ul. Gościnnej.",
+    "location": "Kaszczorek, ul. Gościnna 14.",
+    "address": "Gościnna 14",
+    "address_manual": "",
+    "value": 30000,
+    "category": "600",
+    "description": "Budowa wjazdu na teren rekreacyjny przy ul. Gościnnej.\nKaszczorek, ul. Gościnna 14.\nZakres: utworzenie zjazdu z ulicy Gościnnej 14 w kierunku\ntoru speedrowerowego oraz całego terenu rekreacyjnego.",
+    "lat": 53.0061255,
+    "lon": 18.7011698
+  },
+  {
+    "name": "Przystań Białe Góry - Kaszczorek Zakole.",
+    "location": "Kaszczorek, ul. Zakole.",
+    "address": "Zakole",
+    "address_manual": "",
+    "value": 111918,
+    "category": "926",
+    "description": "Przystań Białe Góry - Kaszczorek Zakole.\nKaszczorek, ul. Zakole.\nZakres: montaż trzech drewnianych ławek, naprawa ogniska i\nławek przy ognisku, tablica informacyjna, wymiana\nnawierzchni plażowej, pomost dla kajaków, kosze na śmieci,\nteren biwakowy.",
+    "lat": 53.0027818,
+    "lon": 18.7099325
+  },
+  {
+    "name": "Dokończenie remontu kociarni i części socjalnej w Schronisku dla Bezdomnych Zwierząt.",
+    "location": "Schronisko dla bezdomnych zwierząt, ul. Przybyszewskiego 3.",
+    "address": "Przybyszewskiego 3",
+    "address_manual": "",
+    "value": 1200000,
+    "category": "900",
+    "description": "Dokończenie remontu kociarni i części socjalnej w Schronisku\ndla Bezdomnych Zwierząt.\nSchronisko dla bezdomnych zwierząt, ul. Przybyszewskiego 3.\nZakres: dokończenie remontu piętra kociarni, kompleksowy\nremont części socjalnej, zakup brakującego wyposażenia w\nwyremontowanych pomieszczeniach.",
+    "lat": 53.0086316,
+    "lon": 18.5682376
+  },
+  {
+    "name": "Zakup specjalistycznego pojazdu do ratowania zwierząt dla patrolu EKO Straży Miejskiej w Toruniu.",
+    "location": "Toruń",
+    "address": "Toruń",
+    "address_manual": "",
+    "value": 350000,
+    "category": "754",
+    "description": "Zakup specjalistycznego pojazdu do ratowania zwierząt dla\npatrolu EKO Straży Miejskiej w Toruniu.\nToruń\nZakres: zakup specjalistycznego samochodu do ratowania\nzwierząt przeznaczonego dla Straży Miejskiej."
+  },
+  {
+    "name": "Samochód i wyposażenie dla OSP Toruń Jar z psami ratowniczymi.",
+    "location": "Siedziba Stowarzyszenia znajduje się w domu parafialnym na Jarze, przy ul. Grasera 5, tam sprzęt będzie przechowywany.",
+    "address": "Grasera 5",
+    "address_manual": "",
+    "value": 410000,
+    "category": "754",
+    "description": "Samochód i wyposażenie dla OSP Toruń Jar z psami\nratowniczymi.\nSiedziba Stowarzyszenia znajduje się w domu parafialnym na\nJarze, przy ul. Grasera 5, tam sprzęt będzie przechowywany.\nSamochód stacjonować może również na terenie KM PSP w\nToruniu przy ul. Legionów 70/76. Wykorzystywany będzie na\nterenie Torunia.\nZakres: zakup i zabudowa pojazdu Ochotniczej Straży\nPożarnej, zakup wyposażenia strażaków i dla psów\nratowniczych.",
+    "lat": 53.0501209,
+    "lon": 18.6020347
+  },
+  {
+    "name": "Pomoc kotom bezdomnym.",
+    "location": "Teren Gminy Miasta Toruń.",
+    "address": "",
+    "address_manual": "",
+    "value": 45000,
+    "category": "900",
+    "description": "Pomoc kotom bezdomnym.\nTeren Gminy Miasta Toruń.\nZakres: zakup karmy oraz 15 drewnianych, ocieplanych budek\ndla kotów wolnożyjących."
+  },
+  {
+    "name": "Kolacje (drugi posiłek) dla przebywających w Miejskim Schronisku dla Bezdomnych Mężczyzn w Toruniu.",
+    "location": "Miejskie Schronisko dla Bezdomnych Mężczyzn, ul. M. Skłodowskiej-Curie 82-84, Toruń.",
+    "address": "M",
+    "address_manual": "",
+    "value": 650000,
+    "category": "852",
+    "description": "Kolacje (drugi posiłek) dla przebywających w Miejskim\nSchronisku dla Bezdomnych Mężczyzn w Toruniu.\nMiejskie Schronisko dla Bezdomnych Mężczyzn, ul. M.\nSkłodowskiej-Curie 82-84, Toruń.\nZakres: kolacje przez cały rok dla osób przebywających w\nMiejskim Schronisku dla Bezdomnych Mężczyzn oraz w\nNoclegowni. Nastąpiła zmiana zakresu poprzez objęcie\nprojektem osób przebywających w noclegowni.",
+    "lat": 53.0102721,
+    "lon": 18.6048094
+  },
+  {
+    "name": "Dwujęzyczność z angielskim w każdym toruńskim przedszkolu.",
+    "location": "Wszystkie placówki przedszkolne publiczne w Toruniu.",
+    "address": "",
+    "address_manual": "",
+    "value": 200000,
+    "category": "801",
+    "description": "Dwujęzyczność z angielskim w każdym toruńskim przedszkolu.\nWszystkie placówki przedszkolne publiczne w Toruniu.\nZakres: pilotaż zajęć w maksymalnie 9 toruńskich\nprzedszkolach, które zgłoszą udział w pilotażu."
+  },
+  {
+    "name": "Rubinkowo na sportowo.",
+    "location": "Ogólnodostępny plac zabaw przy ul. Rydygiera 10, 11, 13, 15, 17, 9, 25, 27.",
+    "address": "Rydygiera 10",
+    "address_manual": "",
+    "value": 95000,
+    "category": "926",
+    "description": "Rubinkowo na sportowo.\nOgólnodostępny plac zabaw przy ul. Rydygiera 10, 11, 13, 15,\n17, 9, 25, 27. Działka 046301_1.0051.21/69.\nZakres: huśtawka potrójna, zjazd na linie pojedynczy, system\nsprawnościowy Ziemia II, zestaw dla małych dzieci Tunel i\nmost linowy, trampolina, kosz chwytak, nawierzchnia\npiaszczysta.",
+    "lat": 53.0254963,
+    "lon": 18.656998
+  },
+  {
+    "name": "Złota rączka dla seniora - Toruń 2025.",
+    "location": "Cały Toruń.",
+    "address": "Toruń",
+    "address_manual": "",
+    "value": 81287,
+    "category": "853",
+    "description": "Złota rączka dla seniora - Toruń 2025.\nCały Toruń.\nZakres: projekt zakłada wykonanie 200 usług na rzecz\nseniorów."
+  },
+  {
+    "name": "Kwitnące wiśnie wokół Starówki.",
+    "location": "1) Zielona Brama Gotyckiej Atarówki - aleja równoległa do alei Solidarności; 2) skwer L. Broniewicza - aleja dochodząca do fontanny Cosmopolis; 3) teren zielony między CKK a ul. Odrodzenia.",
+    "address": "Odrodzenia",
+    "address_manual": "",
+    "value": 45000,
+    "category": "900",
+    "description": "Kwitnące wiśnie wokół Starówki.\n1) Zielona Brama Gotyckiej Atarówki - aleja równoległa do alei\nSolidarności; 2) skwer L. Broniewicza - aleja dochodząca do\nfontanny Cosmopolis; 3) teren zielony między CKK a ul.\nOdrodzenia.\nZakres: ograniczenie do 20-25 drzew, muzeum\netnograficznym na terenie skweru, teren CKK Jordanki.",
+    "lat": 53.0159817,
+    "lon": 18.6054007
+  },
+  {
+    "name": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy.",
+    "location": "Wojewódzka Biblioteka Publiczna - Książnica Kopernikańska w Torunia, ul. Słowackiego 8.",
+    "address": "Słowackiego 8",
+    "address_manual": "",
+    "value": 60000,
+    "category": "921",
+    "description": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w\nKsiążnicy.\nWojewódzka Biblioteka Publiczna - Książnica Kopernikańska w\nTorunia, ul. Słowackiego 8.\nZakres: zmiana: wybór dostawcy kodów dokona Książnica\nkopernikańska jak również wyboru tytułów do wysokości\nuzyskanych środków.",
+    "lat": 53.0132379,
+    "lon": 18.5955567
+  },
+  {
+    "name": "Podgórski Piknik Rodzinny.",
+    "location": "Ul. Poznańska 49, tereny zielone przed kościołem św. Piotra i Pawła.",
+    "address": "Poznańska 49",
+    "address_manual": "",
+    "value": 35000,
+    "category": "900",
+    "description": "Podgórski Piknik Rodzinny.\nUl. Poznańska 49, tereny zielone przed kościołem św. Piotra i\nPawła.\nZakres: zespoły muzyczne, wynajęcie sceny z nagłośnieniem,\nanimacja dla dzieci, bez możliwości finansowania wydatków\nna gastronomię.",
+    "lat": 52.9939933,
+    "lon": 18.5981209
+  },
+  {
+    "name": "Bajeczny plac zabaw na Glinkach.",
+    "location": "Działka 44/10 z obrębu nr 77 lub inna w okolicy osiedla \"Glinki\" spełniająca odpowiednie wymogi.",
+    "address": "Glinki",
+    "address_manual": "",
+    "value": 300000,
+    "category": "926",
+    "description": "Bajeczny plac zabaw na Glinkach.\nDziałka 44/10 z obrębu nr 77 lub inna w okolicy osiedla\n\"Glinki\" spełniająca odpowiednie wymogi.\nZakres: Rodeobord- platforma na sprężynach, karuzela\nobrotowa stojąca, dwie bezpieczne karuzele typu gniazdo,\nzestaw wspinaczkowy połączony mostem z przeszkodami,\ndwie trampoliny ziemne, tyrolka, bezpieczna nawierzchnia.",
+    "lat": 52.9705299,
+    "lon": 18.5576347
+  },
+  {
+    "name": "Szkolny Dzień Dziecka na 2025 rok.",
+    "location": "Ul. Paderewskiego 5/11 w Toruniu.",
+    "address": "Paderewskiego",
+    "address_manual": "",
+    "value": 35000,
+    "category": "801",
+    "description": "Szkolny Dzień Dziecka na 2025 rok.\nUl. Paderewskiego 5/11 w Toruniu.\nZakres: organizacja festynu, bez możliwości finansowania\nwydatków na gastronomię.",
+    "lat": 52.9912151,
+    "lon": 18.5912776
+  },
+  {
+    "name": "Parking wzdłuż ul. Inowrocławskiej.",
+    "location": "Ul. Inowrocławska (mniej więcej naprzeciwko numerów 6-18, w okolicach siłowni zewnętrznej).",
+    "address": "Inowrocławska",
+    "address_manual": "",
+    "value": 73577,
+    "category": "600",
+    "description": "Parking wzdłuż ul. Inowrocławskiej.\nUl. Inowrocławska (mniej więcej naprzeciwko numerów 6-18,\nw okolicach siłowni zewnętrznej).\nZakres: budowa dwóch parkingów równoległych na wysokości\ndziałek nr 600 i 599 obręb nr 70.",
+    "lat": 52.9903925,
+    "lon": 18.5898534
+  },
+  {
+    "name": "Boisko pełne sportu.",
+    "location": "Boisko do koszykówki na wysokości bloku mieszkalnego Rydygiera 40 w Toruniu.",
+    "address": "Rydygiera 40",
+    "address_manual": "",
+    "value": 300000,
+    "category": "926",
+    "description": "Boisko pełne sportu.\nBoisko do koszykówki na wysokości bloku mieszkalnego\nRydygiera 40 w Toruniu.\nZakres: zmiana nawierzchni na poliuretanową, zmiana tablic\nwraz z obręczami do koszykówki, montaż słupków do\nsiatkówki wraz z siatką, ogrodzenie boiska, montaż ławek i\nkoszt na śmieci.",
+    "lat": 53.0302135,
+    "lon": 18.6479707
+  },
+  {
+    "name": "Ścieżka sensoryczna zewnętrzna - aktywne zmysły.",
+    "location": "Rubinkowo, ul. Dziewulskiego 41b, tereny zielone przed Szkołą Podstawową nr 31 im. gen. Hallera.",
+    "address": "Dziewulskiego 41b",
+    "address_manual": "",
+    "value": 60000,
+    "category": "801",
+    "description": "Ścieżka sensoryczna zewnętrzna - aktywne zmysły.\nRubinkowo, ul. Dziewulskiego 41b, tereny zielone przed\nSzkołą Podstawową nr 31 im. gen. Hallera.\nZakres: ścieżka sensoryczna przy SP 31, zakup trzech\nrównoważni typu zygzak, skośnej i na sprężynach, dwóch\nzestawów paneli edukacyjnych oraz czterech pojedynczych.",
+    "lat": 53.0292707,
+    "lon": 18.6809993
+  },
+  {
+    "name": "Ścieżka doświadczeń.",
+    "location": "Ul. Strzałowa 15, teren SP nr 12.",
+    "address": "Strzałowa 15",
+    "address_manual": "",
+    "value": 160000,
+    "category": "801",
+    "description": "Ścieżka doświadczeń.\nUl. Strzałowa 15, teren SP nr 12.\nZakres: 7 urządzeń ze ścieżki doświadczeń, odtworzenie\nnawierzchni wokół urządzeń.",
+    "lat": 52.9989451,
+    "lon": 18.6282468
+  },
+  {
+    "name": "Poznaj Rudak od podszewki - 3 pętle ścieżek turystyczno- rekreacyjnych na Rudaku.",
+    "location": "Osiedle Rudak.",
+    "address": "Rudak",
+    "address_manual": "",
+    "value": 35000,
+    "category": "630",
+    "description": "Poznaj Rudak od podszewki - 3 pętle ścieżek turystyczno-\nrekreacyjnych na Rudaku.\nOsiedle Rudak.\nZmiana zakresu: wytyczenie ścieżek, opracowanie\ntematyczne, oznakowanie tabliczkami, tablice informacyjne,\npieczątki okolicznościowe.",
+    "lat": 53.0038978,
+    "lon": 18.6608527
+  },
+  {
+    "name": "Rekreacja na Rudaku - etap II, Naturalny plac zabaw.",
+    "location": "Ulica Rypińska 72-78.",
+    "address": "Rypińska 72 - 78",
+    "address_manual": "",
+    "value": 120000,
+    "category": "900",
+    "description": "Rekreacja na Rudaku - etap II, Naturalny plac zabaw.\nUlica Rypińska 72-78.\nZakres: wyposażenie terenu rekreacyjnego w szałas\nwiklinowy, naturalne kłody i pniaki, małpi gaj, tunele oraz\nmostki, dwie ławki, bez oświetlenia do limitu środków.",
+    "lat": 52.9962651,
+    "lon": 18.6614744
+  },
+  {
+    "name": "Pilates na Rudaku.",
+    "location": "Filia Dworu Artusa, Dom Muz, ul. Okólna 169.",
+    "address": "Okólna 169",
+    "address_manual": "",
+    "value": 59980,
+    "category": "921",
+    "description": "Pilates na Rudaku.\nFilia Dworu Artusa, Dom Muz, ul. Okólna 169.\nZmiana zakresu: zwiększenie liczby zajęć bez zakupu środków\ntrwałych.",
+    "lat": 53.0007339,
+    "lon": 18.641134
+  },
+  {
+    "name": "W końcu bezpieczne przejście przy Macieju!",
+    "location": "Okolica pawilonu handlowego Maciej na ulicy Konstytucji 3 Maja.",
+    "address": "Konstytucji 3 Maja",
+    "address_manual": "",
+    "value": 200000,
+    "category": "600",
+    "description": "W końcu bezpieczne przejście przy Macieju!\nOkolica pawilonu handlowego Maciej na ulicy Konstytucji 3\nMaja.\nZakres: przebudowa chodnika, zmiana oznakowania, budowa\nprzejścia dla pieszych.",
+    "lat": 53.0224827,
+    "lon": 18.6696943
+  },
+  {
+    "name": "Skarpolina - Dziecięca Kraina.",
+    "location": "Kontynuacja placu zabaw \"Skarpolina\" w lasku pomiędzy blokami Bolta 6 a Bolta 8, osiedle Skarpa, Toruń.",
+    "address": "Bolta 6",
+    "address_manual": "",
+    "value": 264925,
+    "category": "926",
+    "description": "Skarpolina - Dziecięca Kraina.\nKontynuacja placu zabaw \"Skarpolina\" w lasku pomiędzy\nblokami Bolta 6 a Bolta 8, osiedle Skarpa, Toruń.\nZakres: wysoka huśtawka równoważna dwuosobowa,\nhuśtawka dwuosobowa typu Trazan, surfer, wirująca misa,\nbączek, podwójne drążki, Roll Runner, long roll, tablice\ninformacyjne.",
+    "lat": 53.0204306,
+    "lon": 18.6849303
+  },
+  {
+    "name": "Kino plenerowe na Rynku Nowomiejskim.",
+    "location": "Wschodnia część Rynku Nowomiejskiego w Toruniu.",
+    "address": "Rynku Nowomiejskiego",
+    "address_manual": "",
+    "value": 80000,
+    "category": "921",
+    "description": "Kino plenerowe na Rynku Nowomiejskim.\nWschodnia część Rynku Nowomiejskiego w Toruniu.\nZakres: zmiana lokalizacji na Plac Podominikański, minimum 8\nseansów."
+  },
+  {
+    "name": "Przebudowa i modernizacja placu zabaw przy SP 14 im. Błękitnej Armii w Toruniu.",
+    "location": "Teren pomiędzy kompleksem boisk Orlik a budynkiem dydaktycznym klas 1-3 SP nr 14, ul. Hallera 79.",
+    "address": "Hallera 79",
+    "address_manual": "",
+    "value": 200000,
+    "category": "801",
+    "description": "Przebudowa i modernizacja placu zabaw przy SP 14 im.\nBłękitnej Armii w Toruniu.\nTeren pomiędzy kompleksem boisk Orlik a budynkiem\ndydaktycznym klas 1-3 SP nr 14, ul. Hallera 79. Dojście na plac\nod ul. St. Woyczyńskiego.\nZakres: bezpieczna powierzchnia poliuretanowa, zakup\nnowych urządzeń zabawowych, ława kamienna.",
+    "lat": 52.9961862,
+    "lon": 18.6164604
+  },
+  {
+    "name": "Renowacja chodnika przy Domu dla osób najuboższych.",
+    "location": "Ul. Dybowska 1, Toruń.",
+    "address": "Dybowska 1",
+    "address_manual": "",
+    "value": 30000,
+    "category": "600",
+    "description": "Renowacja chodnika przy Domu dla osób najuboższych.\nUl. Dybowska 1, Toruń.\nZakres: wymiana nawierzchni chodnika oraz naprawa\nschodów.",
+    "lat": 53.0015908,
+    "lon": 18.6194248
+  },
+  {
+    "name": "Przestrzeń relaksu i zabawy przy SP 9.",
+    "location": "Ul. Rzepakowa 7/9, Toruń.",
+    "address": "Rzepakowa",
+    "address_manual": "",
+    "value": 280000,
+    "category": "801",
+    "description": "Przestrzeń relaksu i zabawy przy SP 9.\nUl. Rzepakowa 7/9, Toruń.\nZakres: stół do tenisa stołowego, 7 gier podwórkowych, 6\nławek parkowych, uzupełnienie nawierzchni trawiastej wokół\nterenu prowadzonych prac.",
+    "lat": 53.0461341,
+    "lon": 18.579693
+  },
+  {
+    "name": "Stworzenie alei drzew wzdłuż ul. Strobanda.",
+    "location": "Ul. Strobanda, dotyczy terenu działki nr 170 od strony działki 162.",
+    "address": "Strobanda",
+    "address_manual": "",
+    "value": 139622,
+    "category": "900",
+    "description": "Stworzenie alei drzew wzdłuż ul. Strobanda.\nUl. Strobanda, dotyczy terenu działki nr 170 od strony działki\n162.\nZakres: nasadzenie 28-30 drzew i ich pielęgnacja do dobrego\nukorzenienia.",
+    "lat": 53.0524108,
+    "lon": 18.6044949
+  },
+  {
+    "name": "Festyn rodzinny - spotkajmy się razem.",
+    "location": "Działka 046301_1.",
+    "address": "",
+    "address_manual": "",
+    "value": 35000,
+    "category": "900",
+    "description": "Festyn rodzinny - spotkajmy się razem.\nDziałka 046301_1.0032.747/7 pomiędzy sklepem Intermarche\na blokiem przy ul. Watzenrodego 5.\nZakres: występy sceniczne, pokazy umiejętności, konkurencje\nsprawnościowe, rywalizacje sportowe, animacje i urządzenia\nrekreacyjne dla dzieci."
+  },
+  {
+    "name": "Ścianka wspinaczkowa bezpieczna dla dzieci i młodzieży koło placu zabaw z tyrolką.",
+    "location": "Plac zabaw dla dzieci duży z tyrolką przy ul. Watzenrodego.",
+    "address": "Watzenrodego",
+    "address_manual": "",
+    "value": 80000,
+    "category": "926",
+    "description": "Ścianka wspinaczkowa bezpieczna dla dzieci i młodzieży koło\nplacu zabaw z tyrolką.\nPlac zabaw dla dzieci duży z tyrolką przy ul. Watzenrodego.\nZakres: ścianka wspinaczkowa, strefa bezpieczeństwa\npiaszczysta.",
+    "lat": 53.0410622,
+    "lon": 18.5990446
+  }
         ];
 
         const MAP_CENTER = [53.0138, 18.6003];
@@ -52,8 +543,25 @@
             transport: 'blue'
         });
 
-        const MARKER_FILL_OPACITY = 0.7;
-        const MARKER_RADIUS = 8;
+        const MARKER_FILL_OPACITY = 0.4;
+        const MARKER_STROKE_OPACITY = 0.6;
+        
+        // Square root scaling makes marker area proportional to value,
+        // which is the standard cartographic method for proportional symbol maps.
+        // This handles wide value ranges  while keeping all differences visible.
+        const BASE_RADIUS = 5;
+        const MAX_RADIUS = 20;
+
+        const locationsWithCoords = LOCATIONS.filter(loc => loc.lat && loc.lon);
+        const values = locationsWithCoords.map(loc => loc.value);
+        const minValue = Math.min(...values);
+        const maxValue = Math.max(...values);
+
+        function getRadiusByValue(value) {
+            const normalized = Math.sqrt(value / minValue);
+            const maxNormalized = Math.sqrt(maxValue / minValue);
+            return BASE_RADIUS + (normalized / maxNormalized) * (MAX_RADIUS - BASE_RADIUS);
+        }
 
         const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
 
@@ -62,14 +570,19 @@
         }).addTo(map);
 
         LOCATIONS.forEach(location => {
+            if (!location.lat || !location.lon) {
+                return;
+            }
+
             const marker = new CircleMarker([location.lat, location.lon], {
                 color: CATEGORY_COLORS[location.category],
                 fillColor: CATEGORY_COLORS[location.category],
                 fillOpacity: MARKER_FILL_OPACITY,
-                radius: MARKER_RADIUS
+                opacity: MARKER_STROKE_OPACITY,
+                radius: getRadiusByValue(location.value)
             }).addTo(map);
 
-            marker.bindPopup(`<b>${location.name}</b><br>Category: ${location.category}`);
+            marker.bindPopup(`<b>${location.name}</b><br>Value: ${location.value.toLocaleString()} PLN<br>Category: ${location.category}`);
         });
     </script>
 </head>
