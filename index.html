@@ -17,7 +17,7 @@
         }
     </style>
     <script type="module">
-        import { Map, TileLayer, CircleMarker } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
+        import { Map, TileLayer, Marker, DivIcon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
       const LOCATIONS = [
           {
@@ -537,11 +537,55 @@
         const TILE_LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
         
-        const CATEGORY_COLORS = Object.freeze({
-            health: 'red',
-            nature: 'green',
-            transport: 'blue'
+        // Category names from https://przepisy.gofin.pl/przepisy,4,16,194,1276,,20250916,rozporzadzenie-ministra-finansow-z-dnia-2032010-r-w-sprawie.html
+        const CATEGORY_NAMES = Object.freeze({
+            '010': 'Rolnictwo i łowiectwo',
+            '020': 'Leśnictwo',
+            '050': 'Rybołówstwo i rybactwo',
+            '100': 'Górnictwo i kopalnictwo',
+            '150': 'Przetwórstwo przemysłowe',
+            '400': 'Wytwarzanie i zaopatrywanie w energię elektryczną, gaz i wodę',
+            '500': 'Handel',
+            '550': 'Hotele i restauracje',
+            '600': 'Transport i łączność',
+            '630': 'Turystyka',
+            '700': 'Gospodarka mieszkaniowa',
+            '710': 'Działalność usługowa',
+            '720': 'Informatyka',
+            '730': 'Szkolnictwo wyższe i nauka',
+            '750': 'Administracja publiczna',
+            '751': 'Urzędy naczelnych organów władzy państwowej, kontroli i ochrony prawa oraz sądownictwa',
+            '752': 'Obrona narodowa',
+            '753': 'Obowiązkowe ubezpieczenia społeczne',
+            '754': 'Bezpieczeństwo publiczne i ochrona przeciwpożarowa',
+            '755': 'Wymiar sprawiedliwości',
+            '756': 'Dochody od osób prawnych, od osób fizycznych i od innych jednostek nieposiadających osobowości prawnej oraz wydatki związane z ich poborem',
+            '757': 'Obsługa długu publicznego',
+            '758': 'Różne rozliczenia',
+            '801': 'Oświata i wychowanie',
+            '851': 'Ochrona zdrowia',
+            '852': 'Pomoc społeczna',
+            '853': 'Pozostałe zadania w zakresie polityki społecznej',
+            '854': 'Edukacyjna opieka wychowawcza',
+            '855': 'Rodzina',
+            '900': 'Gospodarka komunalna i ochrona środowiska',
+            '921': 'Kultura i ochrona dziedzictwa narodowego',
+            '925': 'Ogrody botaniczne i zoologiczne oraz naturalne obszary i obiekty chronionej przyrody',
+            '926': 'Kultura fizyczna'
         });
+
+        // Category to icon mapping using Unicode emoji
+        const CATEGORY_ICONS = Object.freeze({
+            '010': '🌾', '020': '🌲', '050': '🐟', '100': '⛏️', '150': '🏭',
+            '400': '⚡', '500': '🛒', '550': '🍽️', '630': '🏖️', '710': '⚙️', '720': '💻',
+            '600': '🚌', '700': '🏠', '730': '🎓',
+            '750': '🏛️', '751': '⚖️', '752': '🛡️', '753': '🛡️', '754': '🚨', '755': '⚖️', '756': '💵', '757': '📊', '758': '📋',
+            '801': '📚', '854': '👶',
+            '851': '💊', '852': '🤝', '853': '🫂', '855': '🤱',
+            '900': '♻️',
+            '921': '🎭', '925': '🦌', '926': '⚽'
+        });
+
 
         const MARKER_FILL_OPACITY = 0.4;
         const MARKER_STROKE_OPACITY = 0.6;
@@ -549,8 +593,8 @@
         // Square root scaling makes marker area proportional to value,
         // which is the standard cartographic method for proportional symbol maps.
         // This handles wide value ranges  while keeping all differences visible.
-        const BASE_RADIUS = 5;
-        const MAX_RADIUS = 20;
+        const BASE_RADIUS = 20;
+        const MAX_RADIUS = 40;
 
         const locationsWithCoords = LOCATIONS.filter(loc => loc.lat && loc.lon);
         const values = locationsWithCoords.map(loc => loc.value);
@@ -574,15 +618,22 @@
                 return;
             }
 
-            const marker = new CircleMarker([location.lat, location.lon], {
-                color: CATEGORY_COLORS[location.category],
-                fillColor: CATEGORY_COLORS[location.category],
-                fillOpacity: MARKER_FILL_OPACITY,
-                opacity: MARKER_STROKE_OPACITY,
-                radius: getRadiusByValue(location.value)
+            const icon = CATEGORY_ICONS[location.category] || '📍';
+            const size = getRadiusByValue(location.value);
+            
+            const divIcon = new DivIcon({
+                html: `<div style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
+                className: '',
+                iconSize: [size, size],
+                iconAnchor: [size / 2, size / 2]
+            });
+
+            const marker = new Marker([location.lat, location.lon], {
+                icon: divIcon
             }).addTo(map);
 
-            marker.bindPopup(`<b>${location.name}</b><br>Value: ${location.value.toLocaleString()} PLN<br>Category: ${location.category}`);
+            const categoryName = CATEGORY_NAMES[location.category] || location.category;
+            marker.bindPopup(`<b>${location.name}</b><br>Value: ${location.value.toLocaleString()} PLN<br>Category: ${categoryName}`);
         });
     </script>
 </head>
