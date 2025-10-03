@@ -32,8 +32,24 @@ Visualization of the budget of the city of Toruń, Poland.
 5. Extract budget data from PDF:
 
    ```
-   uv run python preprocessing/extract_budzet_obywatelski_2024.py
+   uv run python preprocessing/extract_budzet_obywatelski_2024.py > budzet_obywatelski_2024.json
    ```
+
+6. Find entries that failed geocoding:
+
+   ```
+   uv run python preprocessing/find_failed_geocoding.py
+   ```
+
+   Copy output into `preprocessing/extract_budzet_obywatelski_2024.py` in `get_manual_address`, update addresses from `"Reja 1"` to actual locations.
+
+7. Add successful geocoding to tests:
+
+   ```
+   uv run python preprocessing/find_failed_geocoding.py 2>&1 | grep -A 9999 "SUCCEEDED ENTRIES"
+   ```
+
+   Copy output into `preprocessing/extract_budzet_obywatelski_2024.py` in `test_known_good_locations`.
 
 # Running tests
 
@@ -69,7 +85,10 @@ The saved files are cleaned and curated using Python scripts located in the `pre
 The outcome of the preprocessing steps is a file in JSON format, that is embedded verbatim in the `index.html` file for CORS compatibility.
 The visualization uses Leaflet to place budget markers on an OpenStreetMap.
 
+Location parsing uses spaCy NER and pattern matching. Entries that fail geocoding can be manually overridden using the `get_manual_address` function. Successfully geocoded entries are automatically tested for regression using the `test_known_good_locations` function.
+
 # Abandoned ideas
 
 - Loading data from separate JSON files: discarded due to CORS restrictions when opening HTML files directly in browsers.
 - Using a web server to serve the application: discarded to avoid hosting requirements.
+- Using regex patterns for address parsing: discarded in favor of spaCy for better maintainability.
