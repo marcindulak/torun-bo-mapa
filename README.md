@@ -81,6 +81,7 @@ bash scripts/test_mypy.sh
 
 The frontend is a static HTML application with embedded JavaScript using ES modules, hosted on Github Pages.
 The data originates from https://bip.torun.pl/artykuly/32484/budzet-torunia, and is to be saved manually under the `noupload` folder.
+The "budzet obywatelski" is taken from "Plan na rok YYYY" subpage, and "Wykaz inwestycji lokalnych" from its dedicated subpage.
 The saved files are cleaned and curated using Python scripts located in the `preprocessing` folder.
 The outcome of the preprocessing steps is a file in JSON format, that is embedded verbatim in the `index.html` file for CORS compatibility.
 The visualization uses Leaflet to place budget markers on an OpenStreetMap.

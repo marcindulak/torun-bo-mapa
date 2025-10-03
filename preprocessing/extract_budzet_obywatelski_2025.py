@@ -353,7 +353,7 @@ def extract_budget_data(pdf_path: str) -> list[dict[str, Any]]:
 
 
 def main() -> None:
-    pdf_path = "noupload/2024/Projekty wybrane przez mieszkancow w procedurze budzetu obywatelskiego.pdf"
+    pdf_path = "noupload/2025/UCHWAŁA NR 146/Zalacznik29.pdf"
 
     entries = extract_budget_data(pdf_path)
     

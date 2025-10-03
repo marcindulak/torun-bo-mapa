@@ -4,7 +4,7 @@
 import json
 import sys
 
-json_path = "budzet_obywatelski_2024.json"
+json_path = "budzet_obywatelski.json"
 
 with open(json_path, "r", encoding="utf-8") as f:
     entries = json.load(f)

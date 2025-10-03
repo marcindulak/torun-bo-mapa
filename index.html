@@ -59,7 +59,7 @@
         import { Map, TileLayer, Marker, DivIcon, Control } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
       const DATA_BY_YEAR = {
-          '2024': [
+          '2025': [
           {
     "name": "Powiększmy park na Bydgoskim - porządki od Martówki w stronę Wisły.",
     "location": "Obszar od ulicy Popiełuszki (bez działek ROD) w stronę wschodnią.",
@@ -664,8 +664,12 @@
                 icon: divIcon
             });
 
+            // Lazy popup binding: bindPopup accepts a function that generates content on-demand,
+            // reducing initial page load time and memory usage when displaying many markers
             const categoryName = CATEGORY_NAMES[location.category] || location.category;
-            marker.bindPopup(`<b>${location.name}</b><br>Value: ${location.value.toLocaleString()} PLN<br>Category: ${categoryName}`);
+            marker.bindPopup(() => {
+                return `<b>${location.name}</b><br>Value: ${location.value.toLocaleString()} PLN<br>Category: ${categoryName}`;
+            });
             
             return marker;
         }
@@ -735,10 +739,21 @@
             }
         });
 
-        const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
+        // Canvas renderer improves performance for maps with many markers by using
+        // HTML5 canvas instead of SVG, reducing DOM elements and memory usage
+        const map = new Map('map', {
+            preferCanvas: true
+        }).setView(MAP_CENTER, MAP_ZOOM);
 
+        // Performance optimizations for tile loading:
+        // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
+        // - updateWhenIdle: true defers tile loading until after pan/zoom completes, reducing requests
+        // - keepBuffer: 2 reduces off-screen tile loading to 2 screens instead of default 3
         new TileLayer(TILE_LAYER_URL, {
-            attribution: TILE_LAYER_ATTRIBUTION
+            attribution: TILE_LAYER_ATTRIBUTION,
+            maxZoom: 18,
+            updateWhenIdle: true,
+            keepBuffer: 2
         }).addTo(map);
 
         new YearSelector().addTo(map);
