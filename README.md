@@ -70,6 +70,9 @@ The visualization uses Leaflet to place budget markers on an OpenStreetMap.
 
 Addresses are manually filled in the address field of each entry in the JSON file to ensure accurate geocoding.
 
+The following information was used for manual entry:
+- 2025: `address` (https://torun.pl/pl/budzet-obywatelski-2025-ostateczna-lista-projektow-do-glosowania), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1132802/Uchwala-146_24 Zalacznik29.pdf)
+
 # Abandoned ideas
 
 - Loading data from separate JSON files: discarded due to CORS restrictions when opening HTML files directly in browsers.
