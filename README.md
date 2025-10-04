@@ -1,69 +1,53 @@
-[![test](https://github.com/marcindulak/torun-budzet-wizualizacja/actions/workflows/test.yml/badge.svg)](https://github.com/marcindulak/torun-budzet-wizualizacja/actions/workflows/test.yml)
+[![test](https://github.com/marcindulak/torun-bo-mapa/actions/workflows/test.yml/badge.svg)](https://github.com/marcindulak/torun-bo-mapa/actions/workflows/test.yml)
 
 > Co-Authored-By: Claude
 
 # Functionality overview
 
-Visualization of the budget of the city of Toruń, Poland.
+Map visualization of the voting results of budżet obywatelski of the city of Toruń, Poland.
 
 # Usage examples
+
+The instructions below describe how to add a new budget year to `index.html`.
 
 1. Install [uv](https://docs.astral.sh/uv/getting-started/installation/)
 
 2. Clone this repository:
 
    ```
-   git clone https://github.com/marcindulak/torun-budzet-wizualizacja
-   cd torun-budzet-wizualizacja
+   git clone https://github.com/marcindulak/torun-bo-mapa
+   cd torun-bo-mapa
    ```
 
-3. Fetch machine learning models (this needs to be performed only once):
+3. Install Python dependencies:
 
    ```
-   uv add --no-deps 'pl-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-3.8.0/pl_core_news_sm-3.8.0-py3-none-any.whl'
+   uv sync --frozen
    ```
 
-4. Install Python dependencies:
+4. Extract budget data from PDF:
 
    ```
-   uv sync
+   uv run --frozen python preprocessing/extract_bo_2025.py > bo/2025.raw.json
    ```
 
-5. Extract budget data from PDF:
+5. Manually add `address` and `category` to the generated JSON file for all entries, and save the file as `bo/2025.json`.
+You need to use a human judgment to determine the `address`, sometimes looking for it in other documents present on https://torun.pl/pl/bo or https://bip.torun.pl/artykuly/32484/budzet-torunia.
+You'll find the `category` id assignment for each project in the "Plan budżetu" document available at https://bip.torun.pl/artykuly/32484/budzet-torunia, in the `Dział` column.
+
+6. Perform geolocation:
 
    ```
-   uv run python preprocessing/extract_budzet_obywatelski_2024.py > budzet_obywatelski_2024.json
+   uv run python preprocessing/perform_geolocation.py bo/2025.json
    ```
 
-6. Find entries that failed geocoding:
-
-   ```
-   uv run python preprocessing/find_failed_geocoding.py
-   ```
-
-   Copy output into `preprocessing/extract_budzet_obywatelski_2024.py` in `get_manual_address`, update addresses from `"Reja 1"` to actual locations.
-
-7. Add successful geocoding to tests:
-
-   ```
-   uv run python preprocessing/find_failed_geocoding.py 2>&1 | grep -A 9999 "SUCCEEDED ENTRIES"
-   ```
-
-   Copy output into `preprocessing/extract_budzet_obywatelski_2024.py` in `test_known_good_locations`.
+7. Include the contents of `bo/2025.json` into the `index.html` file.
 
 # Running tests
 
-Tests run inside Docker containers to have access to required dependencies.
-
-## Unit tests
-
-```
-bash scripts/test_unit.sh
-```
-
 ## Integration test
 
-End-to-end test verifies the overall functionality the the user perspective:
+End-to-end test verifies the overall functionality of the preprocessing steps:
 
 ```
 bash scripts/test_e2e.sh
@@ -80,16 +64,14 @@ bash scripts/test_mypy.sh
 # Implementation overview
 
 The frontend is a static HTML application with embedded JavaScript using ES modules, hosted on Github Pages.
-The data originates from https://bip.torun.pl/artykuly/32484/budzet-torunia, and is to be saved manually under the `noupload` folder.
-The "budzet obywatelski" is taken from "Plan na rok YYYY" subpage, and "Wykaz inwestycji lokalnych" from its dedicated subpage.
-The saved files are cleaned and curated using Python scripts located in the `preprocessing` folder.
+The PDF files downloaded manually from https://torun.pl/pl/bo are saved under the `bo` folder, and cleaned using Python scripts located in the `preprocessing` folder.
 The outcome of the preprocessing steps is a file in JSON format, that is embedded verbatim in the `index.html` file for CORS compatibility.
 The visualization uses Leaflet to place budget markers on an OpenStreetMap.
 
-Location parsing uses spaCy NER and pattern matching. Entries that fail geocoding can be manually overridden using the `get_manual_address` function. Successfully geocoded entries are automatically tested for regression using the `test_known_good_locations` function.
+Addresses are manually filled in the address field of each entry in the JSON file to ensure accurate geocoding.
 
 # Abandoned ideas
 
 - Loading data from separate JSON files: discarded due to CORS restrictions when opening HTML files directly in browsers.
 - Using a web server to serve the application: discarded to avoid hosting requirements.
-- Using regex patterns for address parsing: discarded in favor of spaCy for better maintainability.
+- Using regex patterns or spaCy for address parsing: only human address verification is reliable.
