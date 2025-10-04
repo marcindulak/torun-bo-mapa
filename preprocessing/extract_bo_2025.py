@@ -5,9 +5,6 @@ import json
 import logging
 import re
 import sys
-import time
-import urllib.parse
-import urllib.request
 from typing import Any
 
 import pdfplumber
@@ -35,44 +32,6 @@ def extract_first_sentence(text: str) -> str:
         return first_line
 
     return first_line
-
-
-def geocode_location(address: str) -> tuple[float, float] | None:
-    """
-    Geocode address string to lat/lon using Nominatim API.
-
-    Args:
-        address: Address string to geocode
-
-    Returns:
-        Tuple of (latitude, longitude) or None if geocoding fails
-    """
-    if not address:
-        return None
-
-    query = f"{address}, Toruń, Poland"
-    params = {
-        "q": query,
-        "format": "json",
-        "limit": "1"
-    }
-    url = f"https://nominatim.openstreetmap.org/search?{urllib.parse.urlencode(params)}"
-
-    headers = {"User-Agent": "torun-budzet-visualization"}
-    request = urllib.request.Request(url, headers=headers)
-
-    try:
-        with urllib.request.urlopen(request) as response:
-            time.sleep(1)
-            data = json.loads(response.read().decode("utf-8"))
-            if data:
-                result = data[0]
-                return float(result["lat"]), float(result["lon"])
-    except Exception as e:
-        logger.error(f"Geocoding error: {e}")
-        return None
-
-    return None
 
 
 def extract_budget_data(pdf_path: str) -> list[dict[str, Any]]:
@@ -152,39 +111,10 @@ def extract_budget_data(pdf_path: str) -> list[dict[str, Any]]:
     return entries
 
 
-def geocode_entries(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    """
-    Geocode entries that have manually provided addresses.
-
-    Args:
-        entries: List of budget entries
-
-    Returns:
-        List of budget entries with lat/lon added for entries with addresses
-    """
-    geocoded_count = 0
-
-    for entry in entries:
-        address = entry.get("address", "")
-        if address:
-            logger.info(f"Geocoding: {address}")
-            coords = geocode_location(address)
-            if coords:
-                entry["lat"], entry["lon"] = coords
-                geocoded_count += 1
-                logger.info(f"  -> {coords}")
-            else:
-                logger.warning(f"  -> Failed to geocode")
-
-    logger.info(f"Geocoded {geocoded_count} entries")
-    return entries
-
-
 def main() -> None:
     pdf_path = "bo/2025/bo_2025_wyniki_glosowania_komplet_16-10-2024.pdf"
 
     entries = extract_budget_data(pdf_path)
-    entries = geocode_entries(entries)
 
     output = json.dumps(entries, ensure_ascii=False, indent=2)
     print(output)

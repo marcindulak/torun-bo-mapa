@@ -38,7 +38,7 @@ You'll find the `category` id assignment for each project in the "Plan budżetu"
 6. Perform geolocation:
 
    ```
-   uv run python preprocessing/perform_geolocation.py bo/2025.json
+   uv run --frozen python preprocessing/perform_geolocation.py bo/2025.json
    ```
 
 7. Include the contents of `bo/2025.json` into the `index.html` file.

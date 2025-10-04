@@ -5,7 +5,9 @@
     "category": "",
     "cost": 300000,
     "description": "Powiększmy park na Bydgoskim - porządki od Martówki w stronę Wisły.\nObszar od ulicy Popiełuszki (bez działek ROD) w stronę wschodnią.\nZakres: zebranie i utylizacja odpadów, przycięcie drzew, uprzątnięcie gałęzi.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00791,
+    "lon": 18.59593
   },
   {
     "name": "Odtworzenie zieleni na wejściu do Parku Miejskiego od ul. Konopnickiej.",
@@ -13,7 +15,9 @@
     "category": "",
     "cost": 60000,
     "description": "Odtworzenie zieleni na wejściu do Parku Miejskiego od ul. Konopnickiej.\nDz. nr 125/2 w ob. 12.\nZakres: nasadzenia drzew i urządzenie roślinności niskiej w obrębie zabytkowej\nczęści Parku Miejskiego.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01052,
+    "lon": 18.58551
   },
   {
     "name": "Strefa dobrego czasu.",
@@ -21,7 +25,9 @@
     "category": "",
     "cost": 95000,
     "description": "Strefa dobrego czasu.\nUl. Fałata 96, Toruń. Teren zielony przy budynku SP 11(w obiekcie przebywają\nuczniowie klas 1-3) graniczący z siedzibą Stowarzyszenia \"Jestem\". Okolice ul.\nBroniewskiego, Gagarina, Reja. Teren leży w otoczeniu bloków mieszkalnych. Jest\nogólnodostępny dla mieszkańców.\nZakres: stół do tenisa stołowego, stolik z polami do gry w szachy, tablice do\nrysowania kredą.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01584,
+    "lon": 18.56446
   },
   {
     "name": "Rowerowe i piesze udogodnienia na Bydgoskim.",
@@ -29,7 +35,9 @@
     "category": "",
     "cost": 60000,
     "description": "Rowerowe i piesze udogodnienia na Bydgoskim.\nObszar całego Bydgoskiego Przedmieścia.\nOgraniczenie zakresu projektu: wyremontowanie chodnika wzdłuż ul. Słowackiego w\nkierunku ulicy Lindego do stacji benzynowej.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01017,
+    "lon": 18.57644
   },
   {
     "name": "LepszeSwiatlo.pl.",
@@ -37,7 +45,9 @@
     "category": "",
     "cost": 138313,
     "description": "LepszeSwiatlo.pl.\nChopina, Danielewskiego, Rybaki, Bydgoska, Mickiewicza i Park Miejski.\nWymiana 56 szt. opraw ledowych .",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00945,
+    "lon": 18.59544
   },
   {
     "name": "Nowe stylowe obiekty małej architektury (ławki, donice, kosze) na Mickiewicza.",
@@ -45,7 +55,9 @@
     "category": "",
     "cost": 150000,
     "description": "Nowe stylowe obiekty małej architektury (ławki, donice, kosze) na Mickiewicza.\nUl. Mickiewicza.\nZakres: montaż 10 ławek, 10 donic, 15 koszy na śmieci.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01191,
+    "lon": 18.58067
   },
   {
     "name": "Ławeczki dla dorosłych na Osiedlu Młodych.",
@@ -53,23 +65,29 @@
     "category": "",
     "cost": 95000,
     "description": "Ławeczki dla dorosłych na Osiedlu Młodych.\nKoniec ulicy Moniuszki 42.\nPlac zabaw jest w opłakanym stanie, nikt tam się nie bawi. Wiszące ławeczki i\nurządzenia siłowni zewnętrznej mogłyby być fajnym miejscem wypoczynku dla\nwszystkich mieszkańców osiedla, szczególnie tych starszych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01524,
+    "lon": 18.59432
   },
   {
     "name": "Przyjazny skwerek: róg Bema i Szosy Chełmińskiej.",
-    "address": "Róg ulicy Bema i Szosy Chełmińskiej",
+    "address": "Generała Józefa Bema 3",
     "category": "",
     "cost": 40000,
     "description": "Przyjazny skwerek: róg Bema i Szosy Chełmińskiej.\nRóg ulicy Bema i Szosy Chełmińskiej.\nZakres: nasadzenie 8-10 sztuk drzew, 200 cebulek kwiatów.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.18969,
+    "lon": 18.62247
   },
   {
     "name": "Budlejowy zakątek przy ul. Bema koło SP nr 7.",
-    "address": "Bema",
+    "address": "Gustawa Morcinka 13",
     "category": "",
     "cost": 100000,
     "description": "Budlejowy zakątek przy ul. Bema koło SP nr 7.\nDziałka nr 8 w obr. 9.\nZakres: nasadzenie 60 sztuk krzewu z gatunku Budleja Dawida, system nawadniania\nkropelkowego, żyzne podłoże.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01721,
+    "lon": 18.59347
   },
   {
     "name": "Akcja reaktywacja, czyli plac zabaw na piątkę przy \"Piątce\"!!!",
@@ -77,7 +95,9 @@
     "category": "",
     "cost": 300000,
     "description": "Akcja reaktywacja, czyli plac zabaw na piątkę przy \"Piątce\"!!!\nUl. Żwirki i Wigury 1, 87-100 Toruń przy SP 5 im. R. Traugutta w Toruniu. Teren placu\nzabaw znajduje się z tyłu szkoły u zbiegu ulic Hurynowicz i Długiej.\nZakres: urządzenia zabawowe, kosz na śmieci, 2 ławki zwykłe, ławka solarna, lampy\nled, nawierzchnia bezpieczna.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02866,
+    "lon": 18.58603
   },
   {
     "name": "Nauka i relaks w ZSPS i 8 LO w Toruniu.",
@@ -85,7 +105,9 @@
     "category": "",
     "cost": 170000,
     "description": "Nauka i relaks w ZSPS i 8 LO w Toruniu.\nZSPS i 8 LO, ul. Grunwaldzka 33.\nZakres: zewnętrzna sala edukacyjna, montaż 8 metalowych stołów ze stali\nnierdzewnej i 22 ławki, podłoże wykonane z polbruku, kosz na śmieci, poidełko dla\nptaków, nasadzenie kwiatów cebulowych i magnolii.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02386,
+    "lon": 18.59128
   },
   {
     "name": "Odtworzenie boiska osiedlowego w rejonie ulic Mohna - Kaliskiego - Harcerska.",
@@ -93,7 +115,9 @@
     "category": "",
     "cost": 280000,
     "description": "Odtworzenie boiska osiedlowego w rejonie ulic Mohna - Kaliskiego - Harcerska.\nPółnocna część okręgu Chełmińskie, ul. Harcerska 18, rejon ul. Mohna, Kaliskiego,\nHarcerska.\nZakres: dwie bramki, uzupełnienie trawnika wokół boiska, kosze na śmieci,\nnawierzchnia poliuretanowa.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.0347,
+    "lon": 18.59506
   },
   {
     "name": "Zielona strefa przy SP 4 dla uczniów i mieszkańców osiedla.",
@@ -101,7 +125,9 @@
     "category": "",
     "cost": 300000,
     "description": "Zielona strefa przy SP 4 dla uczniów i mieszkańców osiedla.\nTeren Szkoły Podstawowej nr 4 z oddziałami dwujęzycznymi, ul. Żwirki i Wigury 49.\nZakres: siedziska na murek 15 sztuk, łąki po łuku, altana z ławostołami, ekokrata\nwypełniona kruszywem.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02909,
+    "lon": 18.59601
   },
   {
     "name": "Letnia szkoła pod żaglami na terenie SP 24 w Toruniu.",
@@ -109,7 +135,9 @@
     "category": "",
     "cost": 220000,
     "description": "Letnia szkoła pod żaglami na terenie SP 24 w Toruniu.\nSzkoła Podstawowa nr 24 w Toruniu.\nZakres: stojaki na rowery, stoliki i ławki, żagle, utwardzenie, remont schodów,\nroślinność i naprawa poidełka.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.05854,
+    "lon": 18.72218
   },
   {
     "name": "Utworzenie siłowni zewnętrznej przy Hospicjum Jana Pawła II w Toruniu.",
@@ -117,7 +145,9 @@
     "category": "",
     "cost": 72968,
     "description": "Utworzenie siłowni zewnętrznej przy Hospicjum Jana Pawła II w Toruniu.\nCentrum Opieki Medycznej Hospicjum im. Jana Pawła II.\nZakres: zmiana miejsca inwestycji, na działkę nr 42, która jest otwarta i stale\ndostępna, urządzenia do ćwiczeń, nawierzchnia utwardzona.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02781,
+    "lon": 18.58185
   },
   {
     "name": "Rewitalizacja boiska do koszykówki przy ul. Rusa w Toruniu.",
@@ -125,7 +155,9 @@
     "category": "",
     "cost": 300000,
     "description": "Rewitalizacja boiska do koszykówki przy ul. Rusa w Toruniu.\nUl. Rusa 7a w Toruniu.\nZakres: realizacja projektu do limitu środków: naprawa nawierzchni, urządzeń\nsportowych, montaż ławek, koszy i stojaków na rowery.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02783,
+    "lon": 18.59777
   },
   {
     "name": "Zazielenić ulice Kaszownika - wierzę w cuda, niech się uda!",
@@ -133,7 +165,9 @@
     "category": "",
     "cost": 30000,
     "description": "Zazielenić ulice Kaszownika - wierzę w cuda, niech się uda!\nOkolice oraz obszar wzdłuż bloku przy Kaszowniku 9-15, wzdłuż ulicy Jagiellońskiej,\nobszar sąsiadujący z ulicą, Toruń.\nZakres: nawiezienie podłoża, odnowienie trawnika i niskiego żywopłotu, nasadzenia\nbylin i krzewów, stworzenie rabat kwiatowych, zakup dwóch donic, skrzyń na kwiaty\noraz pergoli.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01865,
+    "lon": 18.61141
   },
   {
     "name": "VIII Święto Chełmińskiego Przedmieścia.",
@@ -141,7 +175,9 @@
     "category": "",
     "cost": 35000,
     "description": "VIII Święto Chełmińskiego Przedmieścia.\nPark przy Toruńskich Wodociągach, ul. Św. Józefa 37-49, 87-100 Toruń.\nZakres: realizacja projektu do limitu środków. Bez możliwości finansowania\nwydatków na gastronomię.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02723,
+    "lon": 18.5841
   },
   {
     "name": "Plac zabaw dla dzieci na Mini Parku - Cypel (na końcu ul. Osiedlowej).",
@@ -149,7 +185,9 @@
     "category": "",
     "cost": 150000,
     "description": "Plac zabaw dla dzieci na Mini Parku - Cypel (na końcu ul. Osiedlowej).\nLasek miejski nazywany Cypel, pomiędzy przedszkolem Calineczka, ul. Osiedlową,\nboiskiem i nową ścieżką leśną.\nZakres: dostosowany do dostępnych środków: bezpieczna nawierzchnia, urządzenia\nzabawowe, kosz na śmieci.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02965,
+    "lon": 18.5799
   },
   {
     "name": "Remont Placu Zabaw Przy Kaszowniku.",
@@ -157,7 +195,9 @@
     "category": "",
     "cost": 155000,
     "description": "Remont Placu Zabaw Przy Kaszowniku.\nPlac znajduje się w kwadracie pomiędzy ulicami Przy Kaszowniku 9-15, ulicą\nJagiellońską, a ulicą Czarnieckiego.\nZakres: montaż karuzeli z siedziskami, bujaka typu konik, 2 ławek, huśtawki\nkubełkowej na łańcuchu, zadaszenie do piaskownicy parasol, wymiana piasku w\npiaskownicy, zestaw ze zjeżdżalnią i ścianką wspinaczkową, renowacja i demontaż\nistniejących urządzeń.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01865,
+    "lon": 18.61141
   },
   {
     "name": "Remont nawierzchni chodnika przy budynku mieszkalnym Św. Józefa 68-68A.",
@@ -165,7 +205,9 @@
     "category": "",
     "cost": 125000,
     "description": "Remont nawierzchni chodnika przy budynku mieszkalnym Św. Józefa 68-68A.\nDziałka nr 57/2 w obrębie 36 przy dwóch szczytach i froncie budynku mieszkalnego\nprzy Św. Józefa 68-68A.\nZakres: wykonanie chodnika na terenie działki 57/2 obręb 36 po obu szczytach i\nfroncie budynku mieszkalnego św. Józefa 68-68a.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.03015,
+    "lon": 18.58602
   },
   {
     "name": "Sanitarne cięcie drzew.",
@@ -173,7 +215,9 @@
     "category": "",
     "cost": 20000,
     "description": "Sanitarne cięcie drzew.\nOb. 10, dz.: 748, 776, 777/2, 733, 735/3.\nZakres: korekta: tylko na terenach miejskich, 20 drzew.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01756,
+    "lon": 18.5992
   },
   {
     "name": "Remont nawierzchni drogi przy budynku mieszkalnym przy Św. Józefa 68-68A.",
@@ -181,7 +225,9 @@
     "category": "",
     "cost": 275000,
     "description": "Remont nawierzchni drogi przy budynku mieszkalnym przy Św. Józefa 68-68A.\nDroga osiedlowa przy budynku mieszkalnym przy ul. Św. Józefa 68-68A. Działka nr\n57/2.\nZakres: remont nawierzchni drogi osiedlowej przy budynku mieszkalnym św. Józefa\n68-68a.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.03015,
+    "lon": 18.58602
   },
   {
     "name": "Chodnikiem w XXI wiek.",
@@ -189,7 +235,9 @@
     "category": "",
     "cost": 50000,
     "description": "Chodnikiem w XXI wiek.\nUlica Sucha na odcinku od ulicy Zamenhofa do ulicy Św. Andrzeja Boboli.\nZakres: budowa chodnika: montaż krawężników, kostki brukowej, obrzeży\nbetonowych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02979,
+    "lon": 18.59251
   },
   {
     "name": "Wymiana nawierzchni wjazdu na osiedle J. Hurynowicz.",
@@ -197,7 +245,9 @@
     "category": "",
     "cost": 45000,
     "description": "Wymiana nawierzchni wjazdu na osiedle J. Hurynowicz.\nWjazd pomiędzy budynkami przy J. Hurynowicz 2-6 a 16-20.\nZakres: wymiana nawierzchni wjazdu pomiędzy budynkami Hurynowicz 2-6 a\nHurynowicz 16-20 na polbruk.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02955,
+    "lon": 18.58788
   },
   {
     "name": "Wymiana nawierzchni chodnika przy budynku J. Hurynowicz 2-6 w Toruniu.",
@@ -205,7 +255,9 @@
     "category": "",
     "cost": 30000,
     "description": "Wymiana nawierzchni chodnika przy budynku J. Hurynowicz 2-6 w Toruniu.\nPołudniowo-zachodnia strona budynku przy ul. J. Hurynowicz 2-6 w Toruniu.\nZakres: wymiana powierzchni chodnika pomiędzy budynkami Hurynowicz 2-6 a\nHyrynowicz 16-20 na polbruk.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02955,
+    "lon": 18.58788
   },
   {
     "name": "Modernizacja i rewitalizacja boiska wielofunkcyjnego przy ul. Zdrojowej",
@@ -213,7 +265,9 @@
     "category": "",
     "cost": 60000,
     "description": "Modernizacja i rewitalizacja boiska wielofunkcyjnego przy ul. Zdrojowej /\nWłocławskiej w Toruniu - Czerniewicach.\nU zbiegu ul. Zdrojowej / Włocławskiej w Toruniu - Czerniewicach.\nZakres: realizacja do limitu środków: montaż 2 słupów z oświetleniem LED, montaż\nopasek wzdłuż dolnej części ogrodzenia, czyszczenie nawierzchni boiska, montaż 2\nsłupów konstrukcyjnych z wysięgnikiem.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.97744,
+    "lon": 18.68201
   },
   {
     "name": "XXV Parafialno-Patriotyczny Festyn \"Tu są moje Czerniewice\".",
@@ -221,7 +275,9 @@
     "category": "",
     "cost": 35000,
     "description": "XXV Parafialno-Patriotyczny Festyn \"Tu są moje Czerniewice\".\nUl. Włocławska 256 - plac przy kościele.\nZakres: organizacja festynu: artyści, zaplecze techniczne (scena, namioty,\nnagłośnienie, oświetlenie, transport), nagrody na loterię, atrakcje i animacje dla\ndzieci. Bez możliwości finansowania wydatków na gastronomię.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.97511,
+    "lon": 18.68438
   },
   {
     "name": "OM Solanki - utworzenie nowych miejsc parkingowych.",
@@ -229,7 +285,9 @@
     "category": "",
     "cost": 76219,
     "description": "OM Solanki - utworzenie nowych miejsc parkingowych.\nUl. Solankowa na wysokości budynków nr 38-38c i 40-40a.\nZakres: ograniczenie zakresu prac do 10 miejsc postojowych wraz z oznakowaniem,\nnasadzenia roślin.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.98316,
+    "lon": 18.68296
   },
   {
     "name": "Szkoła pod żaglami - SP 34 w Toruniu.",
@@ -237,7 +295,9 @@
     "category": "",
     "cost": 90000,
     "description": "Szkoła pod żaglami - SP 34 w Toruniu.\nSzkoła Podstawowa nr 34 im. Tony'ego Halika.\nZakres: nawierzchnia trawiasta z matami przerostowymi, ławostoły, żagiel, zmiana na\ninną lokalizację na terenie szkoły z uwagi na dużą ilość sieci biegnących we\nwskazanym miejscu.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.98059,
+    "lon": 18.68591
   },
   {
     "name": "Zieleń ozdobna przy ul. Zdrojowej na oś. Czerniewice.",
@@ -245,7 +305,9 @@
     "category": "",
     "cost": 20000,
     "description": "Zieleń ozdobna przy ul. Zdrojowej na oś. Czerniewice.\nPas drogowy w ul. Zdrojowej, od strony domów jednorodzinnych, na odcinku od ul.\nRadosnej do posesji nr 24.\nZakres: nasadzenia roślin ozdobnych i wykonanie elementów wykończeniowych -\nkora drzewna/kamień ozdobny.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.97744,
+    "lon": 18.68201
   },
   {
     "name": "Na moim osiedlu bawiąc się uczę.",
@@ -253,7 +315,9 @@
     "category": "",
     "cost": 30000,
     "description": "Na moim osiedlu bawiąc się uczę.\nSzkoła Podstawowa nr 34, ul. Włocławska 237/239.\nZakres: Trening Umiejętności Społecznych dla dzieci w formie zajęć grupowych\nrozwijających kompetencje społeczne, komunikacyjne i emocjonalne w SP nr 34 w\nToruniu oraz zakup pomocy dydaktycznych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.98059,
+    "lon": 18.68591
   },
   {
     "name": "Amatorski Turniej Tenisa Stołowego Czerniewice Cup 2025.",
@@ -261,7 +325,9 @@
     "category": "",
     "cost": 25000,
     "description": "Amatorski Turniej Tenisa Stołowego Czerniewice Cup 2025.\nHala sportowa ZS 34 przy ul. Włocławskiej 237.\nZakres: organizacja amatorskiego turnieju tenisa stołowego wraz z nagrodami,\ndyplomami i medalami.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.98059,
+    "lon": 18.68591
   },
   {
     "name": "Budowa dwóch ławek kamiennych przy Kamiennym Kręgu.",
@@ -269,7 +335,9 @@
     "category": "",
     "cost": 15000,
     "description": "Budowa dwóch ławek kamiennych przy Kamiennym Kręgu.\nZbieg ul. Olsztyńska i Przeskok. Bezpośrednie sąsiedztwo kamiennego kręgu.\nZakres: dwie ławki kamienne wraz z tablicą informacyjną.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.04711,
+    "lon": 18.7046
   },
   {
     "name": "Rewitalizacja placu zabaw. Motyw przewodni: Dżungla.",
@@ -277,7 +345,9 @@
     "category": "",
     "cost": 190000,
     "description": "Rewitalizacja placu zabaw. Motyw przewodni: Dżungla.\nRóg ul. Łąkowej i ul. Sczanieckiego na istniejącym placu zabaw.\nZakres: zestaw zabawowy ze zjeżdżalniami, ścianką wspinaczkową, rurą do\nprzechodzenia, tablicami aktywności Jungle, bujak słoń, lew, huśtawka wagowa typu\nważka na sprężynach, huśtawka wieloosobowa z siedziskiem typu bocianie gniazdo,\nkaruzela tarczowa, huśtawka rodzinna, nawierzchnia bezpieczna.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02555,
+    "lon": 18.61453
   },
   {
     "name": "Ścieżka edukacyjna w SP 2.",
@@ -285,7 +355,9 @@
     "category": "",
     "cost": 120000,
     "description": "Ścieżka edukacyjna w SP 2.\nUl. Targowa 14/17.\nZakres: montaż kołyski Newtona, kompasu, zegara słonecznego, koła optycznego,\nławek, dokonanie nasadzeń krzewów.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01964,
+    "lon": 18.63621
   },
   {
     "name": "Siatkówka plażowa na Batorego!",
@@ -293,7 +365,9 @@
     "category": "",
     "cost": 281191,
     "description": "Siatkówka plażowa na Batorego!\nBoisko sportowe przy ZSIŚ, ul. Batorego 43/49.\nZakres: budowa boiska do gry w piłkę siatkową plażową, dokończenie ogrodzenia\nboiska do gry w piłkę nożną piłkochwytami, modernizacja ciągów pieszych.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02725,
+    "lon": 18.62032
   },
   {
     "name": "Festyn \"Jakubskie-Mokre\".",
@@ -301,7 +375,9 @@
     "category": "",
     "cost": 25000,
     "description": "Festyn \"Jakubskie-Mokre\".\nSzkoła Podstawowa nr 10 im. Komisji Edukacji Narodowej w Toruniu, ul. Bażyńskich\n30/36.\nZakres: organizacja festynu, ograniczenie zakresu - bez możliwości zakupu środków\ntrwałych, wyposażenia dla szkoły i gastronomii.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02114,
+    "lon": 18.61976
   },
   {
     "name": "Misiaczek w nowej odsłonie.",
@@ -309,7 +385,9 @@
     "category": "",
     "cost": 15000,
     "description": "Misiaczek w nowej odsłonie.\nPlac zabaw Misiaczek.\nZakres: naprawa bądź wymiana ławek na boisku.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02599,
+    "lon": 18.67477
   },
   {
     "name": "Wymiana siatek na misiaczku.",
@@ -317,7 +395,9 @@
     "category": "",
     "cost": 6000,
     "description": "Wymiana siatek na misiaczku.\nPlac zabaw Misiaczek, ul. Lubicka.\nZakres: siatka do bramki, tablica informacyjna.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02599,
+    "lon": 18.67477
   },
   {
     "name": "Szkoła Mistrzostwa Sportowego Centrum Lokalnej Międzypokoleniowej Aktywności",
@@ -325,7 +405,9 @@
     "category": "",
     "cost": 150000,
     "description": "Szkoła Mistrzostwa Sportowego Centrum Lokalnej Międzypokoleniowej Aktywności\nSportowej.\nZespół Szkół Ogólnokształcących i Technicznych nr 13 w Toruniu.\nZakres: zmiana: poidełko z własnym licznikiem, zakup abonamentu w aplikacji\nAktywne miasto, montaż trzech urządzeń siłowni zewnętrznej, całoroczny klub\nsportowy, stoper zewnętrzny pozwalający mierzyć czas na bieżni.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02246,
+    "lon": 18.6356
   },
   {
     "name": "Plac zabaw.",
@@ -333,7 +415,9 @@
     "category": "",
     "cost": 220000,
     "description": "Plac zabaw.\nUl. M. Skłodowskiej-Curie 45.\nZakres: ogrodzony plac zabaw trawiasty z huśtawką dwuosobową, dwoma bujakami\nna sprężynie, karuzelą, piaskownicą, zestawem zabawowym, montaż ławek i koszy na\nśmieci.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.03125,
+    "lon": 18.64349
   },
   {
     "name": "Nowe wyposażenie na torze speedrowerowym w Kaszczorku.",
@@ -341,7 +425,9 @@
     "category": "",
     "cost": 170000,
     "description": "Nowe wyposażenie na torze speedrowerowym w Kaszczorku.\nUl. Skierki, Toruń. Działka nr 253/24.\nZakres: zakup i montaż dwóch trybun dwurzędowych 20 miejscowych, uzupełnienie\nnawierzchni, montaż lampy na jednym z łuków oświetlających tor, wykonanie toru\ndo gry w kapsle, wykonanie ogrodu społecznego.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00592,
+    "lon": 18.70525
   },
   {
     "name": "Park kieszonkowy w Kaszczorku.",
@@ -349,7 +435,9 @@
     "category": "",
     "cost": 250000,
     "description": "Park kieszonkowy w Kaszczorku.\nPrzy boisku w Kaszczorku. Zbieg ulic Złotej Rybki i Roślinnej.\nZakres: uporządkowanie zieleni, montaż elementów małej architektury, wykonanie\nnasadzeń.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00765,
+    "lon": 18.70284
   },
   {
     "name": "Budowa wjazdu na teren rekreacyjny przy ul. Gościnnej.",
@@ -357,7 +445,9 @@
     "category": "",
     "cost": 30000,
     "description": "Budowa wjazdu na teren rekreacyjny przy ul. Gościnnej.\nKaszczorek, ul. Gościnna 14.\nZakres: utworzenie zjazdu z ulicy Gościnnej 14 w kierunku toru speedrowerowego\noraz całego terenu rekreacyjnego.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00613,
+    "lon": 18.70117
   },
   {
     "name": "Przystań Białe Góry - Kaszczorek Zakole.",
@@ -365,7 +455,9 @@
     "category": "",
     "cost": 111918,
     "description": "Przystań Białe Góry - Kaszczorek Zakole.\nKaszczorek, ul. Zakole.\nZakres: montaż 3 drewnianych ławek, naprawa ogniska i ławek przy ognisku, tablica\ninformacyjna, wymiana nawierzchni plażowej, pomost dla kajaków, kosze na śmieci,\nteren biwakowy.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00278,
+    "lon": 18.70993
   },
   {
     "name": "Remont i rewitalizacja obiektów na przystani kajakowej \"Wygoda\" oraz \"Białe Góry\"",
@@ -373,7 +465,9 @@
     "category": "",
     "cost": 140000,
     "description": "Remont i rewitalizacja obiektów na przystani kajakowej \"Wygoda\" oraz \"Białe Góry\"\nw Kaszczorku.\nPunkt postojowy dla kajakarzy \"Wygoda\". Kaszczorek blisko Muzeum\nEtnograficznego, tj. ul. Turystycznej 130, Toruń oraz \"Białe Góry\" przy ul.\nMiędzyrzecze.\nZakres: naprawa poszycia wiat, naprawa i malowanie wszystkich elementów\ndrewnianych, naprawa obramowań obu ognisk, naprawę schodów zejścia do\npomostu, łagodne podejście do kajaków wyjmowanych z wody, montaż wyciągarki\nręcznej do kajaków, naprawa mocowania pomostu, naprawa balustrady wieży\nwidokowej, naprawa tablic informacyjnych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.18622,
+    "lon": 18.61352
   },
   {
     "name": "Dokończenie remontu kociarni i części socjalnej w Schronisku dla Bezdomnych Zwierząt",
@@ -381,7 +475,9 @@
     "category": "",
     "cost": 1200000,
     "description": "Dokończenie remontu kociarni i części socjalnej w Schronisku dla Bezdomnych\nZwierząt.\nSchronisko dla bezdomnych zwierząt, ul. Przybyszewskiego 3.\nZakres: dokończenie remontu piętra kociarni, kompleksowy remont części socjalnej,\nzakup brakującego wyposażenia w wyremontowanych pomieszczeniach.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00863,
+    "lon": 18.56824
   },
   {
     "name": "Zakup specjalistycznego pojazdu do ratowania zwierząt dla patrolu EKO Straży",
@@ -389,7 +485,9 @@
     "category": "",
     "cost": 350000,
     "description": "Zakup specjalistycznego pojazdu do ratowania zwierząt dla patrolu EKO Straży\nMiejskiej w Toruniu.\nToruń.\nZakres: zakup specjalistycznego samochodu do ratowania zwierząt przeznaczonego\ndla Straży Miejskiej.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Samochód i wyposażenie dla OSP Toruń Jar z psami ratowniczymi.",
@@ -397,7 +495,9 @@
     "category": "",
     "cost": 410000,
     "description": "Samochód i wyposażenie dla OSP Toruń Jar z psami ratowniczymi.\nSiedziba Stowarzyszenia znajduje się w domu parafialnym na Jarze, przy ul. Grasera 5,\ntam sprzęt będzie przechowywany. Samochód stacjonować może również na terenie\nKM PSP w Toruniu przy ul. Legionów 70/76. Wykorzystywany będzie na terenie\nTorunia.\nZakres: zakup i zabudowa pojazdu Ochotniczej Straży Pożarnej, zakup wyposażenia\nstrażaków i dla psów ratowniczych.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.05012,
+    "lon": 18.60203
   },
   {
     "name": "Pomoc kotom bezdomnym.",
@@ -405,15 +505,19 @@
     "category": "",
     "cost": 45000,
     "description": "Pomoc kotom bezdomnym.\nTeren Gminy Miasta Toruń.\nZakres: zakup 15 drewnianych, ocieplanych budek dla kotów wolnożyjących.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Kolacje (drugi posiłek) dla przebywających w Miejskim Schronisku dla Bezdomnych",
-    "address": "M. Skłodowskiej-Curie 82",
+    "address": "Skłodowskiej-Curie 82",
     "category": "",
     "cost": 650000,
     "description": "Kolacje (drugi posiłek) dla przebywających w Miejskim Schronisku dla Bezdomnych\nMężczyzn w Toruniu.\nMiejskie Schronisko dla Bezdomnych Mężczyzn, ul. M. Skłodowskiej-Curie 82-84,\nToruń.\nZakres: kolacje przez cały rok dla osób przebywających w Miejskim Schronisku dla\nBezdomnych Mężczyzn oraz w Noclegowni. Nastąpiła zmiana zakresu poprzez objęcie\nprojektem osób przebywających w noclegowni.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.0369,
+    "lon": 18.67119
   },
   {
     "name": "Dwujęzyczność z angielskim w każdym toruńskim przedszkolu.",
@@ -421,7 +525,9 @@
     "category": "",
     "cost": 200000,
     "description": "Dwujęzyczność z angielskim w każdym toruńskim przedszkolu.\nWszystkie placówki przedszkolne publiczne w Toruniu.\nZakres: pilotaż zajęć w maksymalnie 9 toruńskich przedszkolach, które zgłoszą udział\nw pilotażu.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Rubinkowo na sportowo.",
@@ -429,7 +535,9 @@
     "category": "",
     "cost": 95000,
     "description": "Rubinkowo na sportowo.\nOgólnodostępny plac zabaw przy ul. Rydygiera 10, 11, 13, 15, 17, 9, 25, 27. Działka\n046301_1.0051.21/69.\nZakres: huśtawka potrójna, zjazd na linie pojedynczy, system sprawnościowy Ziemia\nII, zestaw dla małych dzieci Tunel i most linowy, trampolina, kosz chwytak,\nnawierzchnia piaszczysta.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.0255,
+    "lon": 18.657
   },
   {
     "name": "Zagospodarowanie Zamku Dybowskiego.",
@@ -437,7 +545,9 @@
     "category": "",
     "cost": 600000,
     "description": "Zagospodarowanie Zamku Dybowskiego.\nDz. nr 20 w ob. 64.\nZakres: monitoring wizyjny terenu (projekt wykonawczy, 4 kamery obrotowe wraz z\nlicencją, 2 kamery stałopozycyjne wraz z licencją, 2 mosty radiowe z\noprzyrządowaniem); kosze na odpady typu parkowego, ławki, toalety typu toi toi\nwraz z maskująca drewnianą obudową; prace konserwatorskie zgodnie z programem\nprac konserwatorskich; film promocyjny. Zakres zadania zostanie dostosowany do\ndostępnej puli środków i możliwości uzyskania zgód konserwatorskich we wskazanym\nokresie realizacji.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00123,
+    "lon": 18.61477
   },
   {
     "name": "Złota rączka dla seniora - Toruń 2025.",
@@ -445,7 +555,9 @@
     "category": "",
     "cost": 81287,
     "description": "Złota rączka dla seniora - Toruń 2025.\nCały Toruń.\nZakres: projekt zakłada wykonanie 200 usług na rzecz seniorów.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Budowa ścieżki rowerowej.",
@@ -453,7 +565,9 @@
     "category": "",
     "cost": 1175000,
     "description": "Budowa ścieżki rowerowej.\nOd przejścia dla pieszych przy skrzyżowaniu ulic Szubińska - Gniewkowska do\nskrzyżowania ulic Poznańska - Kręta w kierunku centrum Torunia.\nZakres: budowa ścieżki rowerowej na ulicy Poznańskiej. Projekt przeniesiony na listę\nogólnomiejską ze względu na koszt.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.97655,
+    "lon": 18.56744
   },
   {
     "name": "AED w szkole.",
@@ -461,7 +575,9 @@
     "category": "",
     "cost": 177000,
     "description": "AED w szkole.\nToruńskie Szkoły Ponadpodstawowe.\nZakres: zmiana: 18 lokalizacji - pozycje od 1 do 10, 12-17, z wniosku, pozycja nr 20\noraz w SP nr 12.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Szkolne Budżety Partycypacyjne - pilotaż.",
@@ -469,7 +585,9 @@
     "category": "",
     "cost": 470000,
     "description": "Szkolne Budżety Partycypacyjne - pilotaż.\n20 szkół podstawowych i ponadpodstawowych na terenie Torunia.\nZakres: szkolny budżet partycypacyjny dla 20 szkół w Toruniu.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Siłownia zewnętrzna z możliwością regulacji obciążenia. (...).",
@@ -477,7 +595,9 @@
     "category": "",
     "cost": 780000,
     "description": "Siłownia zewnętrzna z możliwością regulacji obciążenia. (...).\nUl. Zbożowa (okolice orlika) oraz alternatywna lokalizacja: ul. Hubego (okolice górki\nsaneczkowej, toru Ninja warriors).\nZakres: siłownia zewnętrzna z możliwością regulacji obciążenia, 15 urządzeń, poręcze\ndo street workout oraz worek treningowy podwójny, nawierzchnia poliuretanowa.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.05061,
+    "lon": 18.5866
   },
   {
     "name": "Mini miasteczko rowerowe na Rubinkowie I.",
@@ -485,7 +605,9 @@
     "category": "",
     "cost": 367000,
     "description": "Mini miasteczko rowerowe na Rubinkowie I.\nUl. Buszczyńskich 13.\nZakres: wykonanie jezdni dla rowerów, montaż znaków pionowych i poziomych,\nświateł drogowych, ławki, kosze na śmieci, stojaki na rowery i hulajnogi.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.03101,
+    "lon": 18.66338
   },
   {
     "name": "Kwitnące wiśnie wokół Starówki.",
@@ -493,7 +615,9 @@
     "category": "",
     "cost": 45000,
     "description": "Kwitnące wiśnie wokół Starówki.\n1) Zielona Brama Gotyckiej Atarówki - aleja równoległa do alei Solidarności; 2) skwer\nL. Broniewicza - aleja dochodząca do fontanny Cosmopolis; 3) teren zielony między\nCKK a ul. Odrodzenia.\nZakres: ograniczenie do 20-25 drzew, muzeum etnograficznym na terenie skweru,\nteren CKK Jordanki.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.18506,
+    "lon": 18.45059
   },
   {
     "name": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy.",
@@ -501,7 +625,9 @@
     "category": "",
     "cost": 60000,
     "description": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy.\nWojewódzka Biblioteka Publiczna - Książnica Kopernikańska w Torunia, ul.\nSłowackiego 8.\nZakres: zmiana: wybór dostawcy kodów dokona Książnica kopernikańska jak również\nwyboru tytułów do wysokości uzyskanych środków.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.01324,
+    "lon": 18.59556
   },
   {
     "name": "Rewitalizacja projektów na Barbarce.",
@@ -509,7 +635,9 @@
     "category": "",
     "cost": 300000,
     "description": "Rewitalizacja projektów na Barbarce.\nOsada Leśna Barbarka, ul. Przysiecka 13.\nZakres: drewniana wiata przystankowa, remont 200 metrów drewnianego płotu,\nodnowiona elewacja budynku Bazy noclegowej: Dworku i Gościńca na terenie osady\nleśnej Barbarka.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.05345,
+    "lon": 18.54068
   },
   {
     "name": "Rewitalizacja terenu na stadionie przy ul. Świętopełka 15/23.",
@@ -517,7 +645,9 @@
     "category": "",
     "cost": 270000,
     "description": "Rewitalizacja terenu na stadionie przy ul. Świętopełka 15/23.\nUl. Świętopełka 15/23.\nZakres: montaż nowych ławek na stadionie, wyrównanie i poprawa nawierzchni\nschodów, montaż koszy na śmieci.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02608,
+    "lon": 18.61651
   },
   {
     "name": "Budowa ścieżki pieszo-rowerowej na osiedlu JAR.",
@@ -525,15 +655,19 @@
     "category": "",
     "cost": 400000,
     "description": "Budowa ścieżki pieszo-rowerowej na osiedlu JAR.\nTeren między budynkami przy Watzenrodego 13 i Hubego 19A oraz Freytaga i\nHubego.\nZakres: budowa ciągu pieszo-rowerowego składającego się ze ścieżki rowerowej i\nchodnika; ewentualna korelacja z projektem O1087. Projekt przeniesiony na listę\nogólnomiejską ze względu na koszt.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04497,
+    "lon": 18.60149
   },
   {
     "name": "Plaża kinomana.",
-    "address": "Plaża Dybów",
+    "address": "Dybowska 10",
     "category": "",
     "cost": 80000,
     "description": "Plaża kinomana.\nPlaża Dybów lub Błonia Nadwiślańskie.\nZakres: miejsce bulwar filadelfijski, bez zapewnienia usługi autobusu, 20 seansów w\nokresie lipiec- sierpień 2025.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00123,
+    "lon": 18.61477
   },
   {
     "name": "Bulwar dla młodej kultury - występy, pokazy, koncerty, warsztaty ludowe.",
@@ -541,15 +675,19 @@
     "category": "",
     "cost": 150000,
     "description": "Bulwar dla młodej kultury - występy, pokazy, koncerty, warsztaty ludowe.\nBulwar Filadelfijski - może być obok 2 pawilonów powstałych w 2024 roku.\nZakres: zmiana: zamiast budowania nowej sceny sprzecznej z przyjętą koncepcją\nrewitalizacji terenu wykorzystanie sceny tymczasowej, występ około 20 artystów.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01089,
+    "lon": 18.61838
   },
   {
     "name": "Na ratunek z AED.",
-    "address": "J. Bema 23",
+    "address": "Generała Józefa Bema 23",
     "category": "",
     "cost": 70000,
     "description": "Na ratunek z AED.\nLodowisko Tor-Tor, ul. gen. J. Bema 23/29, boiska Szosa Chełmińska 75, hala\ntenisowa ul. Sz. Chełmińska 75B i Przy Skarpie 4, boisko piłkarskie ul. Przy Skarpie\n75B, baseny letnie ul. Sz. Bydgoska 3, Kujawska 16, Przy Skarpie 4, hotel i camping\nTramp ul. Kujawska 14.\nZakres: zmiana: zakup i montaż defibrylatora w obiektach sportowych bez basenów\nletnich oraz bez basenu przy Szosie Bydgoskiej 3.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01918,
+    "lon": 18.59204
   },
   {
     "name": "Park Ostoja.",
@@ -557,7 +695,9 @@
     "category": "",
     "cost": 1000000,
     "description": "Park Ostoja.\nTeren między ul. Freytaga, Watzenrodego, Hubego. Osiedle Jar.\nZakres: wykonanie alejek, nasadzenia drzew i krzewów ozdobnych, mała\narchitektura. Projekt przeniesiony na listę ogólnomiejską ze względu na koszt.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04414,
+    "lon": 18.59986
   },
   {
     "name": "Bezpieczna zabawa - nasza wspólna sprawa!",
@@ -565,7 +705,9 @@
     "category": "",
     "cost": 300000,
     "description": "Bezpieczna zabawa - nasza wspólna sprawa!\nOgólnodostępny plac zabaw przy ZS nr 26, ul. Fałata 88/90.\nZakres: karuzela integracyjna z miejscem na wózek, zestaw integracyjny Dometo I-2-\n2, huśtawka wahadłowa Miksi 1, nawierzchnia poliuretanowa.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01542,
+    "lon": 18.57565
   },
   {
     "name": "Odnowienie nawierzchni ulicy Otłoczyńskiej na odcinku 400m od ulicy Rudackiej",
@@ -573,7 +715,9 @@
     "category": "",
     "cost": 80000,
     "description": "Odnowienie nawierzchni ulicy Otłoczyńskiej na odcinku 400m od ulicy Rudackiej w\nkierunku działek ROD.\nUlica Otłoczyńska na odcinku 400m, od skrzyżowania z ulicą Rudacką w kierunku\ndzialek ROD. Obręb 69, działka nr 10. Do pierwszego rozjazdu w kierunku działek ROD\nMetron i ROD Zacisze, ROD Prząśniczka.\nZakres: wykonanie nawierzchni z destruktu asfaltowego na ulicy Otłoczyńskiej na\nodcinku 700 metrów.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00273,
+    "lon": 18.65771
   },
   {
     "name": "Zielonym szklakiem - bezpieczna droga dla pieszych i rowerzystów.",
@@ -581,7 +725,9 @@
     "category": "",
     "cost": 150000,
     "description": "Zielonym szklakiem - bezpieczna droga dla pieszych i rowerzystów.\nDziałka nr 36/2, 98/1, 163, 164, 170, 169, 182 obręb 0023.\nZakres: remont drogi wiodącej ulicą Przybyszewskiego przy Fundacji Ducha wzdłuż\nkoryta rzeki Wisły.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00885,
+    "lon": 18.57171
   },
   {
     "name": "Estetyczne oznakowanie na Starówce.",
@@ -589,7 +735,9 @@
     "category": "",
     "cost": 700000,
     "description": "Estetyczne oznakowanie na Starówce.\nZespół Staromiejski w Toruniu, cały obszar (ograniczony ulicami Warszawska,\nSzumana, Wały Gen. Sikorskiego, Al. Jana Pawła II).\nZakres: wymiana wszystkich znaków drogowych w Zespole Staromiejskim na znaki\nmałoformatowe, zawieszone na słupach imitujących zabytkowe.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00967,
+    "lon": 18.60331
   },
   {
     "name": "PDK - piłka dla każdego.",
@@ -597,7 +745,9 @@
     "category": "",
     "cost": 70000,
     "description": "PDK - piłka dla każdego.\nWszystkie orliki, boiska przyszkolne, oraz place nadające się do uprawiania piłki\nnożnej.\nZakres: organizacja cyklicznych treningów piłki nożnej dla dzieci i młodzieży,\norganizacja lokalnych turniejów piłkarskich.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Miasteczko rowerowe - edukacja i zabawa w jednym miejscu.",
@@ -605,7 +755,9 @@
     "category": "",
     "cost": 342000,
     "description": "Miasteczko rowerowe - edukacja i zabawa w jednym miejscu.\nUl. Dziewulskiego 41b. teren przed Szkołą Podstawową nr 31 im. Gen. Hallera - na\nmiejscu istniejącego miasteczka rowerowego.\nZakres: remont, modernizacja i wyposażenie miasteczka rowerowego przy SP 31,\nwymiana podłoża rowerowego, wykonanie oznakowania poziomego, pionowego,\nmontaż świateł, wykonanie gier podwórkowych, montaż małej architektury,\nurządzenie zieleni.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02927,
+    "lon": 18.681
   },
   {
     "name": "Od najmłodszych lat.",
@@ -613,7 +765,9 @@
     "category": "",
     "cost": 50000,
     "description": "Od najmłodszych lat.\nToruńskie przedszkola i szkoły podstawowe.\nZakres: zajęcia ogólnorozwojowe z elementami koszykówki dla dzieci przedszkolnych\ni uczęszczających do klas 1-3 odbywające się w placówkach szkolnych, na koniec zajęć\nprzewidziano turniej.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Wymiana starej asfaltowej nawierzchni alei w Parku Miejskim.",
@@ -621,7 +775,9 @@
     "category": "",
     "cost": 410000,
     "description": "Wymiana starej asfaltowej nawierzchni alei w Parku Miejskim.\nDz. nr 127 w ob. 12.\nZakres: ścieżka mineralna z granitowymi obrzeżami.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00828,
+    "lon": 18.58323
   },
   {
     "name": "Montaż oświetlenia chodnika na odcinku ul. Andersa do ul. Orlicza-Dreszera.",
@@ -629,7 +785,9 @@
     "category": "",
     "cost": 160000,
     "description": "Montaż oświetlenia chodnika na odcinku ul. Andersa do ul. Orlicza-Dreszera.\nUl. Andersa od bloków 79 i 81 w kierunku ul. Orlicza-Dreszera.\nZakres: montaż ok. 10 lamp typu LED.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.98993,
+    "lon": 18.60537
   },
   {
     "name": "Fort VII.",
@@ -637,7 +795,9 @@
     "category": "",
     "cost": 75000,
     "description": "Fort VII.\nFort VII.\nZakres: odnowienie tablicy informacyjnej o Forcie VII oraz czaszy znicza;\npomalowanie barierki przy schodach, wypełnienie dziur od ulicy Okrężnej do\nbetonowego znicza- destruktem asfaltowym.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02133,
+    "lon": 18.56657
   },
   {
     "name": "Sportowa Inicjatywa Rozwoju Gramy.",
@@ -645,7 +805,9 @@
     "category": "",
     "cost": 65000,
     "description": "Sportowa Inicjatywa Rozwoju Gramy.\nToruń, dzielnice: Chełmińskie Przedmieście, Starówka, Wrzosy, Rubinkowo, Skarpa.\nZakres: zajęcia sportowej rekreacji ruchowej dla dzieci w wieku szkoły podstawowej\nprzez cały rok wraz z organizacją 3 festynów rodzinnych- kwiecień, czerwiec,\nwrzesień.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Remont nawierzchni ul. Wybickiego 19-19c, 21-21c, 23-23c, 30-32.",
@@ -653,7 +815,9 @@
     "category": "",
     "cost": 225000,
     "description": "Remont nawierzchni ul. Wybickiego 19-19c, 21-21c, 23-23c, 30-32.\nUl. Wybickiego 19-19c, 21-21c, 23-23c, 30-32.\nZakres: frezowanie warstwy ścieralnej, wykonanie warstwy ścieralnej, odtworzenie\noznakowania poziomego.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02525,
+    "lon": 18.60572
   },
   {
     "name": "Dobra droga.",
@@ -661,7 +825,9 @@
     "category": "",
     "cost": 700000,
     "description": "Dobra droga.\nCała ulica Storczykowa ze szczególnym uwzględnieniem odcinka między ulicą\nTulipanową a Chabrową.\nZakres: kapitalny remont nawierzchni i chodnika na ulicy Storczykowej. Projekt\nprzeniesiony na listę ogólnomiejską ze względu na koszt.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04183,
+    "lon": 18.58738
   },
   {
     "name": "Wakacje z piłką nożną!",
@@ -669,7 +835,9 @@
     "category": "",
     "cost": 20000,
     "description": "Wakacje z piłką nożną!\nWrzosy, Koniuchy, Bydgoskie, Stawki.\nZakres: zmiana nazwy, zajęcia sportowe dla dzieci w wieku 5-10 lat, w miesiącu lipiec,\nod poniedziałku do piątku.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Strongworkout - Pełna siłownia na świeżym powietrzu.",
@@ -677,7 +845,9 @@
     "category": "",
     "cost": 130000,
     "description": "Strongworkout - Pełna siłownia na świeżym powietrzu.\nUl. Przedzamcze 11, Park Bydgoski, siłownia na skrzyżowaniu ul. Wiązowa i J.\nWybickiego.\nZakres: ograniczenie: z uwagi na położenie siłowni zewnętrznych na obszarach\nobjętych ochroną konserwatorską, proponuje się ograniczenie projektu do jednej\nsiłowni zewnętrznej zlokalizowanej na Martówce.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01053,
+    "lon": 18.60883
   },
   {
     "name": "Zadbaj o siebie - zdrowie masz tylko jedno.",
@@ -685,7 +855,9 @@
     "category": "",
     "cost": 20000,
     "description": "Zadbaj o siebie - zdrowie masz tylko jedno.\nCentra Aktywności Lokalnej.\nZakres: edukacja w zakresie profilaktyki prozdrowotnej, 10 wykładów, 10 warsztatów\ni 150 spotkań indywidualnych, możliwość wykonania badania ciśnienia krwi, glikemii,\nlipodemii oraz obliczyć BMI.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Poprawa bezpieczeństwa i remont ulicy Moniuszki wzdłuż budynków 34-40, 42-46, 43-",
@@ -693,7 +865,9 @@
     "category": "",
     "cost": 480000,
     "description": "Poprawa bezpieczeństwa i remont ulicy Moniuszki wzdłuż budynków 34-40, 42-46, 43-\n45, 47-49.\nUl. Moniuszki pomiędzy budynkami 34-40, 42-46, 43-45, 47-49 - wg załączonej mapy.\nDziałka nr 230 w obrębie 9, przy ul. Moniuszki.\nZakres: usunięcie starej nawierzchni i położenie nowej wraz z oznakowaniem.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.0146,
+    "lon": 18.59429
   },
   {
     "name": "Poprawa bezpieczeństwa i remont chodników wzdłuż ul. Moniuszki przy budynkach",
@@ -701,7 +875,9 @@
     "category": "",
     "cost": 450000,
     "description": "Poprawa bezpieczeństwa i remont chodników wzdłuż ul. Moniuszki przy budynkach\n34-40, 42-46, 43-45, 47-49, 51-53.\nUl. Moniuszki pomiędzy budynkami 34-40, 42-46, 43-45, 47-49, 51-53 - wg załączonej\nmapy.\nZakres: usunięcie starych chodników i położenie nowych z kostki typu polbruk.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.0146,
+    "lon": 18.59429
   },
   {
     "name": "murpruski.eu.",
@@ -709,7 +885,9 @@
     "category": "",
     "cost": 150000,
     "description": "murpruski.eu.\nGrunty miejskie na Chełmińskim Przedmieściu, Mokrym, Jakubskim, Bydgoskim oraz\nPodgórzu.\nZakres: zmiana: bez banerów outdorowych, stacjonarne tablice informacyjne- 5 szt.\nWydrukowanie 160 zdjęć wielkoformatowych wraz z oprawą, przygotowanie strony\ninternetowej.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
   },
   {
     "name": "Miejska pasieka pokazowa.",
@@ -717,7 +895,9 @@
     "category": "",
     "cost": 30000,
     "description": "Miejska pasieka pokazowa.\nPrzy Muzeum Twierdzy Toruń.\nZakres: zmiana lokalizacji ze względu na zagrożenie bezpieczeństwa dzieci i\ndorosłych, zgłaszane przez okolicznych mieszkańców, przeprowadzenie lekcji\npokazowych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.0147,
+    "lon": 18.6074
   },
   {
     "name": "Renowacja podwórka znajdującego się pomiędzy kamienicami w kwadracie ulic Matejki - Krasińskiego - Mickiewicza",
@@ -725,7 +905,9 @@
     "category": "",
     "cost": 350000,
     "description": "Renowacja podwórka znajdującego się pomiędzy kamienicami w kwadracie ulic\nMatejki - Krasińskiego - Mickiewicza.\nMatejki 16-18 / Krasińskiego / Mickiewicza (podwórko).\nZakres: naprawa chodników, odrestaurowanie ławek, montaż stojaków dla rowerów,\nodnowienie ogrodzenia, wykonanie nasadzeń plus nawodnienie. Projekt przeniesiony\nna listę ogólnomiejską ze względu na koszt.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01109,
+    "lon": 18.58975
   },
   {
     "name": "Zdrowi długowieczni - toruńska niebieska strefa przyszłych stulatków.",
@@ -733,7 +915,9 @@
     "category": "",
     "cost": 15000,
     "description": "Zdrowi długowieczni - toruńska niebieska strefa przyszłych stulatków.\n1. Normobaria (...); 2. Klub Karate (...); 3. Kopernikański Ośrodek Integracji.\nZakres: 10 sesji warsztatowych dla 20 osób w komorze normobarycznej, 5 sesji po 1\ngodzinie dla 40 osób.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01916,
+    "lon": 18.57394
   },
   {
     "name": "Podgórski Piknik Rodzinny.",
@@ -741,7 +925,9 @@
     "category": "",
     "cost": 35000,
     "description": "Podgórski Piknik Rodzinny.\nUl. Poznańska 49, tereny zielone przed kościołem św. Piotra i Pawła.\nZakres: zespoły muzyczne, wynajęcie sceny z nagłośnieniem, animacja dla dzieci, bez\nmożliwości finansowania wydatków na gastronomię.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.99399,
+    "lon": 18.59812
   },
   {
     "name": "Bajeczny plac zabaw na Glinkach.",
@@ -749,7 +935,9 @@
     "category": "",
     "cost": 300000,
     "description": "Bajeczny plac zabaw na Glinkach.\nDziałka 44/10 z obrębu nr 77 lub inna w okolicy osiedla \"Glinki\" spełniająca\nodpowiednie wymogi.\nZakres: Rodeobord- platforma na sprężynach, karuzela obrotowa stojąca, 2\nbezpieczne karuzele typu gniazdo, zestaw wspinaczkowy połączony mostem z\nprzeszkodami, 2 trampoliny ziemne, tyrolka, bezpieczna nawierzchnia.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.98766,
+    "lon": 18.58057
   },
   {
     "name": "Ekologiczne oświetlenie LEDowa odnowa.",
@@ -757,7 +945,9 @@
     "category": "",
     "cost": 150000,
     "description": "Ekologiczne oświetlenie LEDowa odnowa.\nPrzy budynkach wzdłuż ul. Iwanowskiej, Witkowskiego, Letniej i Galona.\nZakres: wymiana starych opraw żarowych na ledowe na osiedlu Letnia oraz wymiana\n7 sztuk słupów ocynkowanych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.99212,
+    "lon": 18.60201
   },
   {
     "name": "Szkolny Dzień Dziecka na 2025 rok.",
@@ -765,7 +955,9 @@
     "category": "",
     "cost": 35000,
     "description": "Szkolny Dzień Dziecka na 2025 rok.\nUl. Paderewskiego 5/11 w Toruniu.\nZakres: organizacja festynu, bez możliwości finansowania wydatków na gastronomię.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.99153,
+    "lon": 18.59103
   },
   {
     "name": "Wybieg dla psów.",
@@ -773,7 +965,9 @@
     "category": "",
     "cost": 100000,
     "description": "Wybieg dla psów.\nUl. Iwanowskiej - między boiskiem do piłki ręcznej i garażami lub park przy ul.\nPrufferów - za boiskiem.\nZakres: wybieg dla psów (ogrodzenie, furtka, dystrybutor torebek, nawierzchnia,\ndobór urządzeń treningowych w zależności od dostępnej powierzchni, cięcia\npielęgnacyjne drzew), tablica informacyjna, bez oświetlenia, nowa lokalizacja:\ndziałka 719, 720 obręb 70.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.99366,
+    "lon": 18.60017
   },
   {
     "name": "Parking wzdłuż ul. Inowrocławskiej.",
@@ -781,7 +975,9 @@
     "category": "",
     "cost": 73577,
     "description": "Parking wzdłuż ul. Inowrocławskiej.\nUl. Inowrocławska (mniej więcej naprzeciwko numerów 6-18, w okolicach siłowni\nzewnętrznej).\nZakres: budowa dwóch parkingów równoległych na wysokości działek nr 600 i 599\nobręb nr 70.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.99055,
+    "lon": 18.59341
   },
   {
     "name": "Wielki integracyjny piknik sąsiedzki osiedla Glinki w Toruniu 2025.",
@@ -789,7 +985,9 @@
     "category": "",
     "cost": 35000,
     "description": "Wielki integracyjny piknik sąsiedzki osiedla Glinki w Toruniu 2025.\nToruń, osiedle Glinki, ul. Poznańska 294, parking zarządzany przez TTBS.\nZakres: zaproszenie polskiej gwiazdy sceny muzycznej, wynajem sceny, nagłośnienia,\noświetlenia, dmuchańce, karuzela, bez możliwości finansowania wydatków na\ngastronomię.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.96862,
+    "lon": 18.55923
   },
   {
     "name": "Boisko pełne sportu.",
@@ -797,7 +995,9 @@
     "category": "",
     "cost": 300000,
     "description": "Boisko pełne sportu.\nBoisko do koszykówki na wysokości bloku mieszkalnego Rydygiera 40 w Toruniu.\nZakres: zmiana nawierzchni na poliuretanową, zmiana tablic wraz z obręczami do\nkoszykówki, montaż słupków do siatkówki wraz z siatką, ogrodzenie boiska, montaż\nławek i koszt na śmieci.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.03021,
+    "lon": 18.64797
   },
   {
     "name": "Ścieżka sensoryczna zewnętrzna - aktywne zmysły.",
@@ -805,7 +1005,9 @@
     "category": "",
     "cost": 60000,
     "description": "Ścieżka sensoryczna zewnętrzna - aktywne zmysły.\nRubinkowo, ul. Dziewulskiego 41b, tereny zielone przed Szkołą Podstawową nr 31 im.\ngen. Hallera.\nZakres: ścieżka sensoryczna przy SP 31, zakup trzech równoważni typu zygzak,\nskośnej i na sprężynach, dwóch zestawów paneli edukacyjnych oraz czterech\npojedynczych.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02927,
+    "lon": 18.681
   },
   {
     "name": "Nowy plac zabaw na terenie SP 8.",
@@ -813,7 +1015,9 @@
     "category": "",
     "cost": 300000,
     "description": "Nowy plac zabaw na terenie SP 8.\nTeren Szkoły Podstawowej nr 8, ul. Łyskowskiego 28.\nZakres: 6 elementów zabawowych na bezpiecznej nawierzchni.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02983,
+    "lon": 18.6594
   },
   {
     "name": "Montaż siłowni zewnętrznej na terenie SP 8.",
@@ -821,7 +1025,9 @@
     "category": "",
     "cost": 120000,
     "description": "Montaż siłowni zewnętrznej na terenie SP 8.\nTeren SP 8, ul. Łyskowskiego 28.\nZakres: biegacz podwójny, orbitrec, twister, wioślarz, jeździec, pajacyk/ narty,\nbezpieczna nawierzchnia.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02983,
+    "lon": 18.6594
   },
   {
     "name": "Metamorfoza terenu z zielenią i latarnią.",
@@ -829,7 +1035,9 @@
     "category": "",
     "cost": 150000,
     "description": "Metamorfoza terenu z zielenią i latarnią.\nJodłowa 13-15, obręb 50, działka 282.\nZakres: położenie w części pasa płyt ażurowych, nasadzenia zieleni, postawienie\nlatarni.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02814,
+    "lon": 18.65111
   },
   {
     "name": "Dziecięca radość życia - modernizacja placu zabaw.",
@@ -837,7 +1045,9 @@
     "category": "",
     "cost": 200000,
     "description": "Dziecięca radość życia - modernizacja placu zabaw.\nPlac zabaw pomiędzy Dziewulskiego 15 a Niesiołowskiego 8.\nZakres: usunięcie 2 szt. drabinek i jednej bujaczki, przesunięcie jednej z bujaczek w\ninne miejsce, dostawienie jednego zestawu zabawowego i jednej ważki.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02949,
+    "lon": 18.66845
   },
   {
     "name": "Ścieżka doświadczeń.",
@@ -845,7 +1055,9 @@
     "category": "",
     "cost": 160000,
     "description": "Ścieżka doświadczeń.\nUl. Strzałowa 15, teren SP nr 12.\nZakres: 7 urządzeń ze ścieżki doświadczeń, odtworzenie nawierzchni wokół urządzeń.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.99895,
+    "lon": 18.62825
   },
   {
     "name": "Poznaj Rudak od podszewki - 3 pętle ścieżek turystyczno-rekreacyjnych na Rudaku.",
@@ -853,7 +1065,9 @@
     "category": "",
     "cost": 35000,
     "description": "Poznaj Rudak od podszewki - 3 pętle ścieżek turystyczno-rekreacyjnych na Rudaku.\nOsiedle Rudak.\nZmiana zakresu: wytyczenie ścieżek, opracowanie tematyczne, oznakowanie\ntabliczkami, tablice informacyjne, pieczątki okolicznościowe.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.0039,
+    "lon": 18.66085
   },
   {
     "name": "Rekreacja na Rudaku - etap II, Naturalny plac zabaw.",
@@ -861,7 +1075,9 @@
     "category": "",
     "cost": 120000,
     "description": "Rekreacja na Rudaku - etap II, Naturalny plac zabaw.\nUlica Rypińska 72-78.\nZakres: wyposażenie terenu rekreacyjnego w szałas wiklinowy, naturalne kłody i\npniaki, małpi gaj, tunele oraz mostki, dwie ławki, bez oświetlenia do limitu środków.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.99601,
+    "lon": 18.66066
   },
   {
     "name": "Pilates na Rudaku.",
@@ -869,7 +1085,9 @@
     "category": "",
     "cost": 59980,
     "description": "Pilates na Rudaku.\nFilia Dworu Artusa, Dom Muz, ul. Okólna 169.\nZmiana zakresu: zwiększenie liczby zajęć bez zakupu środków trwałych.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00073,
+    "lon": 18.64113
   },
   {
     "name": "Remont nawierzchni ul. Otłoczyńskiej destruktem asfaltowym na Rudaku.",
@@ -877,7 +1095,9 @@
     "category": "",
     "cost": 80000,
     "description": "Remont nawierzchni ul. Otłoczyńskiej destruktem asfaltowym na Rudaku.\nUl. Otłoczyńska między ulicą Aleksandrowską, a ul. Rypińską.\nZakres: wykonanie nawierzchni z destruktu asfaltowego na ulicy Otłoczyńskiej między\nulicą Aleksandrowską a ulicą Rypińską.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00273,
+    "lon": 18.65771
   },
   {
     "name": "Park&Relax - parking dla działkowców na Rudaku.",
@@ -885,7 +1105,9 @@
     "category": "",
     "cost": 170000,
     "description": "Park&Relax - parking dla działkowców na Rudaku.\nTeren drogi placu pomiędzy ROD Metron a ROD Relaks, rejon ul. Rudackiej.\nZakres: chodnik wzdłuż południowego ogrodzenia ogrodu Metron, budowa 20 miejsc\nparkingowych wzdłuż chodnika.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00238,
+    "lon": 18.67205
   },
   {
     "name": "Kwietna łąka przed Domem Muz na Rudaku.",
@@ -893,7 +1115,9 @@
     "category": "",
     "cost": 5000,
     "description": "Kwietna łąka przed Domem Muz na Rudaku.\nUl. Okólna 169.\nZakres: kwietna łąka.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00073,
+    "lon": 18.64113
   },
   {
     "name": "Ścieżka edukacyjno-przyrodnicza \"ptaki polskie\" na Gerwazego!",
@@ -901,7 +1125,9 @@
     "category": "",
     "cost": 80000,
     "description": "Ścieżka edukacyjno-przyrodnicza \"ptaki polskie\" na Gerwazego!\nPodgórska 14C, Gerwazego 12 I 22, Gerwazego 6.\nZakres: 4 murale prezentujące ptaki polskie na ulicy Gerwazego.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.00214,
+    "lon": 18.6263
   },
   {
     "name": "W końcu bezpieczne przejście przy Macieju!",
@@ -909,7 +1135,9 @@
     "category": "",
     "cost": 200000,
     "description": "W końcu bezpieczne przejście przy Macieju!\nOkolica pawilonu handlowego Maciej na ulicy Konstytucji 3 Maja.\nZakres: przebudowa chodnika, zmiana oznakowania, budowa przejścia dla pieszych.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02296,
+    "lon": 18.67658
   },
   {
     "name": "Skarpolina - Dziecięca Kraina.",
@@ -917,7 +1145,9 @@
     "category": "",
     "cost": 264925,
     "description": "Skarpolina - Dziecięca Kraina.\nKontynuacja placu zabaw \"Skarpolina\" w lasku pomiędzy blokami Bolta 6 a Bolta 8,\nosiedle Skarpa, Toruń.\nZakres: wysoka huśtawka równoważna dwuosobowa, huśtawka dwuosobowa typu\nTrazan, surfer, wirująca misa, bączek, podwójne drążki, Roll Runner, long roll, tablice\ninformacyjne.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.02043,
+    "lon": 18.68493
   },
   {
     "name": "Eko Zakątek - Zielona Klasa przy SP 18.",
@@ -925,7 +1155,9 @@
     "category": "",
     "cost": 230000,
     "description": "Eko Zakątek - Zielona Klasa przy SP 18.\nSzkoła Podstawowa nr 18 im. Arkadego Fiedlera.\nZakres: altana, ławostoły, odnowienie ogrodzenia od ul. Szosa Lubicka, wymiana\nsiatki z furtką, światowid, ścieżka sensoryczna, elementy Eko zakątka, roślinność,\noświetlenie.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.18057,
+    "lon": 18.59451
   },
   {
     "name": "Droga do gwiazd - kosmiczno-przyrodniczy plac zabaw przy PM 13.",
@@ -933,7 +1165,9 @@
     "category": "",
     "cost": 300000,
     "description": "Droga do gwiazd - kosmiczno-przyrodniczy plac zabaw przy PM 13.\nPrzedszkole Miejskie nr 13 w Toruniu.\nZakres: piaskownica z ławeczkami, planety z układu słonecznego, księżycowa baza\nrakietowa, międzyplanetarna stacja kosmiczna, mostki linowe, trampoliny, karuzele,\nzestawy gimnastyczne, tunele, huśtawki, miejsca do zabaw tematycznych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02252,
+    "lon": 18.67923
   },
   {
     "name": "Bezpiecznie w ruchu drogowym.",
@@ -941,7 +1175,9 @@
     "category": "",
     "cost": 110000,
     "description": "Bezpiecznie w ruchu drogowym.\nKosynierów Kościuszkowskich 11, teren Szkoły Podstawowej nr 32.\nZakres: nawierzchnia tworząca drogi, ronda i skrzyżowania oraz znaki drogowe.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02607,
+    "lon": 18.69552
   },
   {
     "name": "Ścianka wspinaczkowa typu Boulder.",
@@ -949,7 +1185,9 @@
     "category": "",
     "cost": 260000,
     "description": "Ścianka wspinaczkowa typu Boulder.\nUl. Przy Skarpie, przed SP nr 28.\nZakres|: ścianka wspinaczkowa boluder, nawierzchnia żwirowa.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02073,
+    "lon": 18.67365
   },
   {
     "name": "Próg zwalniający na ul. Wyszyńskiego 19.",
@@ -957,7 +1195,9 @@
     "category": "",
     "cost": 5000,
     "description": "Próg zwalniający na ul. Wyszyńskiego 19.\nJezdnia przy ulicy Wyszyńskiego 19 na wysokości bloku Przy Skarpie 23A, os. Skarpa,\nToruń.\nZakres: zakup i montaż progu zwalniającego przy ulicy Wyszyńskiego 19.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.01893,
+    "lon": 18.68021
   },
   {
     "name": "CPK, czyli Czytelnia Polskiego Komiksu.",
@@ -965,7 +1205,9 @@
     "category": "",
     "cost": 4000,
     "description": "CPK, czyli Czytelnia Polskiego Komiksu.\nWojewódzka Biblioteka Publiczna - Książnica Kopernikańska. Mediateka Raszei (Filia\nnr 16), ul. Raszei 1, Toruń.\nZakres: zakup ok. 50 sztuk powieści graficznych do Biblioteki w Książnicy\nKopernikańskiej Filia nr 16 Mediateka Raszei.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.02141,
+    "lon": 18.6867
   },
   {
     "name": "Kino plenerowe na Rynku Nowomiejskim.",
@@ -973,7 +1215,9 @@
     "category": "",
     "cost": 80000,
     "description": "Kino plenerowe na Rynku Nowomiejskim.\nWschodnia część Rynku Nowomiejskiego w Toruniu.\nZakres: zmiana lokalizacji na Plac Podominikański, minimum 8 seansów.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.0117,
+    "lon": 18.61054
   },
   {
     "name": "Przebudowa i modernizacja placu zabaw przy SP 14 im. Błękitnej Armii w Toruniu.",
@@ -981,7 +1225,9 @@
     "category": "",
     "cost": 200000,
     "description": "Przebudowa i modernizacja placu zabaw przy SP 14 im. Błękitnej Armii w Toruniu.\nTeren pomiędzy kompleksem boisk Orlik a budynkiem dydaktycznym klas 1-3 SP nr\n14, ul. Hallera 79. Dojście na plac od ul. St. Woyczyńskiego.\nZakres: bezpieczna powierzchnia poliuretanowa, zakup nowych urządzeń\nzabawowych, ława kamienna.",
-    "accepted": true
+    "accepted": true,
+    "lat": 52.99619,
+    "lon": 18.61646
   },
   {
     "name": "Zielona strefa rekreacji na Stawkach.",
@@ -989,7 +1235,9 @@
     "category": "",
     "cost": 280000,
     "description": "Zielona strefa rekreacji na Stawkach.\nSkwer przy ul. Czapli / Tataraków / Łączna - osiedle Stawki w Toruniu.\nZakres: stworzenie terenu spokojnego wypoczynku, z zachowaniem istniejącej zieleni,\ndo kwoty 280 tysięcy, alejka, projekt i realizacja I etapu.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.98818,
+    "lon": 18.6288
   },
   {
     "name": "Brzozowy zakątek zabaw.",
@@ -997,7 +1245,9 @@
     "category": "",
     "cost": 250000,
     "description": "Brzozowy zakątek zabaw.\nDziałka miejska za boiskiem piłkarskim na ulicy Czapli / Tataraków. Teren w okolicach\ndrzew (brzóz).\nZakres: tablica informacyjna, ławki, kosze naśmieci, urządzenia zabawowe,\nbezpieczna nawierzchnia, ewentualne ograniczenie zakresu projektu.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.98818,
+    "lon": 18.6288
   },
   {
     "name": "Ulica Hallera zielona i bezpieczna. Remont chodników, zjazdów, nowe nasadzenia.",
@@ -1005,7 +1255,9 @@
     "category": "",
     "cost": 260000,
     "description": "Ulica Hallera zielona i bezpieczna. Remont chodników, zjazdów, nowe nasadzenia.\nUl. Hallera po stronie nr nieparzystych, od skrzyżowania z ul. Radiową do ul. Łódzkiej.\nZakres: przebudowa i remont chodników oraz zjazdów na posesje; budowa miejsc\nparkingowych; pielęgnacja zieleni i nowe nasadzenia.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.99528,
+    "lon": 18.60725
   },
   {
     "name": "Utwardzenie surowej drogi i nasadzenie niskiej roślinności przy parkingu.",
@@ -1013,7 +1265,9 @@
     "category": "",
     "cost": 250000,
     "description": "Utwardzenie surowej drogi i nasadzenie niskiej roślinności przy parkingu.\nUlica gen. Józefa Hallera 103, nr księgi wieczystej TO1T/00014957/4, odcinek drogi\n326.\nZakres: utwardzenie drogi na odcinku ul. gen. Józefa Hallera 103-105 oraz posadzenie\nniskiej roślinności przy parkingu.",
-    "accepted": false
+    "accepted": false,
+    "lat": 52.99544,
+    "lon": 18.61929
   },
   {
     "name": "Renowacja chodnika przy Domu dla osób najuboższych.",
@@ -1021,7 +1275,9 @@
     "category": "",
     "cost": 30000,
     "description": "Renowacja chodnika przy Domu dla osób najuboższych.\nUl. Dybowska 1, Toruń.\nZakres: wymiana nawierzchni chodnika oraz naprawa schodów.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.00159,
+    "lon": 18.61942
   },
   {
     "name": "Przestrzeń relaksu i zabawy przy SP 9.",
@@ -1029,7 +1285,9 @@
     "category": "",
     "cost": 280000,
     "description": "Przestrzeń relaksu i zabawy przy SP 9.\nUl. Rzepakowa 7/9, Toruń.\nZakres: stół do tenisa stołowego, 7 gier podwórkowych, 6 ławek parkowych,\nuzupełnienie nawierzchni trawiastej wokół terenu prowadzonych prac.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.0459,
+    "lon": 18.57974
   },
   {
     "name": "Stworzenie alei drzew wzdłuż ul. Strobanda.",
@@ -1037,7 +1295,9 @@
     "category": "",
     "cost": 139622,
     "description": "Stworzenie alei drzew wzdłuż ul. Strobanda.\nUl. Strobanda, dotyczy terenu działki nr 170 od strony działki 162.\nZakres: nasadzenie 28-30 drzew i ich pielęgnacja do dobrego ukorzenienia.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.05241,
+    "lon": 18.60449
   },
   {
     "name": "Festyn rodzinny - spotkajmy się razem.",
@@ -1045,7 +1305,9 @@
     "category": "",
     "cost": 35000,
     "description": "Festyn rodzinny - spotkajmy się razem.\nDziałka 046301_1.0032.747/7 pomiędzy sklepem Intermarche a blokiem przy ul.\nWatzenrodego 5.\nZakres: występy sceniczne, pokazy umiejętności, konkurencje sprawnościowe,\nrywalizacje sportowe, animacje i urządzenia rekreacyjne dla dzieci.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.04277,
+    "lon": 18.59987
   },
   {
     "name": "Ścianka wspinaczkowa bezpieczna dla dzieci i młodzieży koło placu zabaw z tyrolką.",
@@ -1053,7 +1315,9 @@
     "category": "",
     "cost": 80000,
     "description": "Ścianka wspinaczkowa bezpieczna dla dzieci i młodzieży koło placu zabaw z tyrolką.\nPlac zabaw dla dzieci duży z tyrolką przy ul. Watzenrodego.\nZakres: ścianka wspinaczkowa, strefa bezpieczeństwa piaszczysta.",
-    "accepted": true
+    "accepted": true,
+    "lat": 53.04106,
+    "lon": 18.59904
   },
   {
     "name": "Atrakcyjna zjeżdżalnia dla małych i dużych mieszkańców przy Stawiku.",
@@ -1061,7 +1325,9 @@
     "category": "",
     "cost": 80000,
     "description": "Atrakcyjna zjeżdżalnia dla małych i dużych mieszkańców przy Stawiku.\nNiezagospodarowana wschodnia część działki nr 182 (obręb 30) ze stawem przy ulicy\nŁukasza Watzenrodego / Konrada Grasera na osiedlu \"JAR\", górka od strony głównej\nścieżki parafii św. Andrzeja Apostoła, wg załączonej mapki.\nZakres: zjeżdżalnia terenowa, schody terenowe, prace porządkowe.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04715,
+    "lon": 18.60303
   },
   {
     "name": "Rewitalizacja terenu przy Hubego i Freytaga.",
@@ -1069,7 +1335,9 @@
     "category": "",
     "cost": 300000,
     "description": "Rewitalizacja terenu przy Hubego i Freytaga.\nOd ul. Watzenrodego w stronę ul. Hubego.\nZakres: mała architektura, siłownia zewnętrzna, nasadzenia zieleni, ścieżki\nutwardzone.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04618,
+    "lon": 18.60546
   },
   {
     "name": "XXV Wrzosowy festyn św. Antoniego.",
@@ -1077,7 +1345,9 @@
     "category": "",
     "cost": 35000,
     "description": "XXV Wrzosowy festyn św. Antoniego.\nUl. św. Antoniego 4, Toruń, Wrzosy.\nZakres: występy artystów, wynajem nagłośnienia, oświetlenia, sceny, namioty,\nsanitariaty, atrakcje dla dzieci i młodzieży, bez możliwości finansowania wydatków na\ngastronomię.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04091,
+    "lon": 18.57956
   },
   {
     "name": "Park Naturalny Wrzosowisko dla torunian.",
@@ -1085,7 +1355,9 @@
     "category": "",
     "cost": 50000,
     "description": "Park Naturalny Wrzosowisko dla torunian.\nTeren zwany parkiem naturalnym Wrzosowisko.\nZakres: rezygnacja z kompostowników, tablice informacyjne opatrzone logo BO.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.03541,
+    "lon": 18.58564
   },
   {
     "name": "Boisko sportowe na Wrzosowisku - remont.",
@@ -1093,7 +1365,9 @@
     "category": "",
     "cost": 300000,
     "description": "Boisko sportowe na Wrzosowisku - remont.\nBoisko sportowe za Środowiskowym Domem Samopomocy (ul. św. Jana Bosko).\nZakres: do limitu środków, uzupełnienie powierzchni poliuretanowej, naprawa\nogrodzenia, wymiana siatek koszy na metalowe, wymiana siatek w bramkach.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04073,
+    "lon": 18.5908
   },
   {
     "name": "Poidła dla zwierząt w Parku na Jarze - Woda to życie, zadbajmy o nią dla zwierząt w Parku.",
@@ -1101,7 +1375,9 @@
     "category": "",
     "cost": 12000,
     "description": "Poidła dla zwierząt w Parku na Jarze - Woda to życie, zadbajmy o nią dla zwierząt w\nParku.\nPark na Jarze, po wschodniej stronie ul. Watzenrodego, (046301_1.0030.190 - w\npewnej odległości bezpiecznej dla zwierząt) przy ścieżkach spacerowych.\nZakres: kamienne poidła dla zwierząt, utwardzenie podłoża, umocowanie i\npodsypanie kamieni, postawienie tabliczek informacyjnych.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04106,
+    "lon": 18.59904
   },
   {
     "name": "Oświetlenie odnogi ul. Słowiczej.",
@@ -1109,7 +1385,9 @@
     "category": "",
     "cost": 110000,
     "description": "Oświetlenie odnogi ul. Słowiczej.\nUl. Słowicza, odnoga dojazdowa do działek, działki geodezyjne 153/1, 151, 140, 135,\n68, 65 obręb 11. Odcinek około 360-400 mb.\nZakres: montaż słupów oświetleniowych oraz opraw, wymiana istniejących opraw.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04411,
+    "lon": 18.57085
   },
   {
     "name": "Rewaloryzacja struktur pomnika Dzieci Polskie Matce Polski.",
@@ -1117,7 +1395,9 @@
     "category": "",
     "cost": 80000,
     "description": "Rewaloryzacja struktur pomnika Dzieci Polskie Matce Polski.\nOk. 2 km od Szkoły Podstawowej nr 9 w Toruniu, las w kierunku Barbarki, na skraju\nulicy Pawiej.\nZmiana zakresu: odnowienie ławek istniejących. Naprawa metalowego ogrodzenia,\nroboty konstrukcyjne i wzmacniające pomnika, uporządkowanie nawierzchni ziemnej\nw okolicy ławek, bez betonowej donicy obok pomnika i wazonu na kwiaty.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.05027,
+    "lon": 18.57225
   },
   {
     "name": "Jar i Wrzosy - święto osiedli.",
@@ -1125,7 +1405,9 @@
     "category": "",
     "cost": 35000,
     "description": "Jar i Wrzosy - święto osiedli.\nGeocaching - cały okręg czyli Wrzosy i Jar. Festyn - parking przy przedszkolu na Jarze\nlub wynajęcie powierzchni przy Intermarche. Bieg - mieszkańcy ustalą trasę w\ngranicach okręgu.\nZakres: animacja dla dzieci, fotobudka, dmuchańce, gastronomia, wydarzenia:\nhalowy turniej unihokeja, przejazdy zabytkowym tramwajem, boso po parku\nnaturalnym Wrzosowisko, okręgowe zawody paintball, strzeleckie, piłkarskie, turniej\ncurlingu, konkurs z nagrodami na najlepsze ciasto, geocashing, nocne bieganie (kijki\nlub rolki) na 5 lub 10 km. Bez możliwości finansowania wydatków na gastronomię.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.04948,
+    "lon": 18.60052
   },
   {
     "name": "Mini Park Rodzinny w lasku przy ul. Jeleniej.",
@@ -1133,7 +1415,9 @@
     "category": "",
     "cost": 90000,
     "description": "Mini Park Rodzinny w lasku przy ul. Jeleniej.\nDziałka 758/2, lub 777 lub inna dostępna lokalizacja w lesie przy ul. Jeleniej.\nZmiana zakresu: bez grilowiska i oświetlenia, itp. placu zabaw z uwagi na strefy\nbezpieczeństwa,10 ławek i koszy, 4 stoły piknikowe kosze i dwie wiaty.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.03886,
+    "lon": 18.57734
   },
   {
     "name": "Barbarka z dzieckiem - leśne opowieści wiewiórki Basi.",
@@ -1141,6 +1425,8 @@
     "category": "",
     "cost": 80000,
     "description": "Barbarka z dzieckiem - leśne opowieści wiewiórki Basi.\nOsada Leśna Barbarka, ul. Przysiecka 13.\nZakres: zaprojektowanie i wykonanie leśnej ścieżki edukacyjnej, rzeźba wiewiórki,\ntablica początkowa, uroczyste otwarcie ścieżki, koszty promocji, 5h warsztatów na\nścieżce.",
-    "accepted": false
+    "accepted": false,
+    "lat": 53.05345,
+    "lon": 18.54068
   }
 ]
