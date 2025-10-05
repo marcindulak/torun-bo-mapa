@@ -611,13 +611,13 @@
   },
   {
     "name": "Kwitnące wiśnie wokół Starówki.",
-    "address": "Solidarności 2",
+    "address": "Aleja Solidarności 2",
     "category": "900",
     "cost": 45000,
     "description": "Kwitnące wiśnie wokół Starówki.\n1) Zielona Brama Gotyckiej Atarówki - aleja równoległa do alei Solidarności; 2) skwer\nL. Broniewicza - aleja dochodząca do fontanny Cosmopolis; 3) teren zielony między\nCKK a ul. Odrodzenia.\nZakres: ograniczenie do 20-25 drzew, muzeum etnograficznym na terenie skweru,\nteren CKK Jordanki.",
     "accepted": true,
-    "lat": 53.18506,
-    "lon": 18.45059
+    "lat": 53.01372,
+    "lon": 18.60278
   },
   {
     "name": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy.",

@@ -74,9 +74,29 @@
             margin-right: 8px;
             cursor: pointer;
         }
+        .cluster-label {
+            background: transparent;
+            border: none;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: pre-line;
+            display: inline-block;
+            width: auto;
+            z-index: 10000 !important;
+            color: #000;
+        }
+        .cluster-box-div {
+            border: 2px solid #666;
+            background: rgba(255, 255, 255, 0.1);
+            pointer-events: none;
+        }
+        .cluster-box path {
+            fill-opacity: 0.15 !important;
+        }
     </style>
     <script type="module">
-        import { Map, TileLayer, Marker, DivIcon, Control } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
+        import { Map, TileLayer, Marker, DivIcon, Control, Rectangle, DivOverlay, Polygon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
       const DATA_BY_YEAR = {
           '2025':
@@ -693,13 +713,13 @@
   },
   {
     "name": "Kwitnące wiśnie wokół Starówki.",
-    "address": "Solidarności 2",
+    "address": "Alej Solidarności 2",
     "category": "900",
     "cost": 45000,
     "description": "Kwitnące wiśnie wokół Starówki.\n1) Zielona Brama Gotyckiej Atarówki - aleja równoległa do alei Solidarności; 2) skwer\nL. Broniewicza - aleja dochodząca do fontanny Cosmopolis; 3) teren zielony między\nCKK a ul. Odrodzenia.\nZakres: ograniczenie do 20-25 drzew, muzeum etnograficznym na terenie skweru,\nteren CKK Jordanki.",
     "accepted": true,
-    "lat": 53.18506,
-    "lon": 18.45059
+    "lat": 53.01372,
+    "lon": 18.60278
   },
   {
     "name": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy.",
@@ -1516,8 +1536,19 @@
 
       const AVAILABLE_YEARS = Object.keys(DATA_BY_YEAR).sort().reverse();
 
-        const MAP_CENTER = [53.0138, 18.6003];
+        const MAP_CENTER = [53.0138, 18.6003]; // Concides with Motoarena Toruń
         const MAP_ZOOM = 12;
+        const MAX_ZOOM = 18;
+        const MIN_ZOOM = 11;
+        
+        const MARKER_ZOOM_SCALE_FACTOR = 1.2;
+        const GRID_SPACING_METERS = 50;
+        const METERS_PER_DEGREE_LAT = 111000;
+        const EARTH_CIRCUMFERENCE_METERS = 40075017;
+        const BOX_PADDING_MULTIPLIER = 0.6;
+        const BOX_LABEL_OFFSET_BASE_MULTIPLIER = 1.1;
+        const BOX_LABEL_FONT_SIZE_BASE = 14;
+        const BOX_LABEL_FONT_SIZE_ZOOM_REDUCTION = 0.5;
         
         const TILE_LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
         const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
@@ -1571,9 +1602,6 @@
         });
 
 
-        const MARKER_FILL_OPACITY = 0.4;
-        const MARKER_STROKE_OPACITY = 0.6;
-        
         // Square root scaling makes marker area proportional to cost,
         // which is the standard cartographic method for proportional symbol maps.
         // This handles wide cost ranges  while keeping all differences visible.
@@ -1582,43 +1610,194 @@
 
         let currentYear = AVAILABLE_YEARS[0];
         let currentMarkers = [];
+        let currentClusterBoxes = [];
+        let currentClusters = [];
         let minCost, maxCost;
         let acceptanceFilter = { accepted: true, rejected: false };
 
+        // Calculate marker radius based on project cost using square root scaling.
+        // Returns radius in pixels scaled proportionally to cost within BASE_RADIUS to MAX_RADIUS range.
         function getRadiusByCost(cost) {
             const normalized = Math.sqrt(cost / minCost);
             const maxNormalized = Math.sqrt(maxCost / minCost);
             return BASE_RADIUS + (normalized / maxNormalized) * (MAX_RADIUS - BASE_RADIUS);
         }
 
+        // Create a Leaflet marker for a project location with dynamic icon sizing based on zoom level.
+        // The marker icon updates automatically when the map zoom changes.
+        // Parameters:
+        //   location: object with {lat, lon, cost, category, name, address}
+        // Returns: Leaflet Marker instance with updateIcon() method attached
         function createMarker(location) {
             const icon = CATEGORY_ICONS[location.category] || '📍';
-            const size = getRadiusByCost(location.cost);
+            const baseSize = getRadiusByCost(location.cost);
             
-            const divIcon = new DivIcon({
-                html: `<div style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
-                className: '',
-                iconSize: [size, size],
-                iconAnchor: [size / 2, size / 2]
+            const marker = new Marker([location.lat, location.lon], {
+                icon: null
             });
 
-            const marker = new Marker([location.lat, location.lon], {
-                icon: divIcon
-            });
+            marker.location = location;
+            marker.baseSize = baseSize;
+
+            const updateIcon = () => {
+                const zoom = map.getZoom();
+                const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
+                const size = baseSize * zoomScale;
+                
+                const divIcon = new DivIcon({
+                    html: `<div style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
+                    className: '',
+                    iconSize: [size, size],
+                    iconAnchor: [size / 2, size / 2]
+                });
+                marker.setIcon(divIcon);
+            };
+
+            updateIcon();
+            marker.updateIcon = updateIcon;
 
             // Lazy popup binding: bindPopup accepts a function that generates content on-demand,
             // reducing initial page load time and memory usage when displaying many markers
             const categoryName = CATEGORY_NAMES[location.category] || location.category;
             marker.bindPopup(() => {
-                return `<b>${location.name}</b><br>Koszt: ${location.cost.toLocaleString()} zł<br>Dział: ${categoryName}`;
+                return `<b>${location.name}</b>
+                        <br>Adres: ${location.address}
+                        <br>Koszt: ${location.cost.toLocaleString()} zł
+                        <br>Dział: ${categoryName}`;
             });
             
             return marker;
         }
 
+        // Arrange markers with identical coordinates into a square grid pattern to prevent overlapping.
+        // Uses geographic coordinate offsets (lat/lon) for consistent spacing across devices.
+        // Parameters:
+        //   locations: array of location objects with {lat, lon, address, ...}
+        // Returns: {result: array of locations with adjusted coordinates, clusters: array of cluster info}
+        function gridArrangeCloseMarkers(locations) {
+            const result = locations.map(loc => ({ ...loc }));
+            const processed = new Set();
+            const clusters = [];
+
+            for (let i = 0; i < result.length; i++) {
+                if (processed.has(i)) continue;
+                
+                const cluster = [i];
+                
+                for (let j = i + 1; j < result.length; j++) {
+                    if (processed.has(j)) continue;
+                    
+                    if (result[i].lat === result[j].lat && result[i].lon === result[j].lon) {
+                        cluster.push(j);
+                    }
+                }
+
+                // Arrange clustered markers in a square grid using lat/lon offsets
+                if (cluster.length > 1) {
+                    const gridSize = Math.ceil(Math.sqrt(cluster.length));
+                    const centerLat = result[i].lat;
+                    const centerLon = result[i].lon;
+                    let minLat = centerLat, maxLat = centerLat, minLon = centerLon, maxLon = centerLon;
+                    
+                    cluster.forEach((idx, pos) => {
+                        const row = Math.floor(pos / gridSize);
+                        const col = pos % gridSize;
+                        const centerOffset = (gridSize - 1) / 2;
+                        
+                        const latOffset = ((row - centerOffset) * GRID_SPACING_METERS) / METERS_PER_DEGREE_LAT;
+                        const lonOffset = ((col - centerOffset) * GRID_SPACING_METERS) / (METERS_PER_DEGREE_LAT * Math.cos(centerLat * Math.PI / 180));
+                        
+                        result[idx].lat = centerLat + latOffset;
+                        result[idx].lon = centerLon + lonOffset;
+                        
+                        minLat = Math.min(minLat, result[idx].lat);
+                        maxLat = Math.max(maxLat, result[idx].lat);
+                        minLon = Math.min(minLon, result[idx].lon);
+                        maxLon = Math.max(maxLon, result[idx].lon);
+                        
+                        processed.add(idx);
+                    });
+                    
+                    clusters.push({
+                        minLat,
+                        minLon,
+                        maxLat,
+                        maxLon,
+                        address: result[i].address,
+                        center: [centerLat, centerLon]
+                    });
+                }
+            }
+
+            return { result, clusters };
+        }
+
+        // Update cluster box boundaries and labels for current zoom level.
+        // Calculates box padding based on marker pixel size converted to geographic degrees,
+        // ensuring boxes scale proportionally with markers at all zoom levels.
+        function updateClusterBoxes() {
+            const zoom = map.getZoom();
+            
+            // Calculate marker size in pixels at current zoom (using MAX_RADIUS as reference)
+            const markerZoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
+            const markerSizePixels = MAX_RADIUS * markerZoomScale;
+            
+            // Convert marker pixel size to geographic degrees
+            // At equator: metersPerPixel = earthCircumference / (256 * 2^zoom)
+            const metersPerPixel = EARTH_CIRCUMFERENCE_METERS / (256 * Math.pow(2, zoom));
+            const markerSizeMeters = markerSizePixels * metersPerPixel;
+            const markerSizeDegrees = markerSizeMeters / METERS_PER_DEGREE_LAT;
+            
+            const padding = markerSizeDegrees * BOX_PADDING_MULTIPLIER;
+            const labelOffset = padding * (BOX_LABEL_OFFSET_BASE_MULTIPLIER / markerZoomScale);
+            const fontSize = BOX_LABEL_FONT_SIZE_BASE - (MAX_ZOOM - zoom) * BOX_LABEL_FONT_SIZE_ZOOM_REDUCTION;
+
+            currentClusterBoxes.forEach(box => map.removeLayer(box));
+            currentClusterBoxes = [];
+
+            currentClusters.forEach(cluster => {
+                const { minLat, minLon, maxLat, maxLon, address } = cluster;
+                
+                const polygon = new Polygon([
+                    [minLat - padding, minLon - padding],
+                    [minLat - padding, maxLon + padding],
+                    [maxLat + padding, maxLon + padding],
+                    [maxLat + padding, minLon - padding]
+                ], {
+                    color: '#666',
+                    weight: 2,
+                    fillColor: '#f0f0f0',
+                    fillOpacity: 0.1
+                });
+                polygon.addTo(map);
+                currentClusterBoxes.push(polygon);
+
+                const label = `Adres zbiorczy:\n${address}`;
+                const marker = new Marker([maxLat + padding + labelOffset, minLon - padding], {
+                    icon: new DivIcon({
+                        html: `<div class="cluster-label" style="font-size: ${fontSize}px;">${label}</div>`,
+                        className: '',
+                        iconSize: null,
+                        iconAnchor: [0, 0]
+                    }),
+                    zIndexOffset: 10000
+                });
+                marker.addTo(map);
+                currentClusterBoxes.push(marker);
+            });
+        }
+
+        // Load and display projects for a specific year on the map.
+        // Clears existing markers and cluster boxes, filters locations by acceptance status,
+        // arranges overlapping markers in grids, and creates new markers and cluster boxes.
+        // Parameters:
+        //   year: string year value (e.g., "2024") to load from DATA_BY_YEAR
         function loadYear(year) {
             currentMarkers.forEach(marker => map.removeLayer(marker));
             currentMarkers = [];
+            currentClusterBoxes.forEach(box => map.removeLayer(box));
+            currentClusterBoxes = [];
+            currentClusters = [];
             currentYear = year;
 
             const locations = DATA_BY_YEAR[year] || [];
@@ -1635,11 +1814,16 @@
             minCost = Math.min(...costs);
             maxCost = Math.max(...costs);
 
-            locationsWithCoords.forEach(location => {
+            const { result: arranged, clusters } = gridArrangeCloseMarkers(locationsWithCoords);
+
+            arranged.forEach(location => {
                 const marker = createMarker(location);
                 marker.addTo(map);
                 currentMarkers.push(marker);
             });
+
+            currentClusters = clusters;
+            updateClusterBoxes();
         }
 
         const YearSelector = Control.extend({
@@ -1653,7 +1837,7 @@
 
                 const title = document.createElement('div');
                 title.className = 'title';
-                title.textContent = 'Budżet Obywatelski\nTorunia';
+                title.textContent = 'Budżet Obywatelski\nToruń';
                 title.style.whiteSpace = 'pre-line';
                 container.appendChild(title);
 
@@ -1711,7 +1895,7 @@
                     loadYear(currentYear);
                 };
                 acceptedLabel.appendChild(acceptedCheckbox);
-                acceptedLabel.appendChild(document.createTextNode('Przyjęte'));
+                acceptedLabel.appendChild(document.createTextNode('Przyjęty'));
                 statusGroup.appendChild(acceptedLabel);
 
                 const rejectedLabel = document.createElement('label');
@@ -1727,7 +1911,7 @@
                     loadYear(currentYear);
                 };
                 rejectedLabel.appendChild(rejectedCheckbox);
-                rejectedLabel.appendChild(document.createTextNode('Odrzucone'));
+                rejectedLabel.appendChild(document.createTextNode('Odrzucony'));
                 statusGroup.appendChild(rejectedLabel);
 
                 container.appendChild(statusGroup);
@@ -1735,11 +1919,9 @@
             }
         });
 
-        // Canvas renderer improves performance for maps with many markers by using
-        // HTML5 canvas instead of SVG, reducing DOM elements and memory usage
-        const map = new Map('map', {
-            preferCanvas: true
-        }).setView(MAP_CENTER, MAP_ZOOM);
+        // Using default SVG renderer for proper shape rendering (opacity, borders)
+        // SVG has negligible performance impact with ~150 markers
+        const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
 
         // Performance optimizations for tile loading:
         // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
@@ -1747,6 +1929,7 @@
         // - keepBuffer: 2 reduces off-screen tile loading to 2 screens instead of default 3
         new TileLayer(TILE_LAYER_URL, {
             attribution: TILE_LAYER_ATTRIBUTION,
+            minZoom: 11,
             maxZoom: 18,
             updateWhenIdle: true,
             keepBuffer: 2
@@ -1754,6 +1937,15 @@
 
         new YearSelector().addTo(map);
         loadYear(currentYear);
+
+        map.on('zoomend', () => {
+            currentMarkers.forEach(marker => {
+                if (marker.updateIcon) {
+                    marker.updateIcon();
+                }
+            });
+            updateClusterBoxes();
+        });
     </script>
 </head>
 <body>
