@@ -72,6 +72,7 @@ Addresses are manually filled in the address field of each entry in the JSON fil
 
 The following information was used for manual entry:
 - 2025: `address` (https://torun.pl/pl/budzet-obywatelski-2025-ostateczna-lista-projektow-do-glosowania), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1132802/Uchwala-146_24 Zalacznik29.pdf)
+- 2024: `address` (https://torun.pl/pl/budzet-obywatelski-w-toruniu-2024), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1009669/Uchwala-1237_23 Zalacznik30.pdf)
 
 # Abandoned ideas
 
