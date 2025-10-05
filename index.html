@@ -1852,7 +1852,7 @@
                 selectGroup.className = 'control-group';
 
                 const label = document.createElement('label');
-                label.textContent = 'Wybierz rok: ';
+                label.textContent = 'Rok: ';
                 selectGroup.appendChild(label);
 
                 const select = document.createElement('select');
@@ -1921,7 +1921,17 @@
 
         // Using default SVG renderer for proper shape rendering (opacity, borders)
         // SVG has negligible performance impact with ~150 markers
-        const map = new Map('map').setView(MAP_CENTER, MAP_ZOOM);
+        const map = new Map('map', {
+            zoomControl: false
+        }).setView(MAP_CENTER, MAP_ZOOM);
+        
+        // Add scale and zoom controls to bottom right (scale first so zoom appears above)
+        new Control.Scale({ 
+            position: 'bottomright',
+            imperial: false,
+            metric: true
+        }).addTo(map);
+        new Control.Zoom({ position: 'bottomright' }).addTo(map);
 
         // Performance optimizations for tile loading:
         // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
