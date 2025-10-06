@@ -2,6 +2,9 @@
 
 > Co-Authored-By: Claude
 
+> [!NOTE]
+> The project is not affiliated with Toruń Municipal Office ("Projekt niezwiązany z Urzędem Miasta Torunia")
+
 # Functionality overview
 
 Map visualization of the budżet obywatelski of the city of Toruń, Poland.

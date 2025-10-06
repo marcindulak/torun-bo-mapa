@@ -86,14 +86,6 @@
             z-index: 10000 !important;
             color: #000;
         }
-        .cluster-box-div {
-            border: 2px solid #666;
-            background: rgba(255, 255, 255, 0.1);
-            pointer-events: none;
-        }
-        .cluster-box path {
-            fill-opacity: 0.15 !important;
-        }
     </style>
     <script type="module">
         import { Map, TileLayer, Marker, DivIcon, Control, Rectangle, DivOverlay, Polygon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
@@ -2814,7 +2806,7 @@
         const BOX_LABEL_FONT_SIZE_ZOOM_REDUCTION = 0.5;
         
         const TILE_LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+        const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | Projekt niezwiązany z Urzędem Miasta Torunia';
         
         // Category names from https://przepisy.gofin.pl/przepisy,4,16,194,1276,,20250916,rozporzadzenie-ministra-finansow-z-dnia-2032010-r-w-sprawie.html
         const CATEGORY_NAMES = Object.freeze({
@@ -3101,7 +3093,7 @@
 
                 const title = document.createElement('div');
                 title.className = 'title';
-                title.textContent = 'Budżet Obywatelski\nToruń';
+                title.textContent = 'Budżet Obywatelski\nTorunia';
                 title.style.whiteSpace = 'pre-line';
                 container.appendChild(title);
 
@@ -3186,17 +3178,10 @@
         // Using default SVG renderer for proper shape rendering (opacity, borders)
         // SVG has negligible performance impact with ~150 markers
         const map = new Map('map', {
-            zoomControl: false
+            zoomControl: false,
+            attributionControl: false
         }).setView(MAP_CENTER, MAP_ZOOM);
         
-        // Add scale and zoom controls to bottom right (scale first so zoom appears above)
-        new Control.Scale({ 
-            position: 'bottomright',
-            imperial: false,
-            metric: true
-        }).addTo(map);
-        new Control.Zoom({ position: 'bottomright' }).addTo(map);
-
         // Performance optimizations for tile loading:
         // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
         // - updateWhenIdle: true defers tile loading until after pan/zoom completes, reducing requests
@@ -3208,6 +3193,19 @@
             updateWhenIdle: true,
             keepBuffer: 2
         }).addTo(map);
+        
+        // Add controls to bottom right (added in reverse order - attribution at bottom)
+        new Control.Attribution({
+            position: 'bottomright',
+            prefix: false
+        }).addTo(map);
+        
+        new Control.Scale({ 
+            position: 'bottomright',
+            imperial: false,
+            metric: true
+        }).addTo(map);
+        new Control.Zoom({ position: 'bottomright' }).addTo(map);
 
         new YearSelector().addTo(map);
         loadYear(currentYear);
