@@ -24,6 +24,7 @@
         .year-selector label {
             margin-right: 8px;
             font-weight: 500;
+            font-size: 14px;
         }
         .year-selector select {
             padding: 6px 12px;
@@ -53,22 +54,37 @@
         }
         .year-selector .control-group {
             margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        .year-selector .control-group select {
+            width: auto;
+            flex: 1;
         }
         .year-selector .title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             line-height: 1.3;
+            white-space: nowrap;
         }
         .year-selector .checkbox-group {
             margin-bottom: 8px;
-        }
-        .year-selector .checkbox-group label {
             display: flex;
             align-items: center;
-            margin: 4px 0;
+            flex-wrap: wrap;
+        }
+        .year-selector .checkbox-group label {
+            display: inline-flex;
+            align-items: center;
+            margin: 4px 8px 4px 0;
             cursor: pointer;
+        }
+        .year-selector .checkbox-group > div {
+            display: inline;
+            margin-right: 8px;
+            font-size: 14px;
         }
         .year-selector .checkbox-group input[type="checkbox"] {
             margin-right: 8px;
@@ -3101,19 +3117,10 @@
                 const title = document.createElement('div');
                 title.className = 'title';
 		title.innerHTML = `
-                    Budżet Obywatelski<br>
-                    Torunia<br>
-                    <a href="https://torun.pl/pl/bo" style="display: block; width: fit-content; margin: 0 auto; color: blue; text-decoration: underline;">
-                    torun.pl/pl/bo
+                    <a href="https://torun.pl/pl/bo" style="color: blue; text-decoration: underline;">
+                    Budżet Obywatelski Torunia
                     </a>`;
                 container.appendChild(title);
-
-                const centerButton = document.createElement('button');
-                centerButton.textContent = 'Wycentruj mapę';
-                centerButton.onclick = () => {
-                    mapInstance.setView(MAP_CENTER, MAP_ZOOM);
-                };
-                container.appendChild(centerButton);
 
                 const selectGroup = document.createElement('div');
                 selectGroup.className = 'control-group';
@@ -3144,9 +3151,8 @@
                 statusGroup.className = 'checkbox-group';
 
                 const statusLabel = document.createElement('div');
-                statusLabel.textContent = 'Status projektu:';
+                statusLabel.textContent = 'Projekt: ';
                 statusLabel.style.fontWeight = '500';
-                statusLabel.style.marginBottom = '4px';
                 statusGroup.appendChild(statusLabel);
 
                 const acceptedLabel = document.createElement('label');
