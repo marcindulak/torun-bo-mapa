@@ -3093,8 +3093,12 @@
 
                 const title = document.createElement('div');
                 title.className = 'title';
-                title.textContent = 'Budżet Obywatelski\nTorunia';
-                title.style.whiteSpace = 'pre-line';
+		title.innerHTML = `
+                    Budżet Obywatelski<br>
+                    Torunia<br>
+                    <a href="https://torun.pl/pl/bo" style="display: block; width: fit-content; margin: 0 auto; color: blue; text-decoration: underline;">
+                    torun.pl/pl/bo
+                    </a>`;
                 container.appendChild(title);
 
                 const centerButton = document.createElement('button');
