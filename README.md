@@ -4,7 +4,7 @@
 
 # Functionality overview
 
-Map visualization of the voting results of budżet obywatelski of the city of Toruń, Poland.
+Map visualization of the budżet obywatelski of the city of Toruń, Poland.
 
 # Usage examples
 

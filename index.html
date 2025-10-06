@@ -2906,12 +2906,13 @@
                 const zoom = map.getZoom();
                 const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
                 const size = baseSize * zoomScale;
+                const clickableSize = size * 1.1;
                 
                 const divIcon = new DivIcon({
                     html: `<div style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
                     className: '',
-                    iconSize: [size, size],
-                    iconAnchor: [size / 2, size / 2]
+                    iconSize: [clickableSize, clickableSize],
+                    iconAnchor: [clickableSize / 2, clickableSize / 2]
                 });
                 marker.setIcon(divIcon);
             };
@@ -3218,6 +3219,12 @@
                 }
             });
             updateClusterBoxes();
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                map.closePopup();
+            }
         });
     </script>
 </head>

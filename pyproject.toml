@@ -1,7 +1,7 @@
 [project]
 name = "torun-bo-mapa"
 version = "0.1.0"
-description = "Map visualization of the voting results of budżet obywatelski of the city of Toruń, Poland."
+description = "Map visualization of the budżet obywatelski of the city of Toruń, Poland."
 requires-python = ">=3.12"
 dependencies = [
     "pdfplumber",
