@@ -109,7 +109,7 @@ def extract_budget_data(pdf_path: str, process_row: Callable[[dict[str, Any]], d
                     if not row or len(row) < 2:
                         continue
 
-                    row_dict = dict(zip(headers, row))
+                    row_dict = {k: v for k, v in zip(headers, row) if k is not None}
                     entry = process_row(row_dict)
                     
                     if entry:

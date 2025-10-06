@@ -48,20 +48,12 @@ You'll find the `category` id assignment for each project in the "Plan budżetu"
 
 # Running tests
 
-## Integration test
-
-End-to-end test verifies the overall functionality of the preprocessing steps:
-
-```
-bash scripts/test_e2e.sh
-```
-
 ## Type checking
 
 Run mypy static type checking:
 
 ```
-bash scripts/test_mypy.sh
+uv run --frozen python -m mypy preprocessing
 ```
 
 # Implementation overview
