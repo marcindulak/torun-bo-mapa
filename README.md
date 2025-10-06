@@ -9,6 +9,8 @@
 
 Map visualization of the budżet obywatelski of the city of Toruń, Poland.
 
+Available at [https://marcindulak.github.io/torun-bo-mapa](https://marcindulak.github.io/torun-bo-mapa).
+
 # Usage examples
 
 The instructions below describe how to add a new budget year to `index.html`.
