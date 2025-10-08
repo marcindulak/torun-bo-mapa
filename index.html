@@ -65,7 +65,7 @@
             font-size: 14px;
             font-weight: 700;
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
             line-height: 1.3;
             white-space: nowrap;
         }
@@ -89,6 +89,30 @@
         .year-selector .checkbox-group input[type="checkbox"] {
             margin-right: 8px;
             cursor: pointer;
+        }
+        .year-selector .menu-content {
+            max-height: 1000px;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        .year-selector .menu-content.collapsed {
+            max-height: 0;
+        }
+        .year-selector .toggle-button {
+            padding: 6px 12px;
+            border: 2px solid #333;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            width: 100%;
+            box-sizing: border-box;
+            margin-top: 4px;
+            margin-bottom: 0;
+        }
+        .year-selector .toggle-button:hover {
+            background: #f0f0f0;
         }
         .cluster-label {
             background: transparent;
@@ -3122,6 +3146,9 @@
                     </a>`;
                 container.appendChild(title);
 
+                const menuContent = document.createElement('div');
+                menuContent.className = 'menu-content';
+
                 const selectGroup = document.createElement('div');
                 selectGroup.className = 'control-group';
 
@@ -3145,7 +3172,7 @@
                 };
 
                 selectGroup.appendChild(select);
-                container.appendChild(selectGroup);
+                menuContent.appendChild(selectGroup);
 
                 const statusGroup = document.createElement('div');
                 statusGroup.className = 'checkbox-group';
@@ -3187,7 +3214,18 @@
                 rejectedLabel.appendChild(document.createTextNode('Odrzucony'));
                 statusGroup.appendChild(rejectedLabel);
 
-                container.appendChild(statusGroup);
+                menuContent.appendChild(statusGroup);
+                container.appendChild(menuContent);
+
+                const toggleButton = document.createElement('button');
+                toggleButton.className = 'toggle-button';
+                toggleButton.innerHTML = 'Zwiń menu ▲';
+                toggleButton.onclick = () => {
+                    const isCollapsed = menuContent.classList.toggle('collapsed');
+                    toggleButton.innerHTML = isCollapsed ? 'Rozwiń menu ▼' : 'Zwiń menu ▲';
+                };
+                container.appendChild(toggleButton);
+
                 return container;
             }
         });
