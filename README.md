@@ -33,20 +33,20 @@ The instructions below describe how to add a new budget year to `index.html`.
 4. Extract budget data from PDF:
 
    ```
-   uv run --frozen python preprocessing/extract_bo_2025.py > bo/2025.raw.json
+   uv run --frozen python preprocessing/extract_bo_2025.py > data/2025.raw.json
    ```
 
-5. Manually add `address` and `category` to the generated JSON file for all entries, and save the file as `bo/2025.json`.
+5. Manually add `address` and `category` to the generated JSON file for all entries, and save the file as `data/2025.json`.
 You need to use a human judgment to determine the `address`, sometimes looking for it in other documents present on https://torun.pl/pl/bo or https://bip.torun.pl/artykuly/32484/budzet-torunia.
 You'll find the `category` id assignment for each project in the "Plan budżetu" document available at https://bip.torun.pl/artykuly/32484/budzet-torunia, in the `Dział` column.
 
 6. Perform geolocation:
 
    ```
-   uv run --frozen python preprocessing/perform_geolocation.py bo/2025.json
+   uv run --frozen python preprocessing/perform_geolocation.py data/2025.json
    ```
 
-7. Include the contents of `bo/2025.json` into the `index.html` file.
+7. Include the contents of `data/2025.json` into the `index.html` file.
 
 # Running tests
 
@@ -70,6 +70,11 @@ Addresses are manually filled in the address field of each entry in the JSON fil
 The following information was used for manual entry:
 - 2025: `address` (https://torun.pl/pl/budzet-obywatelski-2025-ostateczna-lista-projektow-do-glosowania), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1132802/Uchwala-146_24 Zalacznik29.pdf)
 - 2024: `address` (https://torun.pl/pl/budzet-obywatelski-w-toruniu-2024), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1009669/Uchwala-1237_23 Zalacznik30.pdf)
+
+Suggestions for data owners:
+1. Keep the "Nazwa projektu", "Lokalizacja", "Opis" in separate columns.
+2. Provide standardized "Lokalizacja", ideally with geolocation data.
+3. If multiple localizations are covered by the project, provide them as entries in a separate column. Do not use free form text like "Ulica A, oraz czesc ulicy B" or similar, since they are hard to parse by a machine.
 
 # Abandoned ideas
 

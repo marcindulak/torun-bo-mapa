@@ -52,7 +52,7 @@ def process_row_2024(row_dict: dict[str, Any]) -> dict[str, Any] | None:
 
 
 def main() -> None:
-    pdf_path = "bo/2024/bo_2024_wyniki_komplet_13-10-2023_int_ok.pdf"
+    pdf_path = "data/2024/bo_2024_wyniki_komplet_13-10-2023_int_ok.pdf"
 
     entries = extract_budget_data(pdf_path, process_row_2024)
 
