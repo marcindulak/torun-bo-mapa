@@ -71,6 +71,11 @@ The following information was used for manual entry:
 - 2025: `address` (https://torun.pl/pl/budzet-obywatelski-2025-ostateczna-lista-projektow-do-glosowania), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1132802/Uchwala-146_24 Zalacznik29.pdf)
 - 2024: `address` (https://torun.pl/pl/budzet-obywatelski-w-toruniu-2024), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1009669/Uchwala-1237_23 Zalacznik30.pdf)
 
+Suggestions for data owners:
+1. Keep the "Nazwa projektu", "Lokalizacja", "Opis" in separate columns.
+2. Provide standardized "Lokalizacja", ideally with geolocation data.
+3. If multiple localizations are covered by the project, provide them as entries in a separate column. Do not use free form text like "Ulica A, oraz czesc ulicy B" or similar, since they are hard to parse by a machine.
+
 # Abandoned ideas
 
 - Loading data from separate JSON files: discarded due to CORS restrictions when opening HTML files directly in browsers.
