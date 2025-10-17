@@ -33,20 +33,20 @@ The instructions below describe how to add a new budget year to `index.html`.
 4. Extract budget data from PDF:
 
    ```
-   uv run --frozen python preprocessing/extract_bo_2025.py > bo/2025.raw.json
+   uv run --frozen python preprocessing/extract_bo_2025.py > data/2025.raw.json
    ```
 
-5. Manually add `address` and `category` to the generated JSON file for all entries, and save the file as `bo/2025.json`.
+5. Manually add `address` and `category` to the generated JSON file for all entries, and save the file as `data/2025.json`.
 You need to use a human judgment to determine the `address`, sometimes looking for it in other documents present on https://torun.pl/pl/bo or https://bip.torun.pl/artykuly/32484/budzet-torunia.
 You'll find the `category` id assignment for each project in the "Plan budżetu" document available at https://bip.torun.pl/artykuly/32484/budzet-torunia, in the `Dział` column.
 
 6. Perform geolocation:
 
    ```
-   uv run --frozen python preprocessing/perform_geolocation.py bo/2025.json
+   uv run --frozen python preprocessing/perform_geolocation.py data/2025.json
    ```
 
-7. Include the contents of `bo/2025.json` into the `index.html` file.
+7. Include the contents of `data/2025.json` into the `index.html` file.
 
 # Running tests
 

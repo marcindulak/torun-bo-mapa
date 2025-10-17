@@ -28,17 +28,17 @@ jobs:
           set -eo pipefail
           uv sync
 
-      - name: bo/2025.raw.json
+      - name: data/2025.raw.json
         run: |
           set -eo pipefail
           uv run --frozen python preprocessing/extract_bo_2025.py > 2025.raw.json
-          diff bo/2025.raw.json 2025.raw.json
+          diff data/2025.raw.json 2025.raw.json
 
-      - name: bo/2024.raw.json
+      - name: data/2024.raw.json
         run: |
           set -eo pipefail
           uv run --frozen python preprocessing/extract_bo_2024.py > 2024.raw.json
-          diff bo/2024.raw.json 2024.raw.json
+          diff data/2024.raw.json 2024.raw.json
 
       - name: uv run --frozen python -m mypy preprocessing
         run: |
