@@ -20,12 +20,13 @@ View all accepted and rejected citizen budget projects on an interactive map. Cl
 Test your knowledge of the citizen budget projects. Click "Sprawdź Swoją Wiedzę!" to start a game with 5 randomly selected projects.
 
 In each game round, you answer two questions:
-1. **Identify the project**: Given a project category, identify the correct project name from 3 choices (closest projects in the same category, supplemented from other categories if needed).
+1. **Identify the project**: Given a project category, identify the correct project name from 2 choices (closest projects in the same category, supplemented from other categories if needed).
 2. **Guess the budget range**: Estimate whether the project costs less than 100,000 zł, between 100,000-500,000 zł, or more than 500,000 zł.
 
-Each correct answer earns 1 point (max 10 points per game). After answering each question, the correct answer and project details are displayed for 8 seconds. After 5 projects, your final score is shown with confetti animation.
+Each correct answer earns 1 point (max 10 points per game). After answering each question, the correct answer and project details are displayed for 8 seconds, or may be skipped by pressing "Następny" button.
+After 5 projects, your final score is shown with confetti animation.
 
-You can exit the game at any time by pressing ESC or clicking on the map behind the game dialog.
+You can exit the game at any time by pressing ESC.
 
 # Usage examples
 

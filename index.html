@@ -354,11 +354,21 @@
 
         // Seeded random number generator for deterministic game
         // Returns a function that generates the next random number in the sequence
+        // Global flag to control RNG behavior: true = deterministic (same game every reload),
+        // false = randomized (different game on each reload)
+        const DETERMINISTIC_GAME = false;
+
         function createSeededRandom(initialSeed) {
             let seed = initialSeed;
             return function next() {
                 seed = (seed * 9301 + 49297) % 233280;
                 return seed / 233280;
+            };
+        }
+
+        function createUnseededRandom() {
+            return function next() {
+                return Math.random();
             };
         }
 
@@ -460,7 +470,7 @@
         // Select 5 random accepted locations
         function selectRandomLocations(allLocations) {
             const accepted = allLocations.filter(l => l.accepted);
-            gameState.rng = createSeededRandom(42);
+            gameState.rng = DETERMINISTIC_GAME ? createSeededRandom(42) : createUnseededRandom();
             return shuffleArray(accepted, gameState.rng).slice(0, 5);
         }
 
@@ -911,7 +921,7 @@
 
             const message = document.createElement('div');
             message.className = 'game-over-message';
-            message.textContent = 'Twoj wynik';
+            message.textContent = 'Twój wynik';
             container.appendChild(message);
 
             const score = document.createElement('div');
