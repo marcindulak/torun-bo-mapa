@@ -133,9 +133,897 @@
             line-height: 32px !important;
             padding: 0 !important;
         }
+        .game-overlay {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            width: 320px;
+            background: transparent;
+            z-index: 9999;
+            pointer-events: none;
+        }
+        .game-overlay.modal {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: auto;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            pointer-events: auto;
+        }
+        .game-overlay.modal .game-container {
+            max-height: 80vh;
+        }
+        .game-container {
+            position: relative;
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            max-width: 320px;
+            max-height: 400px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            pointer-events: auto;
+        }
+        .game-header {
+            margin-bottom: 15px;
+        }
+        .game-score {
+            display: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .game-score.show {
+            display: block;
+        }
+        .game-question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0 20px 0;
+            min-height: 28px;
+        }
+        .game-question {
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+            line-height: 1.3;
+        }
+        .game-question-button {
+            flex-shrink: 0;
+            width: 75px;
+            height: 28px;
+        }
+        .game-answers {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .game-answers.horizontal {
+            flex-direction: row;
+            gap: 8px;
+            justify-content: space-between;
+        }
+        .game-answers.horizontal .game-answer-label {
+            flex: 1;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 6px;
+            font-size: 13px;
+            gap: 6px;
+        }
+        .game-answers.horizontal .game-answer-label input[type="radio"] {
+            margin-right: 0;
+        }
+        .game-answer-label {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s;
+        }
+        .game-answer-label:hover {
+            background-color: #f5f5f5;
+            border-color: #999;
+        }
+        .game-answer-label input[type="radio"] {
+            margin-right: 12px;
+            cursor: pointer;
+            width: 20px;
+            height: 20px;
+            accent-color: #333;
+            flex-shrink: 0;
+        }
+        .game-answer-label.correct {
+            background-color: #d4edda;
+            border-color: #28a745;
+        }
+        .game-answer-label.incorrect {
+            background-color: #f8d7da;
+            border-color: #dc3545;
+        }
+        .game-result {
+            display: none;
+        }
+        .game-button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .game-button {
+            flex: 1;
+            padding: 8px 10px;
+            border: 2px solid #333;
+            background: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 1.2;
+            box-sizing: border-box;
+        }
+        .game-button:hover {
+            background: #f0f0f0;
+        }
+        .game-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        .game-over-screen {
+            text-align: center;
+        }
+        .game-over-score {
+            font-size: 48px;
+            font-weight: bold;
+            color: #333;
+            margin: 30px 0;
+        }
+        .game-over-message {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            pointer-events: none;
+            border-radius: 50%;
+        }
+        @media (max-width: 768px) {
+            .game-overlay {
+                right: 10px;
+            }
+            .game-container {
+                max-height: 20vh;
+                padding: 8px;
+            }
+            .game-question-header {
+                margin: 5px 0 10px 0;
+                min-height: 24px;
+            }
+            .game-question {
+                font-size: 13px;
+                flex: 1;
+                line-height: 1.2;
+            }
+            .game-question-button {
+                width: 60px;
+                height: 24px;
+            }
+            .game-answers {
+                gap: 5px;
+                margin: 8px 0;
+            }
+            .game-answer-label {
+                padding: 8px;
+                font-size: 12px;
+            }
+            .game-answer-label input[type="radio"] {
+                margin-right: 6px;
+                width: 14px;
+                height: 14px;
+            }
+            .game-answers.horizontal {
+                gap: 4px;
+            }
+            .game-answers.horizontal .game-answer-label {
+                padding: 6px 3px;
+                font-size: 10px;
+                gap: 4px;
+            }
+            .game-answers.horizontal .game-answer-label input[type="radio"] {
+                width: 13px;
+                height: 13px;
+            }
+            .game-button {
+                padding: 4px 6px;
+                font-size: 11px;
+            }
+            .game-score {
+                font-size: 12px;
+                margin-bottom: 5px;
+            }
+        }
     </style>
     <script type="module">
         import { Map, TileLayer, Marker, DivIcon, Control, Rectangle, DivOverlay, Polygon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
+
+        // Seeded random number generator for deterministic game
+        class SeededRandom {
+            constructor(seed) {
+                this.seed = seed;
+            }
+
+            next() {
+                this.seed = (this.seed * 9301 + 49297) % 233280;
+                return this.seed / 233280;
+            }
+        }
+
+        // Game state management
+        let gameState = {
+            active: false,
+            currentLocationIndex: 0,
+            selectedLocations: [],
+            currentLocation: null,
+            currentQuestionType: 'project',
+            score: 0,
+            phase: 'question',
+            resultTimeoutId: null,
+            rng: null,
+            highlightedMarker: null
+        };
+
+        let mapInstance = null;
+        let currentMarkers = [];
+        let currentClusterBoxes = [];
+        let currentClusters = [];
+        let acceptanceFilter = { accepted: true, rejected: false };
+        let currentYear = '2025';
+        let minCost, maxCost;
+
+        // Helper function to calculate distance between two points (Haversine)
+        function calculateDistance(lat1, lon1, lat2, lon2) {
+            const R = 6371;
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLon = (lon2 - lon1) * Math.PI / 180;
+            const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+                      Math.sin(dLon/2) * Math.sin(dLon/2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+            return R * c;
+        }
+
+        // Get closest projects in the same category, supplement from other categories if needed
+        function getClosestInCategory(location, allLocations, count = 3) {
+            const sameCategory = allLocations.filter(l =>
+                l.category === location.category && l.accepted && l !== location
+            );
+
+            const withDistance = sameCategory.map(l => ({
+                ...l,
+                distance: calculateDistance(location.lat, location.lon, l.lat, l.lon)
+            }));
+
+            withDistance.sort((a, b) => a.distance - b.distance);
+
+            let choices = [location, ...withDistance.slice(0, count - 1)];
+
+            // If we need more choices from other categories
+            if (choices.length < count) {
+                const otherCategories = allLocations.filter(l =>
+                    l.category !== location.category && l.accepted && l !== location
+                );
+
+                const otherWithDistance = otherCategories.map(l => ({
+                    ...l,
+                    distance: calculateDistance(location.lat, location.lon, l.lat, l.lon)
+                }));
+
+                otherWithDistance.sort((a, b) => a.distance - b.distance);
+                choices = choices.concat(otherWithDistance.slice(0, count - choices.length));
+            }
+
+            // Shuffle choices so correct answer appears in random position
+            return shuffleArray(choices.slice(0, count), gameState.rng);
+        }
+
+        // Shuffle array with seeded RNG
+        function shuffleArray(array, rng) {
+            const arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(rng.next() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
+
+        // Format cost with thousand separators
+        function formatCost(cost) {
+            return Number(cost).toLocaleString('pl-PL');
+        }
+
+        // Categorize cost into three ranges
+        function categorizeCost(cost) {
+            const numCost = Number(cost);
+            if (numCost < 100000) return 'mniej niż 100,000';
+            if (numCost <= 500000) return 'między 100,000 i 500,000';
+            return 'powyżej 500,000';
+        }
+
+
+        // Select 5 random accepted locations
+        function selectRandomLocations(allLocations) {
+            const accepted = allLocations.filter(l => l.accepted);
+            gameState.rng = new SeededRandom(42);
+            return shuffleArray(accepted, gameState.rng).slice(0, 5);
+        }
+
+        // Start game mode
+        function startGameMode() {
+            gameState.active = true;
+            gameState.currentLocationIndex = 0;
+            gameState.score = 0;
+            gameState.phase = 'question';
+            gameState.currentQuestionType = 'project';
+
+            const allLocations = DATA_BY_YEAR[currentYear];
+            gameState.selectedLocations = selectRandomLocations(allLocations);
+
+            // Collapse menu on mobile for better visibility and hide toggle during game
+            const menuContent = document.querySelector('.menu-content');
+            if (menuContent) {
+                gameState.menuWasCollapsed = menuContent.classList.contains('collapsed');
+                menuContent.classList.add('collapsed');
+                // Find the toggle button: it's the toggle-button without an id in year-selector
+                const toggleButtons = document.querySelectorAll('.year-selector .toggle-button');
+                const menuToggle = Array.from(toggleButtons).find(btn => !btn.id);
+                if (menuToggle) {
+                    menuToggle.innerHTML = 'Rozwiń menu ▼';
+                    menuToggle.style.display = 'none';
+                }
+            }
+
+            updateGameButton();
+            showGameQuestion();
+            blockMapInteraction();
+        }
+
+        // Block marker popups during game
+        function blockMapInteraction() {
+            if (mapInstance && currentMarkers) {
+                currentMarkers.forEach(marker => {
+                    if (marker.unbindPopup) {
+                        marker.unbindPopup();
+                    }
+                });
+            }
+        }
+
+        // Re-enable map interaction after game
+        function unblockMapInteraction() {
+            // Reload markers to restore popups
+            if (mapInstance) {
+                loadYear(currentYear);
+            }
+        }
+
+        // Highlight the current project marker on the map
+        function highlightCurrentLocation() {
+            // Clear previous highlight
+            if (gameState.highlightedMarker) {
+                // Restore original updateIcon and reset marker to normal appearance
+                const prevMarker = gameState.highlightedMarker;
+                if (prevMarker._originalUpdateIcon) {
+                    prevMarker.updateIcon = prevMarker._originalUpdateIcon;
+                    prevMarker.updateIcon();
+                }
+            }
+
+            // Find the marker for the current location by name (coordinates may be adjusted by gridArrangeCloseMarkers)
+            const marker = currentMarkers.find(m =>
+                m.location &&
+                m.location.name === gameState.currentLocation.name
+            );
+
+            if (marker) {
+                // Store original updateIcon function so we can restore it later
+                const originalUpdateIcon = marker.updateIcon;
+                marker._originalUpdateIcon = originalUpdateIcon;
+
+                // Create a wrapper that preserves the glow effect
+                marker.updateIcon = () => {
+                    const icon = CATEGORY_ICONS[marker.location.category] || '📍';
+                    const zoom = mapInstance.getZoom();
+                    const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
+                    const size = marker.baseSize * zoomScale;
+
+                    const highlightedIcon = new DivIcon({
+                        html: `<div style="font-size: ${size}px; line-height: 1; text-align: center; filter: drop-shadow(0 0 4px #FF0000) drop-shadow(0 0 8px #FF6666); text-shadow: 0 0 3px #FF0000;">${icon}</div>`,
+                        className: '',
+                        iconSize: [size, size],
+                        iconAnchor: [size / 2, size / 2]
+                    });
+                    marker.setIcon(highlightedIcon);
+                };
+
+                gameState.highlightedMarker = marker;
+
+                // Zoom to the highlighted marker
+                if (mapInstance) {
+                    // Update icon after zoom completes, or use fallback if zoomend doesn't fire
+                    const onZoomEnd = () => {
+                        marker.updateIcon();
+                        mapInstance.off('zoomend', onZoomEnd);
+                        clearTimeout(fallbackTimeout);
+                    };
+                    mapInstance.on('zoomend', onZoomEnd);
+                    // Fallback: update icon even if zoomend doesn't fire (when already at target zoom)
+                    const fallbackTimeout = setTimeout(() => {
+                        marker.updateIcon();
+                        mapInstance.off('zoomend', onZoomEnd);
+                    }, 300);
+                    mapInstance.setView([marker.location.lat, marker.location.lon], 14);
+                }
+            } else {
+                console.log('Marker not found for:', gameState.currentLocation.name);
+            }
+        }
+
+        // Display current question
+        function showGameQuestion() {
+            if (gameState.currentLocationIndex >= 5) {
+                endGame();
+                return;
+            }
+
+            gameState.currentLocation = gameState.selectedLocations[gameState.currentLocationIndex];
+            const allLocations = DATA_BY_YEAR[currentYear];
+
+            // Highlight the current location on the map (use setTimeout to ensure markers are ready)
+            setTimeout(() => {
+                highlightCurrentLocation();
+            }, 100);
+
+            let overlay = document.getElementById('game-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'game-overlay';
+                overlay.className = 'game-overlay';
+                document.body.appendChild(overlay);
+            }
+
+            const container = document.createElement('div');
+            container.className = 'game-container';
+
+            const header = document.createElement('div');
+            header.className = 'game-header';
+            const scoreDiv = document.createElement('div');
+            scoreDiv.className = 'game-score';
+            scoreDiv.textContent = `Wynik: ${gameState.score}/10`;
+            header.appendChild(scoreDiv);
+            container.appendChild(header);
+
+            // Display project details when asking about cost (second question in the round)
+            if (gameState.currentQuestionType === 'cost') {
+                const projectInfo = document.createElement('div');
+                projectInfo.style.marginBottom = '15px';
+                projectInfo.style.fontSize = '14px';
+                projectInfo.style.color = '#666';
+                projectInfo.innerHTML = `<strong>Projekt:</strong> ${gameState.currentLocation.name}`;
+                container.appendChild(projectInfo);
+            }
+
+            if (gameState.currentQuestionType === 'project') {
+                const questionHeader = document.createElement('div');
+                questionHeader.className = 'game-question-header';
+
+                const question = document.createElement('div');
+                question.className = 'game-question';
+                const questionNumber = gameState.currentLocationIndex + 1;
+                question.textContent = `Jaki to projekt? (Test ${questionNumber}/5)`;
+
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'game-question-button';
+                buttonContainer.id = 'question-button-container';
+
+                questionHeader.appendChild(question);
+                questionHeader.appendChild(buttonContainer);
+                container.appendChild(questionHeader);
+
+                const projectInfo = document.createElement('div');
+                projectInfo.style.marginBottom = '15px';
+                projectInfo.style.fontSize = '14px';
+                projectInfo.style.color = '#666';
+                const categoryName = CATEGORY_NAMES[gameState.currentLocation.category] || gameState.currentLocation.category || 'Nie przypisano';
+                projectInfo.innerHTML = `<strong>Kategoria:</strong> ${categoryName}`;
+                container.appendChild(projectInfo);
+
+                const choices = getClosestInCategory(gameState.currentLocation, allLocations, 2);
+
+                const answersDiv = document.createElement('div');
+                answersDiv.className = 'game-answers';
+
+                choices.forEach((choice, index) => {
+                    const label = document.createElement('label');
+                    label.className = 'game-answer-label';
+
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = 'project-choice';
+                    radio.value = index;
+                    radio.onchange = () => handleProjectAnswer(choice);
+
+                    label.appendChild(radio);
+                    label.appendChild(document.createTextNode(choice.name));
+                    answersDiv.appendChild(label);
+                });
+
+                container.appendChild(answersDiv);
+            } else {
+                const questionHeader = document.createElement('div');
+                questionHeader.className = 'game-question-header';
+
+                const question = document.createElement('div');
+                question.className = 'game-question';
+                question.textContent = 'Koszt projektu?';
+
+                const buttonContainer = document.createElement('div');
+                buttonContainer.className = 'game-question-button';
+                buttonContainer.id = 'question-button-container';
+
+                questionHeader.appendChild(question);
+                questionHeader.appendChild(buttonContainer);
+                container.appendChild(questionHeader);
+
+                const costRange = categorizeCost(gameState.currentLocation.cost);
+                const costRanges = [
+                    { label: 'niski', value: 'mniej niż 100,000' },
+                    { label: 'średni', value: 'między 100,000 i 500,000' },
+                    { label: 'wysoki', value: 'powyżej 500,000' }
+                ];
+
+                const answersDiv = document.createElement('div');
+                answersDiv.className = 'game-answers horizontal';
+
+                costRanges.forEach((range) => {
+                    const label = document.createElement('label');
+                    label.className = 'game-answer-label';
+
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = 'cost-choice';
+                    radio.value = range.value;
+                    radio.onchange = () => handleCostAnswer(range.value);
+
+                    label.appendChild(radio);
+                    label.appendChild(document.createTextNode(range.label));
+                    answersDiv.appendChild(label);
+                });
+
+                container.appendChild(answersDiv);
+
+                // Reserve space for cost display that appears after answer is given
+                const costPlaceholder = document.createElement('div');
+                costPlaceholder.className = 'cost-placeholder';
+                costPlaceholder.style.marginTop = '12px';
+                costPlaceholder.style.fontSize = '13px';
+                costPlaceholder.style.height = '1.5em';
+                costPlaceholder.style.visibility = 'hidden';
+                container.appendChild(costPlaceholder);
+            }
+
+            overlay.innerHTML = '';
+            overlay.appendChild(container);
+
+            // Allow closing game by clicking on overlay background or pressing ESC
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    exitGame();
+                }
+            };
+
+            // ESC key to exit game
+            const handleEsc = (e) => {
+                if (e.key === 'Escape') {
+                    exitGame();
+                    document.removeEventListener('keydown', handleEsc);
+                }
+            };
+            document.addEventListener('keydown', handleEsc);
+        }
+
+        // Add "Następne" button to advance to next question
+        function addNextButton(onClickFn) {
+            const buttonContainer = document.getElementById('question-button-container');
+            if (!buttonContainer) return;
+
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = 'Następne';
+            nextBtn.className = 'game-button';
+            nextBtn.style.width = '100%';
+            nextBtn.style.height = '100%';
+            nextBtn.style.margin = '0';
+            nextBtn.style.padding = '0';
+            nextBtn.onclick = () => {
+                // Clear the timeout so it doesn't trigger after button click
+                if (gameState.resultTimeoutId) {
+                    clearTimeout(gameState.resultTimeoutId);
+                }
+                onClickFn();
+            };
+            buttonContainer.appendChild(nextBtn);
+        }
+
+        // Handle project answer
+        function handleProjectAnswer(selectedProject) {
+            const isCorrect = selectedProject === gameState.currentLocation;
+            if (isCorrect) {
+                gameState.score++;
+            }
+
+            // Highlight answers
+            const labels = document.querySelectorAll('.game-answer-label');
+            labels.forEach(label => {
+                const radio = label.querySelector('input[type="radio"]');
+                radio.disabled = true;
+
+                const labelText = label.textContent.trim();
+                if (labelText === gameState.currentLocation.name) {
+                    // This is the correct answer
+                    label.classList.add('correct');
+                } else if (!isCorrect && labelText === selectedProject.name) {
+                    // User selected this (wrong) answer
+                    label.classList.add('incorrect');
+                }
+            });
+
+            // Add "Następne" button to advance
+            addNextButton(() => {
+                gameState.currentQuestionType = 'cost';
+                showGameQuestion();
+            });
+
+            gameState.resultTimeoutId = setTimeout(() => {
+                gameState.currentQuestionType = 'cost';
+                showGameQuestion();
+            }, 8000);
+        }
+
+        // Handle cost answer
+        function handleCostAnswer(selectedRange) {
+            const correctRange = categorizeCost(gameState.currentLocation.cost);
+            const isCorrect = selectedRange === correctRange;
+            if (isCorrect) {
+                gameState.score++;
+            }
+
+            // Highlight answers
+            const labels = document.querySelectorAll('.game-answer-label');
+            labels.forEach(label => {
+                const radio = label.querySelector('input[type="radio"]');
+                radio.disabled = true;
+
+                if (radio.value === selectedRange) {
+                    // This is the selected answer
+                    if (isCorrect) {
+                        label.classList.add('correct');
+                    } else {
+                        label.classList.add('incorrect');
+                    }
+                } else if (radio.value === correctRange) {
+                    // This is the correct answer (show even if user selected wrong)
+                    label.classList.add('correct');
+                }
+            });
+
+            // Display actual cost after answer is given
+            const costPlaceholder = document.querySelector('.cost-placeholder');
+            if (costPlaceholder) {
+                costPlaceholder.style.visibility = 'visible';
+                costPlaceholder.style.color = '#666';
+                costPlaceholder.style.textAlign = 'center';
+                costPlaceholder.textContent = `Koszt: ${formatCost(gameState.currentLocation.cost)} zł`;
+            }
+
+            // Add "Następne" button to advance
+            addNextButton(() => {
+                gameState.currentLocationIndex++;
+                gameState.currentQuestionType = 'project';
+                showGameQuestion();
+            });
+
+            gameState.resultTimeoutId = setTimeout(() => {
+                gameState.currentLocationIndex++;
+                gameState.currentQuestionType = 'project';
+                showGameQuestion();
+            }, 8000);
+        }
+
+        // End game
+        function endGame() {
+            gameState.active = false;
+
+            let overlay = document.getElementById('game-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'game-overlay';
+                overlay.className = 'game-overlay';
+                document.body.appendChild(overlay);
+            }
+
+            const container = document.createElement('div');
+            container.className = 'game-container game-over-screen';
+
+            const message = document.createElement('div');
+            message.className = 'game-over-message';
+            message.textContent = 'Twoj wynik';
+            container.appendChild(message);
+
+            const score = document.createElement('div');
+            score.className = 'game-over-score';
+            score.textContent = `${gameState.score}/10`;
+            container.appendChild(score);
+
+            const button = document.createElement('button');
+            button.className = 'game-button';
+            button.textContent = 'Zamknij';
+            button.onclick = exitGame;
+            container.appendChild(button);
+
+            overlay.innerHTML = '';
+            overlay.appendChild(container);
+
+            createConfetti();
+        }
+
+        // Create confetti animation
+        function createConfetti() {
+            const colors = ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8', '#F7DC6F'];
+            const container = document.querySelector('.game-container');
+
+            if (!container) return;
+
+            // Create 50 confetti particles, staggered every 100ms over 5 seconds for cascading effect
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+
+                    // HORIZONTAL SPREAD: Each particle is positioned at a random left position (0-100%)
+                    // to spread particles horizontally across the full width of the container.
+                    // The left positioning creates the horizontal distribution visible to the user.
+                    const left = Math.random() * 100;
+
+                    // ANIMATION PARAMETERS: Each particle gets randomized properties that control
+                    // its unique behavior throughout the animation.
+                    const opacity = 0.6 + Math.random() * 0.4;
+                    const duration = 2.5 + Math.random() * 2.5;           // Animation duration: 2.5-5 seconds
+                    const burstHeight = 20 + Math.random() * 30;          // Upward distance: 20-50% of container
+                    const drift = (Math.random() - 0.5) * 40;             // Horizontal drift: ±20% during fall
+                    const rotation = Math.random() * 720;                 // Total rotation: 0-720 degrees
+
+                    confetti.style.position = 'absolute';
+                    confetti.style.left = left + '%';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+
+                    // Pass animation parameters as CSS custom properties to the 'burst' keyframe
+                    confetti.style.setProperty('--opacity', opacity);
+                    confetti.style.setProperty('--duration', duration + 's');
+                    confetti.style.setProperty('--burst-height', burstHeight + '%');
+                    confetti.style.setProperty('--drift', drift + '%');
+                    confetti.style.setProperty('--rotation', rotation);
+
+                    // ANIMATION BEHAVIOR (defined in @keyframes burst):
+                    // - 0%: Particle starts at top: 0% with opacity: 0 (invisible at container top)
+                    //   The opacity: 0 hides an artifact that would otherwise show all particles as
+                    //   a horizontal line at the top before animation starts.
+                    // - 30%: Particle moves upward to top: calc(0% - burst-height), which places it
+                    //   above the visible container (negative top values). Becomes visible (opacity: var(--opacity)).
+                    //   Rotation begins (partial rotation applied at this point).
+                    // - 100%: Particle falls down to top: 100% (bottom of container), fades out (opacity: 0).
+                    //   Full rotation and horizontal drift applied via translateX. Particle ends invisible below container.
+                    // The 'ease-out' timing function makes the upward burst quick, then progressively slower
+                    // descent for natural falling physics. 'forwards' fill keeps the final invisible state.
+                    confetti.style.animation = `burst var(--duration) ease-out forwards`;
+
+                    container.appendChild(confetti);
+
+                    // Remove particle from DOM after animation completes to prevent memory buildup
+                    setTimeout(() => confetti.remove(), duration * 1000);
+                }, (i / 50) * 100);
+            }
+        }
+
+        // Exit game
+        function exitGame() {
+            gameState.active = false;
+
+            // Update button visibility BEFORE removing overlay to ensure proper state
+            updateGameButton();
+
+            const overlay = document.getElementById('game-overlay');
+            if (overlay) {
+                overlay.remove();
+            }
+
+            // Restore menu to previous state and show toggle button
+            const menuContent = document.querySelector('.menu-content');
+            if (menuContent) {
+                // Find the toggle button: it's the toggle-button without an id in year-selector
+                const toggleButtons = document.querySelectorAll('.year-selector .toggle-button');
+                const menuToggle = Array.from(toggleButtons).find(btn => !btn.id);
+                if (menuToggle) {
+                    menuToggle.style.display = 'block';
+                }
+
+                if (!gameState.menuWasCollapsed) {
+                    menuContent.classList.remove('collapsed');
+                    if (menuToggle) {
+                        menuToggle.innerHTML = 'Zwiń menu ▲';
+                    }
+                }
+            }
+
+            unblockMapInteraction();
+        }
+
+        // Update game button visibility
+        function updateGameButton() {
+            const gameBtn = document.getElementById('game-btn');
+            const endBtn = document.getElementById('end-game-btn');
+
+            if (gameState.active) {
+                // Game is active: hide start button, show end button
+                if (gameBtn) gameBtn.style.display = 'none';
+                if (endBtn) endBtn.style.display = 'block';
+            } else {
+                // Game is not active: show start button, hide end button
+                if (gameBtn) gameBtn.style.display = 'block';
+                if (endBtn) endBtn.style.display = 'none';
+            }
+        }
+
+        // CSS animation for confetti
+        if (!document.getElementById('confetti-style')) {
+            const style = document.createElement('style');
+            style.id = 'confetti-style';
+            style.textContent = `
+                @keyframes burst {
+                    0% {
+                        top: 0%;
+                        opacity: 0;
+                        transform: translateX(0) rotate(0deg);
+                    }
+                    30% {
+                        top: calc(0% - var(--burst-height));
+                        opacity: var(--opacity);
+                        transform: translateX(0) rotate(calc(var(--rotation) * 0.3));
+                    }
+                    100% {
+                        top: 100%;
+                        opacity: 0;
+                        transform: translateX(var(--drift)) rotate(var(--rotation));
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
 
       const DATA_BY_YEAR = {
           '2026':
@@ -3919,27 +4807,8 @@
 ]
       };
 
-      const AVAILABLE_YEARS = Object.keys(DATA_BY_YEAR).sort().reverse();
-
-        const MAP_CENTER = [53.0138, 18.6003]; // Concides with Motoarena Toruń
-        const MAP_ZOOM = 12;
-        const MAX_ZOOM = 18;
-        const MIN_ZOOM = 11;
-        
-        const MARKER_ZOOM_SCALE_FACTOR = 1.2;
-        const GRID_SPACING_METERS = 50;
-        const METERS_PER_DEGREE_LAT = 111000;
-        const EARTH_CIRCUMFERENCE_METERS = 40075017;
-        const BOX_PADDING_MULTIPLIER = 0.6;
-        const BOX_LABEL_OFFSET_BASE_MULTIPLIER = 1.1;
-        const BOX_LABEL_FONT_SIZE_BASE = 14;
-        const BOX_LABEL_FONT_SIZE_ZOOM_REDUCTION = 0.5;
-        
-        const TILE_LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://github.com/marcindulak/torun-bo-mapa">marcindulak</a> | Projekt niezwiązany z Urzędem Miasta Torunia';
-        
-        // Category names from https://przepisy.gofin.pl/przepisy,4,16,194,1276,,20250916,rozporzadzenie-ministra-finansow-z-dnia-2032010-r-w-sprawie.html
-        const CATEGORY_NAMES = Object.freeze({
+      // Category names from https://przepisy.gofin.pl/przepisy,4,16,194,1276,,20250916,rozporzadzenie-ministra-finansow-z-dnia-2032010-r-w-sprawie.html
+      const CATEGORY_NAMES = Object.freeze({
             '010': 'Rolnictwo i łowiectwo',
             '020': 'Leśnictwo',
             '050': 'Rybołówstwo i rybactwo',
@@ -3973,7 +4842,27 @@
             '921': 'Kultura i ochrona dziedzictwa narodowego',
             '925': 'Ogrody botaniczne i zoologiczne oraz naturalne obszary i obiekty chronionej przyrody',
             '926': 'Kultura fizyczna'
-        });
+      });
+
+      const AVAILABLE_YEARS = Object.keys(DATA_BY_YEAR).sort().reverse();
+      currentYear = AVAILABLE_YEARS[0];
+
+        const MAP_CENTER = [53.0138, 18.6003]; // Concides with Motoarena Toruń
+        const MAP_ZOOM = 12;
+        const MAX_ZOOM = 18;
+        const MIN_ZOOM = 11;
+        
+        const MARKER_ZOOM_SCALE_FACTOR = 1.2;
+        const GRID_SPACING_METERS = 50;
+        const METERS_PER_DEGREE_LAT = 111000;
+        const EARTH_CIRCUMFERENCE_METERS = 40075017;
+        const BOX_PADDING_MULTIPLIER = 0.6;
+        const BOX_LABEL_OFFSET_BASE_MULTIPLIER = 1.1;
+        const BOX_LABEL_FONT_SIZE_BASE = 14;
+        const BOX_LABEL_FONT_SIZE_ZOOM_REDUCTION = 0.5;
+        
+        const TILE_LAYER_URL = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+        const TILE_LAYER_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors | &copy; <a href="https://github.com/marcindulak/torun-bo-mapa">marcindulak</a> | Projekt niezwiązany z Urzędem Miasta Torunia';
 
         // Category to icon mapping using Unicode emoji
 	// https://unicode.org/emoji/charts/full-emoji-list.html
@@ -3992,13 +4881,6 @@
         // This handles wide cost ranges  while keeping all differences visible.
         const BASE_RADIUS = 20;
         const MAX_RADIUS = 40;
-
-        let currentYear = AVAILABLE_YEARS[0];
-        let currentMarkers = [];
-        let currentClusterBoxes = [];
-        let currentClusters = [];
-        let minCost, maxCost;
-        let acceptanceFilter = { accepted: true, rejected: false };
 
         // Calculate marker radius based on project cost using square root scaling.
         // Returns radius in pixels scaled proportionally to cost within BASE_RADIUS to MAX_RADIUS range.
@@ -4300,6 +5182,22 @@
                 menuContent.appendChild(statusGroup);
                 container.appendChild(menuContent);
 
+                // Game mode buttons (placed before toggleButton to appear above it)
+                const gameBtn = document.createElement('button');
+                gameBtn.id = 'game-btn';
+                gameBtn.className = 'toggle-button';
+                gameBtn.textContent = 'Sprawdź Swoją Wiedzę!';
+                gameBtn.onclick = startGameMode;
+                container.appendChild(gameBtn);
+
+                const endGameBtn = document.createElement('button');
+                endGameBtn.id = 'end-game-btn';
+                endGameBtn.className = 'toggle-button';
+                endGameBtn.textContent = 'Zakończ grę';
+                endGameBtn.onclick = exitGame;
+                endGameBtn.style.display = 'none';
+                container.appendChild(endGameBtn);
+
                 const toggleButton = document.createElement('button');
                 toggleButton.className = 'toggle-button';
                 toggleButton.innerHTML = 'Zwiń menu ▲';
@@ -4319,7 +5217,8 @@
             zoomControl: false,
             attributionControl: false
         }).setView(MAP_CENTER, MAP_ZOOM);
-        
+        mapInstance = map;
+
         // Performance optimizations for tile loading:
         // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
         // - updateWhenIdle: true defers tile loading until after pan/zoom completes, reducing requests
@@ -4350,7 +5249,8 @@
 
         map.on('zoomend', () => {
             currentMarkers.forEach(marker => {
-                if (marker.updateIcon) {
+                // Skip updating highlighted marker to preserve the red circle highlight
+                if (marker.updateIcon && marker !== gameState.highlightedMarker) {
                     marker.updateIcon();
                 }
             });
