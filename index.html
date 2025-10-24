@@ -480,9 +480,16 @@
             if (menuContent) {
                 gameState.menuWasCollapsed = menuContent.classList.contains('collapsed');
                 menuContent.classList.add('collapsed');
-                // Find the toggle button: it's the toggle-button without an id in year-selector
+                // Performance improvement: Find toggle button without converting NodeList to Array.
+                // Iterate directly using a for loop instead of Array.from + find pattern.
                 const toggleButtons = document.querySelectorAll('.year-selector .toggle-button');
-                const menuToggle = Array.from(toggleButtons).find(btn => !btn.id);
+                let menuToggle = null;
+                for (let i = 0; i < toggleButtons.length; i++) {
+                    if (!toggleButtons[i].id) {
+                        menuToggle = toggleButtons[i];
+                        break;
+                    }
+                }
                 if (menuToggle) {
                     menuToggle.innerHTML = 'Rozwiń menu ▼';
                     menuToggle.style.display = 'none';
@@ -770,6 +777,9 @@
 
             overlay.innerHTML = '';
             overlay.appendChild(container);
+            // Performance improvement: Cache game answer labels after rendering.
+            // This avoids repeated DOM queries in handleProjectAnswer and handleCostAnswer.
+            gameState.currentLabels = container.querySelectorAll('.game-answer-label');
             setupGameOverlayHandlers(overlay);
         }
 
@@ -803,7 +813,9 @@
             }
 
             // Highlight answers
-            const labels = document.querySelectorAll('.game-answer-label');
+            // Performance improvement: Use cached labels instead of querying DOM.
+            // Labels were cached in showGameQuestion() after rendering.
+            const labels = gameState.currentLabels;
             labels.forEach(label => {
                 const radio = label.querySelector('input[type="radio"]');
                 radio.disabled = true;
@@ -839,7 +851,9 @@
             }
 
             // Highlight answers
-            const labels = document.querySelectorAll('.game-answer-label');
+            // Performance improvement: Use cached labels instead of querying DOM.
+            // Labels were cached in showGameQuestion() after rendering.
+            const labels = gameState.currentLabels;
             labels.forEach(label => {
                 const radio = label.querySelector('input[type="radio"]');
                 radio.disabled = true;
@@ -996,9 +1010,16 @@
             // Restore menu to previous state and show toggle button
             const menuContent = document.querySelector('.menu-content');
             if (menuContent) {
-                // Find the toggle button: it's the toggle-button without an id in year-selector
+                // Performance improvement: Find toggle button without converting NodeList to Array.
+                // Iterate directly using a for loop instead of Array.from + find pattern.
                 const toggleButtons = document.querySelectorAll('.year-selector .toggle-button');
-                const menuToggle = Array.from(toggleButtons).find(btn => !btn.id);
+                let menuToggle = null;
+                for (let i = 0; i < toggleButtons.length; i++) {
+                    if (!toggleButtons[i].id) {
+                        menuToggle = toggleButtons[i];
+                        break;
+                    }
+                }
                 if (menuToggle) {
                     menuToggle.style.display = 'block';
                 }
@@ -4978,45 +4999,51 @@
             const processed = new Set();
             const clusters = [];
 
+            // Performance improvement: Group locations by coordinates using a hash object
+            // This avoids O(n²) nested loop comparison. Instead, we hash coordinates
+            // as strings (e.g., "52.123,17.456") and group matching locations in a single pass.
+            // Uses Object.create(null) to avoid prototype chain collisions.
+            const coordGroups = Object.create(null);
             for (let i = 0; i < result.length; i++) {
-                if (processed.has(i)) continue;
-                
-                const cluster = [i];
-                
-                for (let j = i + 1; j < result.length; j++) {
-                    if (processed.has(j)) continue;
-                    
-                    if (result[i].lat === result[j].lat && result[i].lon === result[j].lon) {
-                        cluster.push(j);
-                    }
+                const coordKey = `${result[i].lat},${result[i].lon}`;
+                if (!coordGroups[coordKey]) {
+                    coordGroups[coordKey] = [];
                 }
+                coordGroups[coordKey].push(i);
+            }
+
+            // Process each unique coordinate group
+            for (const cluster of Object.values(coordGroups)) {
+                if (processed.has(cluster[0])) continue;
 
                 // Arrange clustered markers in a square grid using lat/lon offsets
                 if (cluster.length > 1) {
+                    const i = cluster[0];
                     const gridSize = Math.ceil(Math.sqrt(cluster.length));
                     const centerLat = result[i].lat;
                     const centerLon = result[i].lon;
                     let minLat = centerLat, maxLat = centerLat, minLon = centerLon, maxLon = centerLon;
-                    
-                    cluster.forEach((idx, pos) => {
+
+                    for (let pos = 0; pos < cluster.length; pos++) {
+                        const idx = cluster[pos];
                         const row = Math.floor(pos / gridSize);
                         const col = pos % gridSize;
                         const centerOffset = (gridSize - 1) / 2;
-                        
+
                         const latOffset = ((row - centerOffset) * GRID_SPACING_METERS) / METERS_PER_DEGREE_LAT;
                         const lonOffset = ((col - centerOffset) * GRID_SPACING_METERS) / (METERS_PER_DEGREE_LAT * Math.cos(centerLat * Math.PI / 180));
-                        
+
                         result[idx].lat = centerLat + latOffset;
                         result[idx].lon = centerLon + lonOffset;
-                        
+
                         minLat = Math.min(minLat, result[idx].lat);
                         maxLat = Math.max(maxLat, result[idx].lat);
                         minLon = Math.min(minLon, result[idx].lon);
                         maxLon = Math.max(maxLon, result[idx].lon);
-                        
+
                         processed.add(idx);
-                    });
-                    
+                    }
+
                     clusters.push({
                         minLat,
                         minLon,
@@ -5051,7 +5078,11 @@
             const labelOffset = padding * (BOX_LABEL_OFFSET_BASE_MULTIPLIER / markerZoomScale);
             const fontSize = BOX_LABEL_FONT_SIZE_BASE - (MAX_ZOOM - zoom) * BOX_LABEL_FONT_SIZE_ZOOM_REDUCTION;
 
-            currentClusterBoxes.forEach(box => map.removeLayer(box));
+            // Performance improvement: Remove all cluster boxes from map in a single operation.
+            // Reassigning the array after removing all elements avoids redundant iteration.
+            for (const box of currentClusterBoxes) {
+                map.removeLayer(box);
+            }
             currentClusterBoxes = [];
 
             currentClusters.forEach(cluster => {
@@ -5109,9 +5140,18 @@
             
             if (locationsWithCoords.length === 0) return;
 
-            const costs = locationsWithCoords.map(loc => loc.cost);
-            minCost = Math.min(...costs);
-            maxCost = Math.max(...costs);
+            // Performance improvement: Calculate min/max costs in a single loop pass
+            // instead of map + spread operator + two separate Math.min/Math.max calls.
+            // This reduces time complexity and memory allocation overhead.
+            let tempMinCost = Infinity;
+            let tempMaxCost = -Infinity;
+            for (let i = 0; i < locationsWithCoords.length; i++) {
+                const cost = locationsWithCoords[i].cost;
+                if (cost < tempMinCost) tempMinCost = cost;
+                if (cost > tempMaxCost) tempMaxCost = cost;
+            }
+            minCost = tempMinCost;
+            maxCost = tempMaxCost;
 
             const { result: arranged, clusters } = gridArrangeCloseMarkers(locationsWithCoords);
 
