@@ -36,7 +36,7 @@ The instructions below describe how to add a new budget year to `index.html`.
    uv run --frozen python preprocessing/extract_bo_2025.py > data/2025.raw.json
    ```
 
-5. Manually add `address` and `category` to the generated JSON file for all entries, and save the file as `data/2025.json`.
+5. `cp -f data/2025.raw.json data/2025.json` and manually add `address` and `category` to the `data/2025.json` file for all entries.
 You need to use a human judgment to determine the `address`, sometimes looking for it in other documents present on https://torun.pl/pl/bo or https://bip.torun.pl/artykuly/32484/budzet-torunia.
 You'll find the `category` id assignment for each project in the "Plan budżetu" document available at https://bip.torun.pl/artykuly/32484/budzet-torunia, in the `Dział` column.
 
@@ -68,6 +68,7 @@ The visualization uses Leaflet to place budget markers on an OpenStreetMap.
 Addresses are manually filled in the address field of each entry in the JSON file to ensure accurate geocoding.
 
 The following information was used for manual entry:
+- 2026: `address` (https://torun.pl/pl/budzet-obywatelski-2026-ostateczna-lista-projektow-do-glosowania), `category` (TODO)
 - 2025: `address` (https://torun.pl/pl/budzet-obywatelski-2025-ostateczna-lista-projektow-do-glosowania), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1132802/Uchwala-146_24 Zalacznik29.pdf)
 - 2024: `address` (https://torun.pl/pl/budzet-obywatelski-w-toruniu-2024), `category` (https://prawomiejscowe.pl/UrzadMiastaTorunia/document/1009669/Uchwala-1237_23 Zalacznik30.pdf)
 

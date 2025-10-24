@@ -3,7 +3,7 @@
 import logging
 import re
 import sys
-from collections.abc import Callable
+from collections.abc import Callable, Sequence
 from typing import Any
 
 import pdfplumber
@@ -73,13 +73,14 @@ def extract_first_sentence(text: str) -> str:
     return first_line
 
 
-def extract_budget_data(pdf_path: str, process_row: Callable[[dict[str, Any]], dict[str, Any] | None]) -> list[dict[str, Any]]:
+def extract_budget_data(pdf_path: str, process_row: Callable[[dict[str, Any]], dict[str, Any] | None], headers: list[str] | None = None) -> list[dict[str, Any]]:
     """
     Extract budget data from PDF table using year-specific row processing function.
 
     Args:
         pdf_path: Path to the PDF file
         process_row: Function that processes a row dictionary and returns entry dict or None
+        headers: Optional predefined headers to use for all tables. If None, extract from first row.
 
     Returns:
         List of budget entries extracted from PDF
@@ -102,16 +103,22 @@ def extract_budget_data(pdf_path: str, process_row: Callable[[dict[str, Any]], d
                 if not table:
                     continue
 
-                headers = table[0]
-                logger.info(f"  Headers: {headers}")
+                if headers:
+                    table_headers: Sequence[str | None] = headers
+                    rows_to_process = table
+                else:
+                    table_headers = table[0]
+                    rows_to_process = table[1:]
 
-                for row in table[1:]:
+                logger.info(f"  Headers: {table_headers}")
+
+                for row in rows_to_process:
                     if not row or len(row) < 2:
                         continue
 
-                    row_dict = {k: v for k, v in zip(headers, row) if k is not None}
+                    row_dict = {k: v for k, v in zip(table_headers, row) if k is not None}
                     entry = process_row(row_dict)
-                    
+
                     if entry:
                         entries.append(entry)
                         logger.info(f"  Extracted: {entry['name'][:50]}...")

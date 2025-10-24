@@ -68,11 +68,11 @@ def geocode_entries(entries: list[dict[str, Any]]) -> tuple[list[dict[str, Any]]
 
     for entry in entries:
         address = entry.get("address", "")
-        
+
         if "lat" in entry and "lon" in entry:
             already_geocoded_count += 1
             continue
-            
+
         if address:
             coords = geocode_address(address)
             if coords:
@@ -84,6 +84,8 @@ def geocode_entries(entries: list[dict[str, Any]]) -> tuple[list[dict[str, Any]]
                 logger.info(f"Geocoded: {address} -> ({lat_rounded}, {lon_rounded})")
             else:
                 logger.warning(f"Failed to geocode: {address}")
+        else:
+            logger.warning(f"Missing address for project: {entry.get('name', 'Unknown')}")
 
     total_with_coords = geocoded_count + already_geocoded_count
     return entries, geocoded_count, total_with_coords, total_entries, already_geocoded_count
