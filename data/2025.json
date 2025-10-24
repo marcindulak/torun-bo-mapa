@@ -71,7 +71,7 @@
   },
   {
     "name": "Przyjazny skwerek: róg Bema i Szosy Chełmińskiej.",
-    "address": "Generała Józefa Bema 3",
+    "address": "Bema 3",
     "category": "",
     "cost": 40000,
     "description": "Przyjazny skwerek: róg Bema i Szosy Chełmińskiej.\nRóg ulicy Bema i Szosy Chełmińskiej.\nZakres: nasadzenie 8-10 sztuk drzew, 200 cebulek kwiatów.",
@@ -461,13 +461,13 @@
   },
   {
     "name": "Remont i rewitalizacja obiektów na przystani kajakowej \"Wygoda\" oraz \"Białe Góry\"",
-    "address": "Turystycznej 130",
+    "address": "Turystyczna 130",
     "category": "",
     "cost": 140000,
     "description": "Remont i rewitalizacja obiektów na przystani kajakowej \"Wygoda\" oraz \"Białe Góry\"\nw Kaszczorku.\nPunkt postojowy dla kajakarzy \"Wygoda\". Kaszczorek blisko Muzeum\nEtnograficznego, tj. ul. Turystycznej 130, Toruń oraz \"Białe Góry\" przy ul.\nMiędzyrzecze.\nZakres: naprawa poszycia wiat, naprawa i malowanie wszystkich elementów\ndrewnianych, naprawa obramowań obu ognisk, naprawę schodów zejścia do\npomostu, łagodne podejście do kajaków wyjmowanych z wody, montaż wyciągarki\nręcznej do kajaków, naprawa mocowania pomostu, naprawa balustrady wieży\nwidokowej, naprawa tablic informacyjnych.",
     "accepted": false,
-    "lat": 53.18622,
-    "lon": 18.61352
+    "lat": 53.00545,
+    "lon": 18.69663
   },
   {
     "name": "Dokończenie remontu kociarni i części socjalnej w Schronisku dla Bezdomnych Zwierząt",
@@ -1151,13 +1151,13 @@
   },
   {
     "name": "Eko Zakątek - Zielona Klasa przy SP 18.",
-    "address": "Kardynała Stefana Wyszyńskiego 1",
+    "address": "Wyszyńskiego 1/5",
     "category": "",
     "cost": 230000,
     "description": "Eko Zakątek - Zielona Klasa przy SP 18.\nSzkoła Podstawowa nr 18 im. Arkadego Fiedlera.\nZakres: altana, ławostoły, odnowienie ogrodzenia od ul. Szosa Lubicka, wymiana\nsiatki z furtką, światowid, ścieżka sensoryczna, elementy Eko zakątka, roślinność,\noświetlenie.",
     "accepted": false,
-    "lat": 53.18057,
-    "lon": 18.59451
+    "lat": 53.02517,
+    "lon": 18.6827
   },
   {
     "name": "Droga do gwiazd - kosmiczno-przyrodniczy plac zabaw przy PM 13.",
