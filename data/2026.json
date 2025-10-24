@@ -1,0 +1,1082 @@
+[
+  {
+    "name": "Zazieleniamy Bydgoskie i Bielany",
+    "address": "Bydgoskie",
+    "category": "900",
+    "cost": 150000,
+    "description": "Zazieleniamy Bydgoskie i Bielany\nLokalizacja: Okręg nr 13 - Bydgoskie",
+    "accepted": true,
+    "lat": 53.01017,
+    "lon": 18.57644
+  },
+  {
+    "name": "Wygodne, przyjazne i zielone przestrzenie na Bydgoskim i Bielanach",
+    "address": "Bydgoskie",
+    "category": "900",
+    "cost": 133000,
+    "description": "Wygodne, przyjazne i zielone przestrzenie na Bydgoskim i Bielanach\nLokalizacja: Okręg nr 13 - Bydgoskie",
+    "accepted": true,
+    "lat": 53.01017,
+    "lon": 18.57644
+  },
+  {
+    "name": "Czas, by miasto nie chaosem stało, lecz wdziękiem trwałym, a nadobnym",
+    "address": "Mickiewicza",
+    "category": "900",
+    "cost": 294000,
+    "description": "Czas, by miasto nie chaosem stało, lecz wdziękiem trwałym, a nadobnym\nLokalizacja: Ulice Mickiewicza, Bydgoska, Chopina,\nMoniuszki, Krasińskiego, Słowackiego,\nMatejki, Klonowica, Konopnickiej, Rybaki\ni Sienkiewicza",
+    "accepted": true,
+    "lat": 52.98882,
+    "lon": 18.6218
+  },
+  {
+    "name": "Zielona sala-myśleć pozwala",
+    "address": "Gagarina 36",
+    "category": "900",
+    "cost": 150000,
+    "description": "Zielona sala-myśleć pozwala\nLokalizacja: Szkoła Podstawowa nr 11 ul. Gagarina\n36.",
+    "accepted": true,
+    "lat": 53.01702,
+    "lon": 18.5652
+  },
+  {
+    "name": "Modernizacja placu zabaw przy ul. Morcinka 19",
+    "address": "Morcinka 19",
+    "category": "",
+    "cost": 195000,
+    "description": "Modernizacja placu zabaw przy ul. Morcinka 19\nLokalizacja: ul. Morcinka 19",
+    "accepted": false,
+    "lat": 53.01927,
+    "lon": 18.5955
+  },
+  {
+    "name": "Herb Bydgoskiego Przedmieścia - mural tożsamości dzielnicy",
+    "address": "Lindego 10",
+    "category": "921",
+    "cost": 33000,
+    "description": "Herb Bydgoskiego Przedmieścia - mural tożsamości dzielnicy\nLokalizacja: ul. Lindego 10, 12, 14",
+    "accepted": true,
+    "lat": 53.01209,
+    "lon": 18.58414
+  },
+  {
+    "name": "Rodzinny Festyn Integracyjny dla Mieszkańców Bydgoskiego i Bielan",
+    "address": "Bydgoska 81",
+    "category": "900",
+    "cost": 29137,
+    "description": "Rodzinny Festyn Integracyjny dla Mieszkańców Bydgoskiego i Bielan\nLokalizacja: Park Miejski na Bydgoskim Przedmieściu",
+    "accepted": true,
+    "lat": 53.00966,
+    "lon": 18.59037
+  },
+  {
+    "name": "Szkoła letnia pod żaglami w SP 24 w Toruniu",
+    "address": "Ogrodowa 3",
+    "category": "801",
+    "cost": 180000,
+    "description": "Szkoła letnia pod żaglami w SP 24 w Toruniu\nLokalizacja: Szkoła Podstawowa nr 24 w Toruniu\nul. Ogrodowa 3/5",
+    "accepted": true,
+    "lat": 53.03252,
+    "lon": 18.76006
+  },
+  {
+    "name": "Zazielenić Kaszownik",
+    "address": "Przy Kaszowniku 17",
+    "category": "900",
+    "cost": 33000,
+    "description": "Zazielenić Kaszownik\nLokalizacja: Przy Kaszowniku 17-21 oraz przy ulicy\nJagiellońskiej",
+    "accepted": true,
+    "lat": 53.01835,
+    "lon": 18.61212
+  },
+  {
+    "name": "Modernizacja boiska sportowego na terenie ZSPS i VIII LO w Toruniu",
+    "address": "Grunwaldzka 33",
+    "category": "926",
+    "cost": 200000,
+    "description": "Modernizacja boiska sportowego na terenie ZSPS i VIII LO w Toruniu\nLokalizacja: ZSPS i VIII LO w Toruniu\nul. Grunwaldzka 33/35",
+    "accepted": true,
+    "lat": 53.02593,
+    "lon": 18.57132
+  },
+  {
+    "name": "Modernizacja placu zabaw między blokami przy ulicy Lelewela i Legionów",
+    "address": "Legionów 53",
+    "category": "801",
+    "cost": 244799,
+    "description": "Modernizacja placu zabaw między blokami przy ulicy Lelewela i Legionów\nLokalizacja: pomiędzy blokami przy ulicy Legionów\n53, Legionów 55-65, Lelewela 6-10",
+    "accepted": true,
+    "lat": 53.02334,
+    "lon": 18.60086
+  },
+  {
+    "name": "IX Święto Chełmińskiego Przedmieścia",
+    "address": "Św. Józefa 37",
+    "category": "",
+    "cost": 40000,
+    "description": "IX Święto Chełmińskiego Przedmieścia\nLokalizacja: Park przy Toruńskich Wodociągach",
+    "accepted": false,
+    "lat": 53.02723,
+    "lon": 18.5841
+  },
+  {
+    "name": "Ogrody Społeczne - zielona międzypokoleniowa strefa relaksu i aktywności - I etap",
+    "address": "Długosza",
+    "category": "",
+    "cost": 160000,
+    "description": "Ogrody Społeczne - zielona międzypokoleniowa strefa relaksu i aktywności - I etap\nLokalizacja: ul. Długosza",
+    "accepted": false,
+    "lat": 53.02644,
+    "lon": 18.59371
+  },
+  {
+    "name": "Bezpieczna zabawa to podstawa - odnowimy plac zabaw z zieloną rurą :)",
+    "address": "Borowiacka 5",
+    "category": "",
+    "cost": 300000,
+    "description": "Bezpieczna zabawa to podstawa - odnowimy plac zabaw z zieloną rurą :)\nLokalizacja: ul. Borowiacka 5",
+    "accepted": false,
+    "lat": 53.02533,
+    "lon": 18.58735
+  },
+  {
+    "name": "Rewitalizacja boiska do koszykówki przy ul. Rusa w Toruniu",
+    "address": "Rusa 7a",
+    "category": "",
+    "cost": 290000,
+    "description": "Rewitalizacja boiska do koszykówki przy ul. Rusa w Toruniu\nLokalizacja: ul. Rusa 7a",
+    "accepted": false,
+    "lat": 53.02783,
+    "lon": 18.59777
+  },
+  {
+    "name": "Nowe oświetlenie oraz chodnik wzdłuż drogi brukowej",
+    "address": "Wybickiego",
+    "category": "",
+    "cost": 123000,
+    "description": "Nowe oświetlenie oraz chodnik wzdłuż drogi brukowej\nLokalizacja: ul. Wybickiego",
+    "accepted": false,
+    "lat": 53.02535,
+    "lon": 18.60769
+  },
+  {
+    "name": "Siłownia kalisteniki na \"Mini Parku - Cypel\" (na końcu ul. Osiedlowej)",
+    "address": "Osiedlowa 53",
+    "category": "",
+    "cost": 60000,
+    "description": "Siłownia kalisteniki na \"Mini Parku - Cypel\" (na końcu ul. Osiedlowej)\nLokalizacja: Na wysokości ul. Osiedlowej 53\n(pomiędzy przedszkolem a parkiem)",
+    "accepted": false,
+    "lat": 53.02939,
+    "lon": 18.57563
+  },
+  {
+    "name": "Bezpieczna ścianka wspinaczkowa dla dzieci i młodzieży",
+    "address": "Włocławska 251",
+    "category": "926",
+    "cost": 100000,
+    "description": "Bezpieczna ścianka wspinaczkowa dla dzieci i młodzieży\nLokalizacja: Plac rekreacyjno-sportowy na\nskrzyżowaniu ulic Zdrojowa i Włocławska",
+    "accepted": true,
+    "lat": 52.97806,
+    "lon": 18.68509
+  },
+  {
+    "name": "Pagórkowata mini ścieżka rowerowa przy ul. Zdrojowej - \"Pump track ziemny\"",
+    "address": "Zdrojowa",
+    "category": "926",
+    "cost": 98000,
+    "description": "Pagórkowata mini ścieżka rowerowa przy ul. Zdrojowej - \"Pump track ziemny\"\nLokalizacja: ul. Zdrojowa",
+    "accepted": true,
+    "lat": 52.97744,
+    "lon": 18.68201
+  },
+  {
+    "name": "Zapewnienie atrakcji podczas XXVI Parafialnego Festynu \"Tu są moje Czerniewice\"",
+    "address": "Włocławska 256",
+    "category": "900",
+    "cost": 40000,
+    "description": "Zapewnienie atrakcji podczas XXVI Parafialnego Festynu \"Tu są moje Czerniewice\"\nLokalizacja: ul. Włocławska 256",
+    "accepted": true,
+    "lat": 52.97511,
+    "lon": 18.68438
+  },
+  {
+    "name": "Na moim osiedlu bawiąc się uczę",
+    "address": "Włocławska 237",
+    "category": "801",
+    "cost": 30000,
+    "description": "Na moim osiedlu bawiąc się uczę\nLokalizacja: Szkoła Podstawowa nr 34, ul. Włocławska\n237/239",
+    "accepted": true,
+    "lat": 52.98058,
+    "lon": 18.68591
+  },
+  {
+    "name": "Czerniewicki Zakątek Zieleni - Ogród zmysłów i odpoczynku",
+    "address": "Służewska 7",
+    "category": "",
+    "cost": 170000,
+    "description": "Czerniewicki Zakątek Zieleni - Ogród zmysłów i odpoczynku\nLokalizacja: Teren Fundacji Hospicjum Nadzieja, ul.\nSłużewska 7",
+    "accepted": false,
+    "lat": 52.99125,
+    "lon": 18.67004
+  },
+  {
+    "name": "Poprawa czystości osiedla i komfortu mieszkańców OM SOLANKI",
+    "address": "Włocławska 224",
+    "category": "900",
+    "cost": 22000,
+    "description": "Poprawa czystości osiedla i komfortu mieszkańców OM SOLANKI\nLokalizacja: ul. Włocławska 224, 226, 228, 230\nul. Solankowa 38, 40, 42, 44, 46\nul. Gardzielewskiego 1, 3, 5, 6, 8, 10, 12",
+    "accepted": true,
+    "lat": 52.98289,
+    "lon": 18.68477
+  },
+  {
+    "name": "Tablice informacyjne na ogłoszenia dla mieszkańców osiedla Czerniewice",
+    "address": "Zdrojowa",
+    "category": "853",
+    "cost": 20000,
+    "description": "Tablice informacyjne na ogłoszenia dla mieszkańców osiedla Czerniewice\nLokalizacja: ul. Zdrojowa działka, w pobliżu\nprzystanku autobusowego przy sklepach,\nul. Włocławska, w pobliżu skrzyżowania z\nul. Gardzielewskiego",
+    "accepted": true,
+    "lat": 52.97744,
+    "lon": 18.68201
+  },
+  {
+    "name": "Oddychaj Zielenią przy SP 35",
+    "address": "Krynicka 8",
+    "category": "900",
+    "cost": 295000,
+    "description": "Oddychaj Zielenią przy SP 35\nLokalizacja: Szkoła Podstawowa nr 35, ul. Krynicka 8",
+    "accepted": true,
+    "lat": 53.03509,
+    "lon": 18.70482
+  },
+  {
+    "name": "Zielono mi! Spokojnie! - dokończamy park osiedlowy na Bielawach",
+    "address": "Koszalińska",
+    "category": "900",
+    "cost": 205255,
+    "description": "Zielono mi! Spokojnie! - dokończamy park osiedlowy na Bielawach\nLokalizacja: Przestrzeń między placem zabaw a\nterenem parafii, ul. Koszalińska -\nSzczecińska",
+    "accepted": true,
+    "lat": 53.03556,
+    "lon": 18.69915
+  },
+  {
+    "name": "Kamienna rzeźba przy Kamiennym Kręgu",
+    "address": "Przeskok",
+    "category": "",
+    "cost": 20000,
+    "description": "Kamienna rzeźba przy Kamiennym Kręgu\nLokalizacja: Zbieg ulic Olsztyńskiej i Przeskok.",
+    "accepted": false,
+    "lat": 53.04711,
+    "lon": 18.7046
+  },
+  {
+    "name": "Sensoryczna Glazja - poszerzenie terenu Parku Glazja",
+    "address": "Ludwika Waryńskiego 13",
+    "category": "900",
+    "cost": 300000,
+    "description": "Sensoryczna Glazja - poszerzenie terenu Parku Glazja\nLokalizacja: Park Glazja.",
+    "accepted": true,
+    "lat": 53.01567,
+    "lon": 18.62271
+  },
+  {
+    "name": "Bajkowy plac zabaw - rewitalizacja placu zabaw przy ul. Świętopełka 28E",
+    "address": "Świętopełka 28E",
+    "category": "801",
+    "cost": 210000,
+    "description": "Bajkowy plac zabaw - rewitalizacja placu zabaw przy ul. Świętopełka 28E\nLokalizacja: ul. Świętopełka 28E",
+    "accepted": true,
+    "lat": 53.02672,
+    "lon": 18.61922
+  },
+  {
+    "name": "Równą drogą do Siódemki i Uniwersytetu.",
+    "address": "Batorego 37",
+    "category": "",
+    "cost": 300000,
+    "description": "Równą drogą do Siódemki i Uniwersytetu.\nLokalizacja: ul. Batorego 37/41",
+    "accepted": false,
+    "lat": 53.02591,
+    "lon": 18.62187
+  },
+  {
+    "name": "Strefa rekreacyjna przy ul. Prądzyńskiego.",
+    "address": "Prądzyńskiego 7",
+    "category": "900",
+    "cost": 120000,
+    "description": "Strefa rekreacyjna przy ul. Prądzyńskiego.\nLokalizacja: ul. Prądzyńskiego 7, 7A, 7B",
+    "accepted": true,
+    "lat": 53.02264,
+    "lon": 18.63157
+  },
+  {
+    "name": "Obcojęzyczne książki w Twojej bibliotece",
+    "address": "Kościuszki 77",
+    "category": "801",
+    "cost": 10000,
+    "description": "Obcojęzyczne książki w Twojej bibliotece\nLokalizacja: Mediateka w Młynach, ul. Kościuszki 77",
+    "accepted": true,
+    "lat": 53.02535,
+    "lon": 18.62764
+  },
+  {
+    "name": "Grasz w zielone? Gram! Taras zabaw, gier i edukacji przy SP27",
+    "address": "Turystyczna 19",
+    "category": "801",
+    "cost": 300000,
+    "description": "Grasz w zielone? Gram! Taras zabaw, gier i edukacji przy SP27\nLokalizacja: Szkoła Podstawowa nr 27, ul. Turystyczna\n19",
+    "accepted": true,
+    "lat": 53.01718,
+    "lon": 18.68161
+  },
+  {
+    "name": "Aktywna Społeczność: Warsztaty dla Wszystkich Pokoleń",
+    "address": "Kaszczorek",
+    "category": "853",
+    "cost": 60000,
+    "description": "Aktywna Społeczność: Warsztaty dla Wszystkich Pokoleń\nLokalizacja: Lokale na terenie Kaszczorka oraz w\nplenerze.",
+    "accepted": true,
+    "lat": 53.00797,
+    "lon": 18.69938
+  },
+  {
+    "name": "Obchody 50-lecia przyłączenia Kaszczorka do Torunia",
+    "address": "Turystyczna 38c",
+    "category": "",
+    "cost": 50000,
+    "description": "Obchody 50-lecia przyłączenia Kaszczorka do Torunia\nLokalizacja: Ciuruś Łucja i Józef Gospodarstwo\nAgroturystyczne\nul. Turystyczna 38c, Wieżowa 1-5",
+    "accepted": false,
+    "lat": 53.01423,
+    "lon": 18.68265
+  },
+  {
+    "name": "Remont i rewitalizacja \"slipu\" dla łodzi na przystani kajakowej \"Wygoda\" w Kaszczorku",
+    "address": "Turystyczna 130",
+    "category": "",
+    "cost": 120000,
+    "description": "Remont i rewitalizacja \"slipu\" dla łodzi na przystani kajakowej \"Wygoda\" w Kaszczorku\nLokalizacja: Punkt Postojowy dla Kajakarzy \"Wygoda\"",
+    "accepted": false,
+    "lat": 53.01169,
+    "lon": 18.68895
+  },
+  {
+    "name": "Półkolonie dla dzieci w Kaszczorku w 2026 roku",
+    "address": "Turystyczna 19",
+    "category": "",
+    "cost": 60000,
+    "description": "Półkolonie dla dzieci w Kaszczorku w 2026 roku\nLokalizacja: Szkoła Podstawowa nr 27, ul. Turystyczna\n19",
+    "accepted": false,
+    "lat": 53.01718,
+    "lon": 18.68161
+  },
+  {
+    "name": "Imprezy kulturalne i warsztaty w Kaszczorku 2026 r.",
+    "address": "Turystyczna 130",
+    "category": "",
+    "cost": 30000,
+    "description": "Imprezy kulturalne i warsztaty w Kaszczorku 2026 r.\nLokalizacja: \"Punkt postojowy dla kajakarzy Wygoda\"",
+    "accepted": false,
+    "lat": 53.01169,
+    "lon": 18.68895
+  },
+  {
+    "name": "Amatorski turniej speedrowerowy o puchar Wodnika Kaszczorka w 2026 roku",
+    "address": "Skierki",
+    "category": "926",
+    "cost": 18000,
+    "description": "Amatorski turniej speedrowerowy o puchar Wodnika Kaszczorka w 2026 roku\nLokalizacja: Tor speedrowerowy \"Wodnika\nKaszczorka\", ul. Skierki",
+    "accepted": true,
+    "lat": 53.00592,
+    "lon": 18.70525
+  },
+  {
+    "name": "Wybieg dla psów",
+    "address": "Iwanowskiej",
+    "category": "900",
+    "cost": 140000,
+    "description": "Wybieg dla psów\nLokalizacja: ul. Iwanowskiej (obrzeże parku przy\nboisku sportowym)",
+    "accepted": true,
+    "lat": 52.99212,
+    "lon": 18.60201
+  },
+  {
+    "name": "OdNowa Zabawa - remont placu zabaw zlokalizowanego na terenie Szkoły Podstawowej nr 15 w Toruniu",
+    "address": "Paderewskiego 5",
+    "category": "801",
+    "cost": 300000,
+    "description": "OdNowa Zabawa - remont placu zabaw zlokalizowanego na terenie Szkoły Podstawowej nr 15 w Toruniu\nLokalizacja: Szkoła Podstawowa nr 15, ul.\nPaderewskiego 5/11",
+    "accepted": true,
+    "lat": 52.99153,
+    "lon": 18.59103
+  },
+  {
+    "name": "Podniebna Klasa - miejsce do nauki i zabawy na świeżym powietrzu na terenie Szkoły Podstawowej nr 15 w Toruniu",
+    "address": "Paderewskiego 5",
+    "category": "",
+    "cost": 150000,
+    "description": "Podniebna Klasa - miejsce do nauki i zabawy na świeżym powietrzu na terenie Szkoły Podstawowej nr 15 w Toruniu\nLokalizacja: Szkoła Podstawowa nr 15, ul.\nPaderewskiego 5/11",
+    "accepted": false,
+    "lat": 52.99153,
+    "lon": 18.59103
+  },
+  {
+    "name": "Modernizacja przystanku Hallera 03",
+    "address": "Hallera 03",
+    "category": "600",
+    "cost": 40000,
+    "description": "Modernizacja przystanku Hallera 03\nLokalizacja: Przystanek Hallera 03",
+    "accepted": true,
+    "lat": 52.99523,
+    "lon": 18.60221
+  },
+  {
+    "name": "Ekran Zieleni - kończymy zagospodarowanie Trójkąta Galona",
+    "address": "Letnia",
+    "category": "900",
+    "cost": 35000,
+    "description": "Ekran Zieleni - kończymy zagospodarowanie Trójkąta Galona\nLokalizacja: Pas łąki od strony ul. Letniej wzdłuż\n\"Trójkąta Galona\"",
+    "accepted": true,
+    "lat": 52.99046,
+    "lon": 18.59997
+  },
+  {
+    "name": "Odnowiony, kolorowy chodnik przy ul. gen. J. Hallera",
+    "address": "Hallera 11",
+    "category": "",
+    "cost": 215000,
+    "description": "Odnowiony, kolorowy chodnik przy ul. gen. J. Hallera\nLokalizacja: Chodnik przy ul. Hallera, między sklepem\nBiedronka a ul. 63. Pułku Piechoty",
+    "accepted": false,
+    "lat": 52.99514,
+    "lon": 18.60374
+  },
+  {
+    "name": "Niebo - Kino pod chmurką na Pogórzu",
+    "address": "Poznańska 96",
+    "category": "",
+    "cost": 40000,
+    "description": "Niebo - Kino pod chmurką na Pogórzu\nLokalizacja: Ogród przy kamienicy Szeczmańskich,\nul.Poznańska 96",
+    "accepted": false,
+    "lat": 52.99304,
+    "lon": 18.58868
+  },
+  {
+    "name": "Letni... Las w miejskiej przestrzeni...",
+    "address": "Letnia 20",
+    "category": "",
+    "cost": 50000,
+    "description": "Letni... Las w miejskiej przestrzeni...\nLokalizacja: ul. Letnia 20, Okólna 7A",
+    "accepted": false,
+    "lat": 52.99013,
+    "lon": 18.60068
+  },
+  {
+    "name": "Glinki w ruchu!!! Siła, zabawa i integracja na świeżym powietrzu",
+    "address": "Poznańska 294",
+    "category": "",
+    "cost": 62000,
+    "description": "Glinki w ruchu!!! Siła, zabawa i integracja na świeżym powietrzu\nLokalizacja: ul. Poznańska 294",
+    "accepted": false,
+    "lat": 52.96862,
+    "lon": 18.55923
+  },
+  {
+    "name": "Dodatkowe śmietniki od Poznańskiej do Orlicza-Dreszera",
+    "address": "Poznańska 6",
+    "category": "900",
+    "cost": 20000,
+    "description": "Dodatkowe śmietniki od Poznańskiej do Orlicza-Dreszera\nLokalizacja: ul. Poznańska 6, styk ul. Zdrójkowskiego i\nul. Hallera, ul. Jasna 22, ul. Poranna 14,\nosiedle na Porannej, ul. Hallera 25, ul. 63.\nPułku Piechoty 21, okolica ul. Orlicza-\nDreszera 13",
+    "accepted": true,
+    "lat": 52.9954,
+    "lon": 18.60072
+  },
+  {
+    "name": "Kolorowy Podgórz - mural i warsztaty przy kamienicy Szeczmańskich",
+    "address": "Poznańska 96",
+    "category": "",
+    "cost": 45000,
+    "description": "Kolorowy Podgórz - mural i warsztaty przy kamienicy Szeczmańskich\nLokalizacja: Kamienica Szeczmańskich, ul. Poznańska\n96",
+    "accepted": false,
+    "lat": 52.99304,
+    "lon": 18.58868
+  },
+  {
+    "name": "Magiczny zakątek",
+    "address": "Rydygiera 23",
+    "category": "900",
+    "cost": 75000,
+    "description": "Magiczny zakątek\nLokalizacja: Teren pomiędzy boiskiem sportowym a\nul.Rydygiera 23",
+    "accepted": true,
+    "lat": 53.02781,
+    "lon": 18.65262
+  },
+  {
+    "name": "Super boisko - rewitalizacja boiska sportowego",
+    "address": "Donimirskiego 7",
+    "category": "926",
+    "cost": 290000,
+    "description": "Super boisko - rewitalizacja boiska sportowego\nLokalizacja: ul. Donimirskiego 7",
+    "accepted": true,
+    "lat": 53.03091,
+    "lon": 18.65561
+  },
+  {
+    "name": "Nowy plac zabaw na terenie Szkoły Podstawowej nr 8",
+    "address": "Łyskowskiego 28",
+    "category": "",
+    "cost": 170000,
+    "description": "Nowy plac zabaw na terenie Szkoły Podstawowej nr 8\nLokalizacja: Szkoła Podstawowa nr 8, ul.\nŁyskowskiego 28",
+    "accepted": false,
+    "lat": 53.02983,
+    "lon": 18.6594
+  },
+  {
+    "name": "Poznaj swoich patronów ulic na Rubinkowie",
+    "address": "Rubinkowo",
+    "category": "921",
+    "cost": 25000,
+    "description": "Poznaj swoich patronów ulic na Rubinkowie\nLokalizacja: Przystanki autobusowe\n1) Rubinkowo P&R -1 przystanek przy ul.\nSzosa Lubicka,\n2) Przybyłów - 2 przystanki,\n3) Manhattan - 2 przystanki,\n4) Rubinkowo Centrum -2 przystanki,\n5) Donimirskiego - 2 przystanki.",
+    "accepted": true,
+    "lat": 53.02711,
+    "lon": 18.66275
+  },
+  {
+    "name": "Montaż siłowni zewnętrznej na terenie Szkoły Podstawowej nr 8",
+    "address": "Łyskowskiego 28",
+    "category": "",
+    "cost": 140000,
+    "description": "Montaż siłowni zewnętrznej na terenie Szkoły Podstawowej nr 8\nLokalizacja: Szkoła Podstawowa nr 8, ul.\nŁyskowskiego 28",
+    "accepted": false,
+    "lat": 53.02983,
+    "lon": 18.6594
+  },
+  {
+    "name": "Ścieżka Doświadczeń - etap 2",
+    "address": "Strzałowa 15",
+    "category": "801",
+    "cost": 250000,
+    "description": "Ścieżka Doświadczeń - etap 2\nLokalizacja: Szkoła Podstawowa nr 12, ul. Strzałowa\n15",
+    "accepted": true,
+    "lat": 52.99895,
+    "lon": 18.62825
+  },
+  {
+    "name": "Festyn Osiedlowy - Lewobrzeże Dzieciom - 2026",
+    "address": "Strzałowa 15",
+    "category": "801",
+    "cost": 30000,
+    "description": "Festyn Osiedlowy - Lewobrzeże Dzieciom - 2026\nLokalizacja: Szkoła Podstawowa nr 12, ul. Strzałowa\n15",
+    "accepted": true,
+    "lat": 52.99895,
+    "lon": 18.62825
+  },
+  {
+    "name": "Naturalne utwardzenie drogi przez lasek (przy ul. Cztery Pory Roku)",
+    "address": "Włocławska 27",
+    "category": "600",
+    "cost": 80000,
+    "description": "Naturalne utwardzenie drogi przez lasek (przy ul. Cztery Pory Roku)\nLokalizacja: ul. Włocławska 27",
+    "accepted": true,
+    "lat": 52.99421,
+    "lon": 18.6341
+  },
+  {
+    "name": "Rudak - bezpieczne przystanki, bezpieczne przejścia",
+    "address": "Rudacka 80",
+    "category": "600",
+    "cost": 90000,
+    "description": "Rudak - bezpieczne przystanki, bezpieczne przejścia\nLokalizacja: 1.s krzyżowanie ul. Rypińska/ul.\nOtłoczyńska,\n2.s krzyżowanie ul. Rypińska/ul. Rudacka,\n3.s krzyżowanie ul. Rudacka/ul.\nOtłoczyńska,\n4.s krzyżowanie ul. Rudacka/ul. Rudacka,\nna wysokości nr 80",
+    "accepted": true,
+    "lat": 53.00516,
+    "lon": 18.65679
+  },
+  {
+    "name": "Pilates na Rudaku",
+    "address": "Okólna 169",
+    "category": "",
+    "cost": 50000,
+    "description": "Pilates na Rudaku\nLokalizacja: Filia Dworu Artusa - Dom Muz Rudak ul.\nOkólna 169",
+    "accepted": false,
+    "lat": 53.00073,
+    "lon": 18.64113
+  },
+  {
+    "name": "Tablica informacyjna \"Wilk - pożyteczny mieszkaniec naszych lasów\"",
+    "address": "Rypińska",
+    "category": "900",
+    "cost": 8000,
+    "description": "Tablica informacyjna \"Wilk - pożyteczny mieszkaniec naszych lasów\"\nLokalizacja: ul. Rypińska, górna część terenu\nrekreacyjnego \"Górka saneczkowa\"",
+    "accepted": true,
+    "lat": 52.99945,
+    "lon": 18.65999
+  },
+  {
+    "name": "Eko Zakątek - Zielona Klasa przy SP 18",
+    "address": "Wyszyńskiego 1/5",
+    "category": "900",
+    "cost": 150000,
+    "description": "Eko Zakątek - Zielona Klasa przy SP 18\nLokalizacja: Szkoła Podstawowa nr 18,\nul. Wyszyńskiego 1/5",
+    "accepted": true,
+    "lat": 53.02517,
+    "lon": 18.6827
+  },
+  {
+    "name": "Droga do gwiazd - kosmiczno-przyrodniczy plac zabaw przy Przedszkolu Miejskim nr 13",
+    "address": "Konstytucji 3 Maja 14",
+    "category": "801",
+    "cost": 300000,
+    "description": "Droga do gwiazd - kosmiczno-przyrodniczy plac zabaw przy Przedszkolu Miejskim nr 13\nLokalizacja: Przedszkole Miejskie nr 13, ul.\nKonstytucji 3 Maja 14",
+    "accepted": true,
+    "lat": 53.02252,
+    "lon": 18.67923
+  },
+  {
+    "name": "Rozbudowa istniejącej ścieżki rowerowej",
+    "address": "Suleckiego 2",
+    "category": "",
+    "cost": 240000,
+    "description": "Rozbudowa istniejącej ścieżki rowerowej\nLokalizacja: od ul. Suleckiego 2 do ul. Przy Skarpie 13",
+    "accepted": false,
+    "lat": 53.0217,
+    "lon": 18.67143
+  },
+  {
+    "name": "Bezpiecznie w ruchu drogowym - Miasteczko Ruchu Drogowego SP32",
+    "address": "Kosynierów Kościuszkowskich 11",
+    "category": "600",
+    "cost": 100000,
+    "description": "Bezpiecznie w ruchu drogowym - Miasteczko Ruchu Drogowego SP32\nLokalizacja: Szkoła Podstawowa nr 32, ul. Kosynierów\nKościuszkowskich 11",
+    "accepted": true,
+    "lat": 53.02607,
+    "lon": 18.69552
+  },
+  {
+    "name": "Pokolenie Ninja - sprawnościowy plac zabaw",
+    "address": "Kusocińskiego 2",
+    "category": "",
+    "cost": 270000,
+    "description": "Pokolenie Ninja - sprawnościowy plac zabaw\nLokalizacja: ul. Kusocińskiego 2",
+    "accepted": false,
+    "lat": 53.02927,
+    "lon": 18.69876
+  },
+  {
+    "name": "Remont kultowego toru rowerowego",
+    "address": "Kusocińskiego 8",
+    "category": "",
+    "cost": 150000,
+    "description": "Remont kultowego toru rowerowego\nLokalizacja: Pomiędzy blokami Kusocińskiego 8 i 14",
+    "accepted": false,
+    "lat": 53.02862,
+    "lon": 18.69821
+  },
+  {
+    "name": "Stół betonowy do tenisa stołowego i dwa drewniane leżaki parkowe",
+    "address": "Srebrnego 4",
+    "category": "",
+    "cost": 50000,
+    "description": "Stół betonowy do tenisa stołowego i dwa drewniane leżaki parkowe\nLokalizacja: ul. Srebrnego 4",
+    "accepted": false,
+    "lat": 53.02155,
+    "lon": 18.67431
+  },
+  {
+    "name": "Książka z TREszczem - prelekcje i warsztaty jak osiągnąć odporność psychiczną",
+    "address": "Raszei 1",
+    "category": "851",
+    "cost": 10000,
+    "description": "Książka z TREszczem - prelekcje i warsztaty jak osiągnąć odporność psychiczną\nLokalizacja: Mediateka - Filia nr 16 książnicy\nKopernikańskiej, ul. Raszei 1",
+    "accepted": true,
+    "lat": 53.02141,
+    "lon": 18.6867
+  },
+  {
+    "name": "Zielony porządek - uporządkowanie pasów zieleni na Rynku Nowomiejskim",
+    "address": "Rynek Nowomiejski 28",
+    "category": "900",
+    "cost": 140000,
+    "description": "Zielony porządek - uporządkowanie pasów zieleni na Rynku Nowomiejskim\nLokalizacja: Rynek Nowomiejski 28",
+    "accepted": true,
+    "lat": 53.01171,
+    "lon": 18.61107
+  },
+  {
+    "name": "Defibrylator AED na dworcu autobusowym w Toruniu",
+    "address": "Dąbrowskiego 8",
+    "category": "851",
+    "cost": 20000,
+    "description": "Defibrylator AED na dworcu autobusowym w Toruniu\nLokalizacja: Teren dworca autobusowego w Toruniu,\nul. Dąbrowskiego 8/24",
+    "accepted": true,
+    "lat": 53.01564,
+    "lon": 18.60803
+  },
+  {
+    "name": "Brydż dla każdego",
+    "address": "Zaułek Prosowy 1",
+    "category": "853",
+    "cost": 40000,
+    "description": "Brydż dla każdego\nLokalizacja: I Liceum Ogólnokształcące,\nul. Zaułek Prosowy 1",
+    "accepted": true,
+    "lat": 53.01188,
+    "lon": 18.60723
+  },
+  {
+    "name": "Mural mieszkańców Starówki - herb dzielnicy stworzony przez społeczność",
+    "address": "Przedzamcze 10",
+    "category": "921",
+    "cost": 25000,
+    "description": "Mural mieszkańców Starówki - herb dzielnicy stworzony przez społeczność\nLokalizacja: ul. Przedzamcze 10",
+    "accepted": true,
+    "lat": 53.01005,
+    "lon": 18.60971
+  },
+  {
+    "name": "Rewitalizacja parkingu rowerowego",
+    "address": "Plac Teatralny 1",
+    "category": "600",
+    "cost": 6000,
+    "description": "Rewitalizacja parkingu rowerowego\nLokalizacja: Plac Teatralny 1",
+    "accepted": true,
+    "lat": 53.01214,
+    "lon": 18.6026
+  },
+  {
+    "name": "Zielona strefa rekreacji z wybiegiem dla psów na Stawkach",
+    "address": "Czapli",
+    "category": "900",
+    "cost": 190000,
+    "description": "Zielona strefa rekreacji z wybiegiem dla psów na Stawkach\nLokalizacja: Skwer przy ul. Czapli, ul. Tataraków, ul.\nŁącznej",
+    "accepted": true,
+    "lat": 52.98818,
+    "lon": 18.6288
+  },
+  {
+    "name": "Zagospodarowanie dzikiego terenu na zbiegu ulic Błękitna i Idzikowskiego",
+    "address": "Błękitna 37",
+    "category": "900",
+    "cost": 200000,
+    "description": "Zagospodarowanie dzikiego terenu na zbiegu ulic Błękitna i Idzikowskiego\nLokalizacja: ul. Błękitna 37/1",
+    "accepted": true,
+    "lat": 52.99249,
+    "lon": 18.61515
+  },
+  {
+    "name": "Modernizacja placu zabaw",
+    "address": "Turkusowa",
+    "category": "",
+    "cost": 300000,
+    "description": "Modernizacja placu zabaw\nLokalizacja: ul. Turkusowa Stawki",
+    "accepted": false,
+    "lat": 52.98969,
+    "lon": 18.6492
+  },
+  {
+    "name": "Mega atrakcyjna zjeżdżalnia na górce saneczkowej",
+    "address": "Watzenrodego",
+    "category": "926",
+    "cost": 120000,
+    "description": "Mega atrakcyjna zjeżdżalnia na górce saneczkowej\nLokalizacja: ul. Ł. Watzenrodego /K. Grasera (górka\nod strony głównej ścieżki parafii św.\nAndrzeja Apostoła).",
+    "accepted": true,
+    "lat": 53.04106,
+    "lon": 18.59904
+  },
+  {
+    "name": "Przestrzeń relaksu i zabawy przy Szkole Podstawowej nr 9 - część II",
+    "address": "Rzepakowa 7",
+    "category": "801",
+    "cost": 300000,
+    "description": "Przestrzeń relaksu i zabawy przy Szkole Podstawowej nr 9 - część II\nLokalizacja: Szkoła Podstawowa nr 9, ul. Rzepakowa\n7/9",
+    "accepted": true,
+    "lat": 53.0459,
+    "lon": 18.57974
+  },
+  {
+    "name": "XXVI Wrzosowy Festyn św. Antoniego",
+    "address": "św. Antoniego 4",
+    "category": "900",
+    "cost": 40000,
+    "description": "XXVI Wrzosowy Festyn św. Antoniego\nLokalizacja: ul. św. Antoniego 4; 87-100 TORUŃ Wrzosy",
+    "accepted": true,
+    "lat": 53.04091,
+    "lon": 18.57956
+  },
+  {
+    "name": "Gościu, siądź pod drzewem - strefa relaksu przy DPS-ie",
+    "address": "Szosa Chełmińska 220",
+    "category": "900",
+    "cost": 130000,
+    "description": "Gościu, siądź pod drzewem - strefa relaksu przy DPS-ie\nLokalizacja: Tereny zielone przy Domu Pomocy\nSpołecznej im. dr Leona Szumana w\nToruniu, ul. Szosa Chełmińska 220",
+    "accepted": true,
+    "lat": 53.04,
+    "lon": 18.58362
+  },
+  {
+    "name": "Nowe Przeszkody, Nowa Zabawa – Skatepark Level Up!",
+    "address": "Ugory 3b",
+    "category": "",
+    "cost": 300000,
+    "description": "Nowe Przeszkody, Nowa Zabawa – Skatepark Level Up!\nLokalizacja: Ugory, naprzeciwko Intermarche",
+    "accepted": false,
+    "lat": 53.0436,
+    "lon": 18.59546
+  },
+  {
+    "name": "Wrzosy na hulajce – odnowimy skatepark!",
+    "address": "Ugory 3b",
+    "category": "",
+    "cost": 140000,
+    "description": "Wrzosy na hulajce – odnowimy skatepark!\nLokalizacja: Mini Skatepark przy ul. Ugory,\nnaprzeciwko Intermarche",
+    "accepted": false,
+    "lat": 53.0436,
+    "lon": 18.59546
+  },
+  {
+    "name": "Barbarka z dzieckiem - Leśne opowieści wiewiórki z Basi",
+    "address": "Przysiecka 13",
+    "category": "801",
+    "cost": 64194,
+    "description": "Barbarka z dzieckiem - Leśne opowieści wiewiórki z Basi\nLokalizacja: Osada Leśna Barbarka, ul. Przysiecka 13,\n87-100 Toruń",
+    "accepted": true,
+    "lat": 53.05345,
+    "lon": 18.54068
+  },
+  {
+    "name": "Poidła dla zwierząt w Parku na Jarze - Woda to życie, zadbajmy o nią dla zwierząt w Parku",
+    "address": "Watzenrodego",
+    "category": "",
+    "cost": 10500,
+    "description": "Poidła dla zwierząt w Parku na Jarze - Woda to życie, zadbajmy o nią dla zwierząt w Parku\nLokalizacja: Park na Jarze, po wschodniej stronie ul.\nWatzenrodego.",
+    "accepted": false,
+    "lat": 53.04106,
+    "lon": 18.59904
+  },
+  {
+    "name": "Odbudowa kojców po wichurze i monitoring w Schronisku dla Zwierząt",
+    "address": "Przybyszewskiego 3",
+    "category": "900",
+    "cost": 390000,
+    "description": "Odbudowa kojców po wichurze i monitoring w Schronisku dla Zwierząt\nLokalizacja: Schronisko dla bezdomnych Zwierząt\nul. Przybyszewskiego 3, 87-100 Toruń",
+    "accepted": true,
+    "lat": 53.00863,
+    "lon": 18.56824
+  },
+  {
+    "name": "Na ratunek! Wyposażenie dla OSP Toruń JAR i psów ratowniczych",
+    "address": "Grasera 5",
+    "category": "754",
+    "cost": 195000,
+    "description": "Na ratunek! Wyposażenie dla OSP Toruń JAR i psów ratowniczych\nLokalizacja: OSP Toruń Jar, Komenda Miejska PSP",
+    "accepted": true,
+    "lat": 53.05012,
+    "lon": 18.60203
+  },
+  {
+    "name": "Piernikowe love - modernizacja i rozbudowa placu zabaw \"Piernikowe Miasteczko\"",
+    "address": "Podmurna 62",
+    "category": "801",
+    "cost": 720000,
+    "description": "Piernikowe love - modernizacja i rozbudowa placu zabaw \"Piernikowe Miasteczko\"\nLokalizacja: Plac zabaw Piernikowe Miasteczko przy\nul. Podmurnej 62/68",
+    "accepted": true,
+    "lat": 53.01143,
+    "lon": 18.60617
+  },
+  {
+    "name": "Leśna Przygoda - ekologiczny plac zabaw w Osadzie Leśnej Barbarka",
+    "address": "Przysiecka 13",
+    "category": "801",
+    "cost": 600000,
+    "description": "Leśna Przygoda - ekologiczny plac zabaw w Osadzie Leśnej Barbarka\nLokalizacja: Osada Leśna Barbarka, ul. Przysiecka 13,\n87-100 Toruń",
+    "accepted": true,
+    "lat": 53.05345,
+    "lon": 18.54068
+  },
+  {
+    "name": "Doposażenie Patrolu Eko w sprzęt interwencyjny, szkolenia oraz materiały edukacyjne",
+    "address": "Grudziądzka 157",
+    "category": "754",
+    "cost": 50000,
+    "description": "Doposażenie Patrolu Eko w sprzęt interwencyjny, szkolenia oraz materiały edukacyjne\nLokalizacja: Straż Miejska Toruń ul. Grudziądzka 157\noraz miejsca szkoleń zależne od lokalizacji\nośrodka szkolącego",
+    "accepted": true,
+    "lat": 53.03609,
+    "lon": 18.60868
+  },
+  {
+    "name": "Rekreacja i zabawa na Bulwarze Filadelfijskim",
+    "address": "Bulwar Filadelfijski 2",
+    "category": "900",
+    "cost": 470000,
+    "description": "Rekreacja i zabawa na Bulwarze Filadelfijskim\nLokalizacja: ul. Bulwar Filadelfijski 2",
+    "accepted": true,
+    "lat": 53.01063,
+    "lon": 18.61716
+  },
+  {
+    "name": "Rowerem do Szkoły - Głosuj na szkolne Wiaty!",
+    "address": "Żwirki i Wigury 49",
+    "category": "600",
+    "cost": 350000,
+    "description": "Rowerem do Szkoły - Głosuj na szkolne Wiaty!\nLokalizacja: SP 4 ul. Żwirki i Wigury 49\nVIII LO ul. Grunwaldzka 33/35\nSP 5 ul. Żwirki i Wigury 1\nSP24 ul. Ogrodowa 3/5\nZespół Szkół Technicznych w Toruniu ul.\nLegionów 19/25\nSP3 ul. Legionów 210\nULO ul. Szosa Chełmińska 83",
+    "accepted": true,
+    "lat": 53.02909,
+    "lon": 18.59601
+  },
+  {
+    "name": "Ubrania i wsparcie dla osób w kryzysie bezdomności",
+    "address": "Toruń",
+    "category": "852",
+    "cost": 50000,
+    "description": "Ubrania i wsparcie dla osób w kryzysie bezdomności\nLokalizacja: Teren miasta Torunia",
+    "accepted": true,
+    "lat": 53.01879,
+    "lon": 18.54726
+  },
+  {
+    "name": "Odnowienie nawierzchni ulicy Otłoczyńskiej na odcinku 400m od ulicy Rudackiej w kierunku działek ROD Relax, Zacisze, Prząśniczka",
+    "address": "Otłoczyńska",
+    "category": "600",
+    "cost": 320000,
+    "description": "Odnowienie nawierzchni ulicy Otłoczyńskiej na odcinku 400m od ulicy Rudackiej w kierunku działek ROD Relax, Zacisze, Prząśniczka\nLokalizacja: ul. Otłoczyńska",
+    "accepted": true,
+    "lat": 53.00273,
+    "lon": 18.65771
+  },
+  {
+    "name": "Zielono Mi - nowe nasadzenia drzew",
+    "address": "Łyskowskiego 1",
+    "category": "900",
+    "cost": 91615,
+    "description": "Zielono Mi - nowe nasadzenia drzew\nLokalizacja: ul. Łyskowskiego 1,\nul. Donimirskiego 7\nul. Rydygiera 22\nul. Filomatów Pomorskich 4\nul. Łyskowskiego 9",
+    "accepted": true,
+    "lat": 53.02461,
+    "lon": 18.66174
+  },
+  {
+    "name": "Dwujęzyczność z angielskim w toruńskich przedszkolach II",
+    "address": "Toruń",
+    "category": "",
+    "cost": 200000,
+    "description": "Dwujęzyczność z angielskim w toruńskich przedszkolach II\nLokalizacja: Placówki przedszkolne publiczne w\nToruniu",
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
+  },
+  {
+    "name": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy - edycja II",
+    "address": "Słowackiego 8",
+    "category": "",
+    "cost": 60000,
+    "description": "Biblioteka w kieszeni - bezpłatny dostęp do e-booków w Książnicy - edycja II\nLokalizacja: Wojewódzka Biblioteka Publiczna -\nKsiążnica Kopernikańska w Toruniu\nul. Słowackiego 8",
+    "accepted": false,
+    "lat": 53.01324,
+    "lon": 18.59556
+  },
+  {
+    "name": "Aktywnie i komfortowo - stadion przy Świętopełka na nowo",
+    "address": "Świętopełka 15",
+    "category": "",
+    "cost": 100000,
+    "description": "Aktywnie i komfortowo - stadion przy Świętopełka na nowo\nLokalizacja: ul. Świętopełka 15/23",
+    "accepted": false,
+    "lat": 53.02608,
+    "lon": 18.61651
+  },
+  {
+    "name": "Wracamy do gry. Nowe życie dla boiska przy Mickiewicza 15/17",
+    "address": "Mickiewicza 15",
+    "category": "",
+    "cost": 403000,
+    "description": "Wracamy do gry. Nowe życie dla boiska przy Mickiewicza 15/17\nLokalizacja: ul. Mickiewicza 15/17",
+    "accepted": false,
+    "lat": 53.01147,
+    "lon": 18.59179
+  },
+  {
+    "name": "Renowacja boiska osiedlowego przy ulicach Mohna, Harcerskiej, Kaliskiego",
+    "address": "Harcerska 18",
+    "category": "",
+    "cost": 370000,
+    "description": "Renowacja boiska osiedlowego przy ulicach Mohna, Harcerskiej, Kaliskiego\nLokalizacja: ul. Harcerska 18",
+    "accepted": false,
+    "lat": 53.0347,
+    "lon": 18.59506
+  },
+  {
+    "name": "Zagrajmy w padla na Batorego - nowy kort do gry",
+    "address": "Batorego 43",
+    "category": "",
+    "cost": 435000,
+    "description": "Zagrajmy w padla na Batorego - nowy kort do gry\nLokalizacja: Boisko sportowe przy Zespole Inżynierii\nŚrodowiska w Toruniu\nul. Batorego 43/49",
+    "accepted": false,
+    "lat": 53.02725,
+    "lon": 18.62032
+  },
+  {
+    "name": "Harmonia Hormonów - holistyczne wsparcie kobiet 35+ w Toruniu",
+    "address": "Toruń",
+    "category": "",
+    "cost": 80000,
+    "description": "Harmonia Hormonów - holistyczne wsparcie kobiet 35+ w Toruniu\nLokalizacja: Teren miasta Torunia",
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
+  },
+  {
+    "name": "Siłownia zewnętrzna na terenie SP nr 28 w Toruniu",
+    "address": "Przy Skarpie 13",
+    "category": "",
+    "cost": 250000,
+    "description": "Siłownia zewnętrzna na terenie SP nr 28 w Toruniu\nLokalizacja: ul. Przy Skarpie 13",
+    "accepted": false,
+    "lat": 53.02073,
+    "lon": 18.67365
+  },
+  {
+    "name": "I Toruński Zlot Autobusów Zabytkowych",
+    "address": "Toruń",
+    "category": "",
+    "cost": 50000,
+    "description": "I Toruński Zlot Autobusów Zabytkowych\nLokalizacja: Ogólnodostępny plac, teren miejski",
+    "accepted": false,
+    "lat": 53.01879,
+    "lon": 18.54726
+  },
+  {
+    "name": "\"Aktywny Toruń czyli rusz się dla zdrowia\"",
+    "address": "Bema 23",
+    "category": "",
+    "cost": 117000,
+    "description": "\"Aktywny Toruń czyli rusz się dla zdrowia\"\nLokalizacja: Lodowisko Tor-Tor im. Józefa\nStogowskiego ul. Bema 23/29",
+    "accepted": false,
+    "lat": 53.01918,
+    "lon": 18.59204
+  },
+  {
+    "name": "Remont nawierzchni ul. Wybickiego 19-19C 21-21C, 23-23C, 30-32",
+    "address": "Wybickiego 19",
+    "category": "",
+    "cost": 222000,
+    "description": "Remont nawierzchni ul. Wybickiego 19-19C 21-21C, 23-23C, 30-32\nLokalizacja: ul. Wybickiego 19-19C, 21-21C, 23-23C,\n30-32",
+    "accepted": false,
+    "lat": 53.02525,
+    "lon": 18.60572
+  },
+  {
+    "name": "Park kieszonkowy - wioska olimpijska",
+    "address": "Moniuszki",
+    "category": "",
+    "cost": 100000,
+    "description": "Park kieszonkowy - wioska olimpijska\nLokalizacja: ul. Moniuszki na łączeniu z ul.\nGałczyńskiego",
+    "accepted": false,
+    "lat": 53.01286,
+    "lon": 18.59354
+  },
+  {
+    "name": "Wymiana zdartej nawierzchni boiska piłkarskiego na Starym Mieście",
+    "address": "Przedzamcze",
+    "category": "",
+    "cost": 450000,
+    "description": "Wymiana zdartej nawierzchni boiska piłkarskiego na Starym Mieście\nLokalizacja: ul. Przedzamcze (boisko w Stawie\nKomtura)",
+    "accepted": false,
+    "lat": 53.00949,
+    "lon": 18.61146
+  }
+]
