@@ -37,7 +37,8 @@
             width: 100%;
             box-sizing: border-box;
         }
-        .year-selector button {
+        .year-selector button,
+        .year-selector .toggle-button {
             padding: 6px 12px;
             border: 2px solid #333;
             background: white;
@@ -47,9 +48,12 @@
             font-weight: 500;
             width: 100%;
             box-sizing: border-box;
+        }
+        .year-selector button {
             margin-bottom: 8px;
         }
-        .year-selector button:hover {
+        .year-selector button:hover,
+        .year-selector .toggle-button:hover {
             background: #f0f0f0;
         }
         .year-selector .control-group {
@@ -99,20 +103,8 @@
             max-height: 0;
         }
         .year-selector .toggle-button {
-            padding: 6px 12px;
-            border: 2px solid #333;
-            background: white;
-            cursor: pointer;
-            border-radius: 4px;
-            font-size: 14px;
-            font-weight: 500;
-            width: 100%;
-            box-sizing: border-box;
             margin-top: 4px;
             margin-bottom: 0;
-        }
-        .year-selector .toggle-button:hover {
-            background: #f0f0f0;
         }
         .cluster-label {
             background: transparent;
@@ -255,9 +247,6 @@
             background-color: #f8d7da;
             border-color: #dc3545;
         }
-        .game-result {
-            display: none;
-        }
         .game-button-group {
             display: flex;
             gap: 10px;
@@ -364,18 +353,16 @@
         import { Map, TileLayer, Marker, DivIcon, Control, Rectangle, DivOverlay, Polygon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
         // Seeded random number generator for deterministic game
-        class SeededRandom {
-            constructor(seed) {
-                this.seed = seed;
-            }
-
-            next() {
-                this.seed = (this.seed * 9301 + 49297) % 233280;
-                return this.seed / 233280;
-            }
+        // Returns a function that generates the next random number in the sequence
+        function createSeededRandom(initialSeed) {
+            let seed = initialSeed;
+            return function next() {
+                seed = (seed * 9301 + 49297) % 233280;
+                return seed / 233280;
+            };
         }
 
-        // Game state management
+        // Game state
         let gameState = {
             active: false,
             currentLocationIndex: 0,
@@ -386,15 +373,18 @@
             phase: 'question',
             resultTimeoutId: null,
             rng: null,
-            highlightedMarker: null
+            highlightedMarker: null,
+            menuWasCollapsed: false,
+            escListenerController: null
         };
 
+        // Map state
         let mapInstance = null;
         let currentMarkers = [];
         let currentClusterBoxes = [];
         let currentClusters = [];
         let acceptanceFilter = { accepted: true, rejected: false };
-        let currentYear = '2025';
+        let currentYear; // Will be set to latest year from AVAILABLE_YEARS after DATA_BY_YEAR is loaded
         let minCost, maxCost;
 
         // Helper function to calculate distance between two points (Haversine)
@@ -447,7 +437,7 @@
         function shuffleArray(array, rng) {
             const arr = [...array];
             for (let i = arr.length - 1; i > 0; i--) {
-                const j = Math.floor(rng.next() * (i + 1));
+                const j = Math.floor(rng() * (i + 1));
                 [arr[i], arr[j]] = [arr[j], arr[i]];
             }
             return arr;
@@ -470,7 +460,7 @@
         // Select 5 random accepted locations
         function selectRandomLocations(allLocations) {
             const accepted = allLocations.filter(l => l.accepted);
-            gameState.rng = new SeededRandom(42);
+            gameState.rng = createSeededRandom(42);
             return shuffleArray(accepted, gameState.rng).slice(0, 5);
         }
 
@@ -523,17 +513,48 @@
             }
         }
 
+        // Clear the previous marker highlight and restore its original appearance
+        function clearPreviousHighlight() {
+            if (gameState.highlightedMarker && gameState.highlightedMarker._originalUpdateIcon) {
+                gameState.highlightedMarker.updateIcon = gameState.highlightedMarker._originalUpdateIcon;
+                gameState.highlightedMarker.updateIcon();
+            }
+        }
+
+        // Create a highlighted icon with red glow effect
+        function createHighlightedIcon(marker, size) {
+            const icon = CATEGORY_ICONS[marker.location.category] || '📍';
+            return new DivIcon({
+                html: `<div style="font-size: ${size}px; line-height: 1; text-align: center; filter: drop-shadow(0 0 4px #FF0000) drop-shadow(0 0 8px #FF6666); text-shadow: 0 0 3px #FF0000;">${icon}</div>`,
+                className: '',
+                iconSize: [size, size],
+                iconAnchor: [size / 2, size / 2]
+            });
+        }
+
+        // Zoom to a marker and update its icon after zoom completes
+        function zoomToMarker(marker) {
+            if (!mapInstance) return;
+
+            const onZoomEnd = () => {
+                marker.updateIcon();
+                mapInstance.off('zoomend', onZoomEnd);
+                clearTimeout(fallbackTimeout);
+            };
+            mapInstance.on('zoomend', onZoomEnd);
+
+            // Fallback: update icon even if zoomend doesn't fire (when already at target zoom)
+            const fallbackTimeout = setTimeout(() => {
+                marker.updateIcon();
+                mapInstance.off('zoomend', onZoomEnd);
+            }, 300);
+
+            mapInstance.setView([marker.location.lat, marker.location.lon], 14);
+        }
+
         // Highlight the current project marker on the map
         function highlightCurrentLocation() {
-            // Clear previous highlight
-            if (gameState.highlightedMarker) {
-                // Restore original updateIcon and reset marker to normal appearance
-                const prevMarker = gameState.highlightedMarker;
-                if (prevMarker._originalUpdateIcon) {
-                    prevMarker.updateIcon = prevMarker._originalUpdateIcon;
-                    prevMarker.updateIcon();
-                }
-            }
+            clearPreviousHighlight();
 
             // Find the marker for the current location by name (coordinates may be adjusted by gridArrangeCloseMarkers)
             const marker = currentMarkers.find(m =>
@@ -543,46 +564,184 @@
 
             if (marker) {
                 // Store original updateIcon function so we can restore it later
-                const originalUpdateIcon = marker.updateIcon;
-                marker._originalUpdateIcon = originalUpdateIcon;
+                marker._originalUpdateIcon = marker.updateIcon;
 
                 // Create a wrapper that preserves the glow effect
                 marker.updateIcon = () => {
-                    const icon = CATEGORY_ICONS[marker.location.category] || '📍';
                     const zoom = mapInstance.getZoom();
                     const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
                     const size = marker.baseSize * zoomScale;
-
-                    const highlightedIcon = new DivIcon({
-                        html: `<div style="font-size: ${size}px; line-height: 1; text-align: center; filter: drop-shadow(0 0 4px #FF0000) drop-shadow(0 0 8px #FF6666); text-shadow: 0 0 3px #FF0000;">${icon}</div>`,
-                        className: '',
-                        iconSize: [size, size],
-                        iconAnchor: [size / 2, size / 2]
-                    });
+                    const highlightedIcon = createHighlightedIcon(marker, size);
                     marker.setIcon(highlightedIcon);
                 };
 
                 gameState.highlightedMarker = marker;
-
-                // Zoom to the highlighted marker
-                if (mapInstance) {
-                    // Update icon after zoom completes, or use fallback if zoomend doesn't fire
-                    const onZoomEnd = () => {
-                        marker.updateIcon();
-                        mapInstance.off('zoomend', onZoomEnd);
-                        clearTimeout(fallbackTimeout);
-                    };
-                    mapInstance.on('zoomend', onZoomEnd);
-                    // Fallback: update icon even if zoomend doesn't fire (when already at target zoom)
-                    const fallbackTimeout = setTimeout(() => {
-                        marker.updateIcon();
-                        mapInstance.off('zoomend', onZoomEnd);
-                    }, 300);
-                    mapInstance.setView([marker.location.lat, marker.location.lon], 14);
-                }
+                zoomToMarker(marker);
             } else {
                 console.log('Marker not found for:', gameState.currentLocation.name);
             }
+        }
+
+        // Get or create the game overlay element
+        function getOrCreateGameOverlay() {
+            let overlay = document.getElementById('game-overlay');
+            if (!overlay) {
+                overlay = document.createElement('div');
+                overlay.id = 'game-overlay';
+                overlay.className = 'game-overlay';
+                document.body.appendChild(overlay);
+            }
+            return overlay;
+        }
+
+        // Create the game container with header and score
+        function createGameContainer() {
+            const container = document.createElement('div');
+            container.className = 'game-container';
+
+            const header = document.createElement('div');
+            header.className = 'game-header';
+            const scoreDiv = document.createElement('div');
+            scoreDiv.className = 'game-score';
+            scoreDiv.textContent = `Wynik: ${gameState.score}/10`;
+            header.appendChild(scoreDiv);
+            container.appendChild(header);
+
+            return container;
+        }
+
+        // Create project question UI elements
+        function createProjectQuestion(container, allLocations) {
+            const questionHeader = document.createElement('div');
+            questionHeader.className = 'game-question-header';
+
+            const question = document.createElement('div');
+            question.className = 'game-question';
+            const questionNumber = gameState.currentLocationIndex + 1;
+            question.textContent = `Jaki to projekt? (Test ${questionNumber}/5)`;
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'game-question-button';
+            buttonContainer.id = 'question-button-container';
+
+            questionHeader.appendChild(question);
+            questionHeader.appendChild(buttonContainer);
+            container.appendChild(questionHeader);
+
+            const projectInfo = document.createElement('div');
+            projectInfo.style.marginBottom = '15px';
+            projectInfo.style.fontSize = '14px';
+            projectInfo.style.color = '#666';
+            const categoryName = CATEGORY_NAMES[gameState.currentLocation.category] || gameState.currentLocation.category || 'Nie przypisano';
+            projectInfo.innerHTML = `<strong>Kategoria:</strong> ${categoryName}`;
+            container.appendChild(projectInfo);
+
+            const choices = getClosestInCategory(gameState.currentLocation, allLocations, 2);
+
+            const answersDiv = document.createElement('div');
+            answersDiv.className = 'game-answers';
+
+            choices.forEach((choice, index) => {
+                const label = document.createElement('label');
+                label.className = 'game-answer-label';
+
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'project-choice';
+                radio.value = index;
+                radio.onchange = () => handleProjectAnswer(choice);
+
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(choice.name));
+                answersDiv.appendChild(label);
+            });
+
+            container.appendChild(answersDiv);
+        }
+
+        // Create cost question UI elements
+        function createCostQuestion(container) {
+            const projectInfo = document.createElement('div');
+            projectInfo.style.marginBottom = '15px';
+            projectInfo.style.fontSize = '14px';
+            projectInfo.style.color = '#666';
+            projectInfo.innerHTML = `<strong>Projekt:</strong> ${gameState.currentLocation.name}`;
+            container.appendChild(projectInfo);
+
+            const questionHeader = document.createElement('div');
+            questionHeader.className = 'game-question-header';
+
+            const question = document.createElement('div');
+            question.className = 'game-question';
+            question.textContent = 'Koszt projektu?';
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.className = 'game-question-button';
+            buttonContainer.id = 'question-button-container';
+
+            questionHeader.appendChild(question);
+            questionHeader.appendChild(buttonContainer);
+            container.appendChild(questionHeader);
+
+            const costRanges = [
+                { label: 'niski', value: 'mniej niż 100,000' },
+                { label: 'średni', value: 'między 100,000 i 500,000' },
+                { label: 'wysoki', value: 'powyżej 500,000' }
+            ];
+
+            const answersDiv = document.createElement('div');
+            answersDiv.className = 'game-answers horizontal';
+
+            costRanges.forEach((range) => {
+                const label = document.createElement('label');
+                label.className = 'game-answer-label';
+
+                const radio = document.createElement('input');
+                radio.type = 'radio';
+                radio.name = 'cost-choice';
+                radio.value = range.value;
+                radio.onchange = () => handleCostAnswer(range.value);
+
+                label.appendChild(radio);
+                label.appendChild(document.createTextNode(range.label));
+                answersDiv.appendChild(label);
+            });
+
+            container.appendChild(answersDiv);
+
+            // Reserve space for cost display that appears after answer is given
+            const costPlaceholder = document.createElement('div');
+            costPlaceholder.className = 'cost-placeholder';
+            costPlaceholder.style.marginTop = '12px';
+            costPlaceholder.style.fontSize = '13px';
+            costPlaceholder.style.height = '1.5em';
+            costPlaceholder.style.visibility = 'hidden';
+            container.appendChild(costPlaceholder);
+        }
+
+        // Setup overlay click and ESC key handlers
+        function setupGameOverlayHandlers(overlay) {
+            overlay.onclick = (e) => {
+                if (e.target === overlay) {
+                    exitGame();
+                }
+            };
+
+            // Clean up previous ESC listener if it exists
+            if (gameState.escListenerController) {
+                gameState.escListenerController.abort();
+            }
+
+            // Create new AbortController for ESC key listener
+            const controller = new AbortController();
+            gameState.escListenerController = controller;
+
+            const handleEsc = (e) => {
+                if (e.key === 'Escape') {
+                    exitGame();
+                }
+            };
+            document.addEventListener('keydown', handleEsc, { signal: controller.signal });
         }
 
         // Display current question
@@ -600,152 +759,18 @@
                 highlightCurrentLocation();
             }, 100);
 
-            let overlay = document.getElementById('game-overlay');
-            if (!overlay) {
-                overlay = document.createElement('div');
-                overlay.id = 'game-overlay';
-                overlay.className = 'game-overlay';
-                document.body.appendChild(overlay);
-            }
-
-            const container = document.createElement('div');
-            container.className = 'game-container';
-
-            const header = document.createElement('div');
-            header.className = 'game-header';
-            const scoreDiv = document.createElement('div');
-            scoreDiv.className = 'game-score';
-            scoreDiv.textContent = `Wynik: ${gameState.score}/10`;
-            header.appendChild(scoreDiv);
-            container.appendChild(header);
-
-            // Display project details when asking about cost (second question in the round)
-            if (gameState.currentQuestionType === 'cost') {
-                const projectInfo = document.createElement('div');
-                projectInfo.style.marginBottom = '15px';
-                projectInfo.style.fontSize = '14px';
-                projectInfo.style.color = '#666';
-                projectInfo.innerHTML = `<strong>Projekt:</strong> ${gameState.currentLocation.name}`;
-                container.appendChild(projectInfo);
-            }
+            const overlay = getOrCreateGameOverlay();
+            const container = createGameContainer();
 
             if (gameState.currentQuestionType === 'project') {
-                const questionHeader = document.createElement('div');
-                questionHeader.className = 'game-question-header';
-
-                const question = document.createElement('div');
-                question.className = 'game-question';
-                const questionNumber = gameState.currentLocationIndex + 1;
-                question.textContent = `Jaki to projekt? (Test ${questionNumber}/5)`;
-
-                const buttonContainer = document.createElement('div');
-                buttonContainer.className = 'game-question-button';
-                buttonContainer.id = 'question-button-container';
-
-                questionHeader.appendChild(question);
-                questionHeader.appendChild(buttonContainer);
-                container.appendChild(questionHeader);
-
-                const projectInfo = document.createElement('div');
-                projectInfo.style.marginBottom = '15px';
-                projectInfo.style.fontSize = '14px';
-                projectInfo.style.color = '#666';
-                const categoryName = CATEGORY_NAMES[gameState.currentLocation.category] || gameState.currentLocation.category || 'Nie przypisano';
-                projectInfo.innerHTML = `<strong>Kategoria:</strong> ${categoryName}`;
-                container.appendChild(projectInfo);
-
-                const choices = getClosestInCategory(gameState.currentLocation, allLocations, 2);
-
-                const answersDiv = document.createElement('div');
-                answersDiv.className = 'game-answers';
-
-                choices.forEach((choice, index) => {
-                    const label = document.createElement('label');
-                    label.className = 'game-answer-label';
-
-                    const radio = document.createElement('input');
-                    radio.type = 'radio';
-                    radio.name = 'project-choice';
-                    radio.value = index;
-                    radio.onchange = () => handleProjectAnswer(choice);
-
-                    label.appendChild(radio);
-                    label.appendChild(document.createTextNode(choice.name));
-                    answersDiv.appendChild(label);
-                });
-
-                container.appendChild(answersDiv);
+                createProjectQuestion(container, allLocations);
             } else {
-                const questionHeader = document.createElement('div');
-                questionHeader.className = 'game-question-header';
-
-                const question = document.createElement('div');
-                question.className = 'game-question';
-                question.textContent = 'Koszt projektu?';
-
-                const buttonContainer = document.createElement('div');
-                buttonContainer.className = 'game-question-button';
-                buttonContainer.id = 'question-button-container';
-
-                questionHeader.appendChild(question);
-                questionHeader.appendChild(buttonContainer);
-                container.appendChild(questionHeader);
-
-                const costRange = categorizeCost(gameState.currentLocation.cost);
-                const costRanges = [
-                    { label: 'niski', value: 'mniej niż 100,000' },
-                    { label: 'średni', value: 'między 100,000 i 500,000' },
-                    { label: 'wysoki', value: 'powyżej 500,000' }
-                ];
-
-                const answersDiv = document.createElement('div');
-                answersDiv.className = 'game-answers horizontal';
-
-                costRanges.forEach((range) => {
-                    const label = document.createElement('label');
-                    label.className = 'game-answer-label';
-
-                    const radio = document.createElement('input');
-                    radio.type = 'radio';
-                    radio.name = 'cost-choice';
-                    radio.value = range.value;
-                    radio.onchange = () => handleCostAnswer(range.value);
-
-                    label.appendChild(radio);
-                    label.appendChild(document.createTextNode(range.label));
-                    answersDiv.appendChild(label);
-                });
-
-                container.appendChild(answersDiv);
-
-                // Reserve space for cost display that appears after answer is given
-                const costPlaceholder = document.createElement('div');
-                costPlaceholder.className = 'cost-placeholder';
-                costPlaceholder.style.marginTop = '12px';
-                costPlaceholder.style.fontSize = '13px';
-                costPlaceholder.style.height = '1.5em';
-                costPlaceholder.style.visibility = 'hidden';
-                container.appendChild(costPlaceholder);
+                createCostQuestion(container);
             }
 
             overlay.innerHTML = '';
             overlay.appendChild(container);
-
-            // Allow closing game by clicking on overlay background or pressing ESC
-            overlay.onclick = (e) => {
-                if (e.target === overlay) {
-                    exitGame();
-                }
-            };
-
-            // ESC key to exit game
-            const handleEsc = (e) => {
-                if (e.key === 'Escape') {
-                    exitGame();
-                    document.removeEventListener('keydown', handleEsc);
-                }
-            };
-            document.addEventListener('keydown', handleEsc);
+            setupGameOverlayHandlers(overlay);
         }
 
         // Add "Następne" button to advance to next question
@@ -953,6 +978,12 @@
         // Exit game
         function exitGame() {
             gameState.active = false;
+
+            // Clean up ESC key listener
+            if (gameState.escListenerController) {
+                gameState.escListenerController.abort();
+                gameState.escListenerController = null;
+            }
 
             // Update button visibility BEFORE removing overlay to ensure proper state
             updateGameButton();
