@@ -125,6 +125,24 @@
             line-height: 32px !important;
             padding: 0 !important;
         }
+        .leaflet-popup {
+            margin-left: 0 !important;
+            margin-bottom: 0 !important;
+        }
+        .leaflet-popup-content-wrapper {
+            border-radius: 8px;
+            max-width: 90vw;
+            box-sizing: border-box;
+            margin: 0;
+            padding-top: 16px;
+        }
+        .leaflet-popup-content {
+            max-width: calc(90vw - 20px);
+            margin: 0;
+            padding: 8px 12px;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
         .game-overlay {
             position: fixed;
             bottom: 10px;
@@ -202,7 +220,7 @@
         .game-answers {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 12px;
             margin: 4px 0;
         }
         .game-answers.horizontal {
@@ -925,6 +943,12 @@
         function endGame() {
             gameState.active = false;
 
+            // Clear any pending result timeout
+            if (gameState.resultTimeoutId) {
+                clearTimeout(gameState.resultTimeoutId);
+                gameState.resultTimeoutId = null;
+            }
+
             let overlay = document.getElementById('game-overlay');
             if (!overlay) {
                 overlay = document.createElement('div');
@@ -1019,6 +1043,12 @@
         // Exit game
         function exitGame() {
             gameState.active = false;
+
+            // Clear any pending result timeout to stop the counter
+            if (gameState.resultTimeoutId) {
+                clearTimeout(gameState.resultTimeoutId);
+                gameState.resultTimeoutId = null;
+            }
 
             // Clean up ESC key listener
             if (gameState.escListenerController) {
