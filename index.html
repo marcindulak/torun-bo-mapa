@@ -550,10 +550,15 @@
         }
 
         // Clear the previous marker highlight and restore its original appearance
-        function clearPreviousHighlight() {
+        // Only updates the icon if the new marker is different to avoid flash
+        function clearPreviousHighlight(newMarker) {
             if (gameState.highlightedMarker && gameState.highlightedMarker._originalUpdateIcon) {
                 gameState.highlightedMarker.updateIcon = gameState.highlightedMarker._originalUpdateIcon;
-                gameState.highlightedMarker.updateIcon();
+                // Only update icon if switching to a different marker
+                // Same marker = transitioning from project to cost question for same location
+                if (gameState.highlightedMarker !== newMarker) {
+                    gameState.highlightedMarker.updateIcon();
+                }
             }
         }
 
@@ -585,13 +590,11 @@
                 mapInstance.off('zoomend', onZoomEnd);
             }, 300);
 
-            mapInstance.setView([marker.location.lat, marker.location.lon], 14);
+            mapInstance.setView([marker.location.lat, marker.location.lon], 15);
         }
 
         // Highlight the current project marker on the map
         function highlightCurrentLocation() {
-            clearPreviousHighlight();
-
             // Find the marker for the current location by name (coordinates may be adjusted by gridArrangeCloseMarkers)
             const marker = currentMarkers.find(m =>
                 m.location &&
@@ -599,14 +602,18 @@
             );
 
             if (marker) {
+                // Clear previous highlight, passing new marker to avoid flash if same marker
+                clearPreviousHighlight(marker);
+
                 // Store original updateIcon function so we can restore it later
                 marker._originalUpdateIcon = marker.updateIcon;
 
                 // Create a wrapper that preserves the glow effect
+                // Use MAX_RADIUS for uniform size during quiz to avoid revealing cost
                 marker.updateIcon = () => {
                     const zoom = mapInstance.getZoom();
                     const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
-                    const size = marker.baseSize * zoomScale;
+                    const size = MAX_RADIUS * zoomScale;
                     const highlightedIcon = createHighlightedIcon(marker, size);
                     marker.setIcon(highlightedIcon);
                 };
@@ -5008,7 +5015,7 @@
                 const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
                 const size = baseSize * zoomScale;
                 const clickableSize = size * 1.1;
-                
+
                 const divIcon = new DivIcon({
                     html: `<div style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
                     className: '',
@@ -5030,7 +5037,7 @@
                         <br>Koszt: ${location.cost.toLocaleString()} zł
                         <br>Dział: ${categoryName}`;
             });
-            
+
             return marker;
         }
 
@@ -5142,7 +5149,8 @@
                     color: '#666',
                     weight: 2,
                     fillColor: '#f0f0f0',
-                    fillOpacity: 0.1
+                    fillOpacity: 0.1,
+                    interactive: false
                 });
                 polygon.addTo(map);
                 currentClusterBoxes.push(polygon);
@@ -5155,7 +5163,8 @@
                         iconSize: null,
                         iconAnchor: [0, 0]
                     }),
-                    zIndexOffset: 10000
+                    zIndexOffset: 10000,
+                    interactive: false
                 });
                 marker.addTo(map);
                 currentClusterBoxes.push(marker);
@@ -5365,8 +5374,7 @@
 
         map.on('zoomend', () => {
             currentMarkers.forEach(marker => {
-                // Skip updating highlighted marker to preserve the red circle highlight
-                if (marker.updateIcon && marker !== gameState.highlightedMarker) {
+                if (marker.updateIcon) {
                     marker.updateIcon();
                 }
             });
