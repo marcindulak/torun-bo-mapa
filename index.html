@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,21 @@
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
+        }
+        /* WCAG 2.4.1: Skip link for keyboard navigation */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: #fff;
+            padding: 8px 16px;
+            z-index: 10000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .skip-link:focus {
+            top: 0;
         }
         #map {
             height: 100vh;
@@ -237,7 +252,7 @@
         }
         .game-answer-label:hover {
             background-color: #f5f5f5;
-            border-color: #999;
+            border-color: #767676; /* WCAG 1.4.3: minimum 4.5:1 contrast ratio */
         }
         .game-answer-label input[type="radio"] {
             margin-right: 6px;
@@ -278,6 +293,15 @@
         .game-button:disabled {
             opacity: 0.5;
             cursor: not-allowed;
+        }
+        /* WCAG 2.4.7: Visible focus indicators for keyboard navigation */
+        button:focus-visible,
+        select:focus-visible,
+        input:focus-visible,
+        a:focus-visible,
+        .game-answer-label:focus-within {
+            outline: 2px solid #005fcc;
+            outline-offset: 2px;
         }
         .game-over-screen {
             text-align: center;
@@ -343,8 +367,8 @@
             }
             .game-answer-label input[type="radio"] {
                 margin-right: 4px;
-                width: 14px;
-                height: 14px;
+                width: 24px;
+                height: 24px;
             }
             .game-answers.horizontal {
                 gap: 3px;
@@ -355,8 +379,8 @@
                 gap: 2px;
             }
             .game-answers.horizontal .game-answer-label input[type="radio"] {
-                width: 13px;
-                height: 13px;
+                width: 24px;
+                height: 24px;
             }
             .game-button {
                 padding: 3px 4px;
@@ -500,6 +524,7 @@
             gameState.score = 0;
             gameState.phase = 'question';
             gameState.currentQuestionType = 'project';
+            gameState.previousFocusElement = document.activeElement;
 
             const allLocations = DATA_BY_YEAR[currentYear];
             gameState.selectedLocations = selectRandomLocations(allLocations);
@@ -646,6 +671,8 @@
             header.className = 'game-header';
             const scoreDiv = document.createElement('div');
             scoreDiv.className = 'game-score';
+            scoreDiv.setAttribute('role', 'status');
+            scoreDiv.setAttribute('aria-live', 'polite');
             scoreDiv.textContent = `Wynik: ${gameState.score}/10`;
             header.appendChild(scoreDiv);
             container.appendChild(header);
@@ -954,6 +981,8 @@
 
             const container = document.createElement('div');
             container.className = 'game-container game-over-screen';
+            container.setAttribute('role', 'alert');
+            container.setAttribute('aria-live', 'assertive');
 
             const message = document.createElement('div');
             message.className = 'game-over-message';
@@ -1085,6 +1114,11 @@
             }
 
             unblockMapInteraction();
+
+            // WCAG 2.1.2: Restore focus to element that triggered game
+            if (gameState.previousFocusElement && gameState.previousFocusElement.focus) {
+                gameState.previousFocusElement.focus();
+            }
         }
 
         // Update game button visibility
@@ -5017,7 +5051,7 @@
                 const clickableSize = size * 1.1;
 
                 const divIcon = new DivIcon({
-                    html: `<div style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
+                    html: `<div role="button" aria-label="${location.name}" title="${location.name}" style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
                     className: '',
                     iconSize: [clickableSize, clickableSize],
                     iconAnchor: [clickableSize / 2, clickableSize / 2]
@@ -5227,11 +5261,14 @@
             onAdd: function(mapInstance) {
                 const container = document.createElement('div');
                 container.className = 'year-selector leaflet-bar';
+                container.id = 'controls';
+                container.setAttribute('role', 'navigation');
+                container.setAttribute('aria-label', 'Menu sterowania mapą');
 
                 const title = document.createElement('div');
                 title.className = 'title';
 		title.innerHTML = `
-                    <a href="https://torun.pl/pl/bo" style="color: blue; text-decoration: underline;">
+                    <a href="https://torun.pl/pl/bo" rel="noopener" title="Oficjalna strona Budżetu Obywatelskiego Torunia" style="color: blue; text-decoration: underline;">
                     Budżet Obywatelski Torunia
                     </a>`;
                 container.appendChild(title);
@@ -5244,9 +5281,11 @@
 
                 const label = document.createElement('label');
                 label.textContent = 'Rok: ';
+                label.htmlFor = 'year-select';
                 selectGroup.appendChild(label);
 
                 const select = document.createElement('select');
+                select.id = 'year-select';
                 AVAILABLE_YEARS.forEach(year => {
                     const option = document.createElement('option');
                     option.value = year;
@@ -5273,8 +5312,10 @@
                 statusGroup.appendChild(statusLabel);
 
                 const acceptedLabel = document.createElement('label');
+                acceptedLabel.htmlFor = 'filter-accepted';
                 const acceptedCheckbox = document.createElement('input');
                 acceptedCheckbox.type = 'checkbox';
+                acceptedCheckbox.id = 'filter-accepted';
                 acceptedCheckbox.checked = acceptanceFilter.accepted;
                 acceptedCheckbox.onchange = (e) => {
                     acceptanceFilter.accepted = e.target.checked;
@@ -5289,8 +5330,10 @@
                 statusGroup.appendChild(acceptedLabel);
 
                 const rejectedLabel = document.createElement('label');
+                rejectedLabel.htmlFor = 'filter-rejected';
                 const rejectedCheckbox = document.createElement('input');
                 rejectedCheckbox.type = 'checkbox';
+                rejectedCheckbox.id = 'filter-rejected';
                 rejectedCheckbox.checked = acceptanceFilter.rejected;
                 rejectedCheckbox.onchange = (e) => {
                     acceptanceFilter.rejected = e.target.checked;
@@ -5393,6 +5436,7 @@
     </script>
 </head>
 <body>
+    <a href="#controls" class="skip-link">Przejdź do menu</a>
     <div id="map"></div>
 </body>
 </html>
