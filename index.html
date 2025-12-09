@@ -5375,6 +5375,13 @@
                 };
                 container.appendChild(toggleButton);
 
+                // Workaround: Lock container width after initial layout to prevent horizontal
+                // shift when menu collapses. The browser's shrink-to-fit algorithm recalculates
+                // width differently when max-height:0 is applied, causing expansion.
+                requestAnimationFrame(() => {
+                    container.style.width = container.getBoundingClientRect().width + 'px';
+                });
+
                 return container;
             }
         });
