@@ -11,6 +11,8 @@ Map visualization of the budżet obywatelski of the city of Toruń, Poland, with
 
 Available at [https://marcindulak.github.io/torun-bo-mapa](https://marcindulak.github.io/torun-bo-mapa).
 
+The application requires explicit GDPR consent before loading the map, as OpenStreetMap collects user data including IP addresses, browser type, and operating system information.
+
 ## Map Mode
 
 View all accepted and rejected citizen budget projects on an interactive map. Click on markers to view project details.
@@ -98,6 +100,5 @@ Suggestions for data owners:
 
 # Abandoned ideas
 
-- Loading data from separate JSON files: discarded due to CORS restrictions when opening HTML files directly in browsers.
-- Using a web server to serve the application: discarded to avoid hosting requirements.
+- Loading data from separate JSON files: discarded in favor of standalone index.html portability.
 - Using regex patterns or spaCy for address parsing: only human address verification is reliable.
