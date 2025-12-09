@@ -391,7 +391,59 @@
                 margin-bottom: 3px;
             }
         }
+        #gdpr-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #f5f5f5;
+            padding: 12px 16px;
+            border-top: 2px solid #333;
+            z-index: 9999;
+            font-size: 14px;
+            display: none;
+            flex-direction: column;
+            gap: 12px;
+        }
+        #gdpr-banner:not(.hidden) {
+            display: flex;
+        }
+        #gdpr-banner button {
+            padding: 6px 16px;
+            border: 2px solid #333;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            width: auto;
+            align-self: flex-start;
+        }
+        #gdpr-banner button.accept {
+            background: #333;
+            color: white;
+        }
     </style>
+    <script>
+        const GDPR_CONSENT_EXPIRY_MS =  7 * 24 * 60 * 60 * 1000; // 7 days
+
+        function acceptGdpr() {
+            const expiryTime = Date.now() + GDPR_CONSENT_EXPIRY_MS;
+            localStorage.setItem('gdpr-consent', JSON.stringify({ accepted: true, expiryTime }));
+            document.getElementById('gdpr-banner').classList.add('hidden');
+            window.initializeMap();
+        }
+
+        function isConsentValid() {
+            const consentData = localStorage.getItem('gdpr-consent');
+            if (!consentData) return false;
+
+            try {
+                const { accepted, expiryTime } = JSON.parse(consentData);
+                return accepted && Date.now() < expiryTime;
+            } catch {
+                return false;
+            }
+        }
+    </script>
     <script type="module">
         import { Map, TileLayer, Marker, DivIcon, Control, Rectangle, DivOverlay, Polygon } from 'https://unpkg.com/leaflet@2.0.0-alpha.1/dist/leaflet.js';
 
@@ -415,6 +467,9 @@
             };
         }
 
+        // Map instance - shared globally for all functions
+        let map = null;
+
         // Game state
         let gameState = {
             active: false,
@@ -432,7 +487,6 @@
         };
 
         // Map state
-        let mapInstance = null;
         let currentMarkers = [];
         let currentClusterBoxes = [];
         let currentClusters = [];
@@ -557,7 +611,7 @@
 
         // Block marker popups during game
         function blockMapInteraction() {
-            if (mapInstance && currentMarkers) {
+            if (map && currentMarkers) {
                 currentMarkers.forEach(marker => {
                     if (marker.unbindPopup) {
                         marker.unbindPopup();
@@ -569,7 +623,7 @@
         // Re-enable map interaction after game
         function unblockMapInteraction() {
             // Reload markers to restore popups
-            if (mapInstance) {
+            if (map) {
                 loadYear(currentYear);
             }
         }
@@ -600,22 +654,22 @@
 
         // Zoom to a marker and update its icon after zoom completes
         function zoomToMarker(marker) {
-            if (!mapInstance) return;
+            if (!map) return;
 
             const onZoomEnd = () => {
                 marker.updateIcon();
-                mapInstance.off('zoomend', onZoomEnd);
+                map.off('zoomend', onZoomEnd);
                 clearTimeout(fallbackTimeout);
             };
-            mapInstance.on('zoomend', onZoomEnd);
+            map.on('zoomend', onZoomEnd);
 
             // Fallback: update icon even if zoomend doesn't fire (when already at target zoom)
             const fallbackTimeout = setTimeout(() => {
                 marker.updateIcon();
-                mapInstance.off('zoomend', onZoomEnd);
+                map.off('zoomend', onZoomEnd);
             }, 300);
 
-            mapInstance.setView([marker.location.lat, marker.location.lon], 15);
+            map.setView([marker.location.lat, marker.location.lon], 15);
         }
 
         // Highlight the current project marker on the map
@@ -636,7 +690,7 @@
                 // Create a wrapper that preserves the glow effect
                 // Use MAX_RADIUS for uniform size during quiz to avoid revealing cost
                 marker.updateIcon = () => {
-                    const zoom = mapInstance.getZoom();
+                    const zoom = map.getZoom();
                     const zoomScale = Math.pow(MARKER_ZOOM_SCALE_FACTOR, zoom - MAP_ZOOM);
                     const size = MAX_RADIUS * zoomScale;
                     const highlightedIcon = createHighlightedIcon(marker, size);
@@ -5386,64 +5440,90 @@
             }
         });
 
-        // Using default SVG renderer for proper shape rendering (opacity, borders)
-        // SVG has negligible performance impact with ~150 markers
-        const map = new Map('map', {
-            zoomControl: false,
-            attributionControl: false
-        }).setView(MAP_CENTER, MAP_ZOOM);
-        mapInstance = map;
+        window.initializeMap = function initializeMap() {
+            // Using default SVG renderer for proper shape rendering (opacity, borders)
+            // SVG has negligible performance impact with ~150 markers
+            if (map) {
+                map.remove();
+            }
+            currentMarkers = [];
+            map = new Map('map', {
+                zoomControl: false,
+                attributionControl: false
+            }).setView(MAP_CENTER, MAP_ZOOM);
 
-        // Performance optimizations for tile loading:
-        // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
-        // - updateWhenIdle: true defers tile loading until after pan/zoom completes, reducing requests
-        // - keepBuffer: 2 reduces off-screen tile loading to 2 screens instead of default 3
-        new TileLayer(TILE_LAYER_URL, {
-            attribution: TILE_LAYER_ATTRIBUTION,
-            minZoom: 11,
-            maxZoom: 18,
-            updateWhenIdle: true,
-            keepBuffer: 2
-        }).addTo(map);
-        
-        // Add controls to bottom right (added in reverse order - attribution at bottom)
-        new Control.Attribution({
-            position: 'bottomright',
-            prefix: false
-        }).addTo(map);
-        
-        new Control.Scale({ 
-            position: 'bottomright',
-            imperial: false,
-            metric: true
-        }).addTo(map);
-        new Control.Zoom({ position: 'bottomright' }).addTo(map);
+            // Performance optimizations for tile loading:
+            // - maxZoom: 18 prevents loading overly detailed tiles while keeping street names visible
+            // - updateWhenIdle: true defers tile loading until after pan/zoom completes, reducing requests
+            // - keepBuffer: 2 reduces off-screen tile loading to 2 screens instead of default 3
+            new TileLayer(TILE_LAYER_URL, {
+                attribution: TILE_LAYER_ATTRIBUTION,
+                minZoom: 11,
+                maxZoom: 18,
+                updateWhenIdle: true,
+                keepBuffer: 2
+            }).addTo(map);
 
-        new YearSelector().addTo(map);
-        loadYear(currentYear);
+            // Add controls to bottom right (added in reverse order - attribution at bottom)
+            new Control.Attribution({
+                position: 'bottomright',
+                prefix: false
+            }).addTo(map);
 
-        map.on('zoomend', () => {
-            currentMarkers.forEach(marker => {
-                if (marker.updateIcon) {
-                    marker.updateIcon();
+            new Control.Scale({
+                position: 'bottomright',
+                imperial: false,
+                metric: true
+            }).addTo(map);
+            new Control.Zoom({ position: 'bottomright' }).addTo(map);
+
+            new YearSelector().addTo(map);
+            loadYear(currentYear);
+
+            map.on('zoomend', () => {
+                currentMarkers.forEach(marker => {
+                    if (marker.updateIcon) {
+                        marker.updateIcon();
+                    }
+                });
+                updateClusterBoxes();
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    map.closePopup();
                 }
             });
-            updateClusterBoxes();
-        });
 
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
+            map.on('click', () => {
                 map.closePopup();
-            }
-        });
+            });
+        };
 
-        map.on('click', () => {
-            map.closePopup();
-        });
+        // Check GDPR consent on page load and initialize map if valid
+        if (isConsentValid()) {
+            initializeMap();
+        }
     </script>
 </head>
 <body>
     <a href="#controls" class="skip-link">Przejdź do menu</a>
+    <div id="gdpr-banner">
+        <div>OpenStreetMap zbiera dane, takie jak adres IP, typ przeglądarki i system operacyjny. <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Polityka prywatności</a></div>
+        <button class="accept" onclick="acceptGdpr()">Akceptuję</button>
+    </div>
+    <script>
+        // Hide banner immediately if consent is valid
+        const consentData = localStorage.getItem('gdpr-consent');
+        if (consentData) {
+            try {
+                const { accepted, expiryTime } = JSON.parse(consentData);
+                if (accepted && Date.now() < expiryTime) {
+                    document.getElementById('gdpr-banner').classList.add('hidden');
+                }
+            } catch (e) {}
+        }
+    </script>
     <div id="map"></div>
 </body>
 </html>
