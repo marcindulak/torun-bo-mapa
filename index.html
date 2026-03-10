@@ -410,16 +410,17 @@
             display: flex;
         }
         #gdpr-banner button {
-            padding: 6px 16px;
-            border: 2px solid #333;
+            padding: 8px 16px;
+            border: 2px solid #0066cc;
             background: white;
+            color: #0066cc;
             cursor: pointer;
             font-size: 14px;
             width: auto;
             align-self: center;
         }
-        #gdpr-banner button.accept {
-            background: #333;
+        #gdpr-banner button:active {
+            background: #0066cc;
             color: white;
         }
     </style>
@@ -431,6 +432,10 @@
             localStorage.setItem('gdpr-consent', JSON.stringify({ accepted: true, expiryTime }));
             document.getElementById('gdpr-banner').classList.add('hidden');
             window.initializeMap();
+        }
+
+        function rejectGdpr() {
+            // Banner stays visible; user must accept to use the map
         }
 
         function isConsentValid() {
@@ -5510,8 +5515,11 @@
 <body>
     <a href="#controls" class="skip-link">Przejdź do menu</a>
     <div id="gdpr-banner">
-        <div>Strona używa OpenStreetMap, które zbiera dane takie jak adres IP, typ przeglądarki i system operacyjny. <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Polityka prywatności</a></div>
-        <button class="accept" onclick="acceptGdpr()">Akceptuję</button>
+        <div>Aby korzystać z mapy, naciśnij przycisk 'Akceptuj tylko niezbędne'. To pozwala OpenStreetMap zbierać dane potrzebne do działania usługi. <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Polityka prywatności</a></div>
+        <div style="display: flex; gap: 8px; justify-content: center;">
+            <button onclick="acceptGdpr()">Akceptuj tylko niezbędne</button>
+            <button onclick="rejectGdpr()">Odrzuć wszystko</button>
+        </div>
     </div>
     <script>
         // Hide banner immediately if consent is valid
