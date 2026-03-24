@@ -423,6 +423,21 @@
             background: #0066cc;
             color: white;
         }
+        #unofficial-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-35deg);
+            z-index: 9998;
+            pointer-events: none;
+            font-size: 28px;
+            font-weight: 900;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(20, 70, 20, 0.45);
+            white-space: nowrap;
+            user-select: none;
+            letter-spacing: 2px;
+        }
     </style>
     <script>
         const GDPR_CONSENT_EXPIRY_MS =  7 * 24 * 60 * 60 * 1000; // 7 days
@@ -5533,6 +5548,7 @@
             } catch (e) {}
         }
     </script>
+    <div id="unofficial-watermark" aria-hidden="true">Wersja nieoficjalna</div>
     <div id="map"></div>
 </body>
 </html>
