@@ -159,6 +159,24 @@
             word-wrap: break-word;
             overflow-wrap: break-word;
         }
+        .popup-nav-bar {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 6px;
+            padding-right: 36px;
+        }
+        .popup-nav-btn {
+            padding: 2px 6px;
+            border: 1px solid #666;
+            background: white;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+            white-space: nowrap;
+        }
+        .popup-nav-btn:hover {
+            background: #eee;
+        }
         .game-overlay {
             position: fixed;
             bottom: 10px;
@@ -5129,7 +5147,8 @@
                     html: `<div role="button" aria-label="${location.name}" title="${location.name}" style="font-size: ${size}px; line-height: 1; text-align: center;">${icon}</div>`,
                     className: '',
                     iconSize: [clickableSize, clickableSize],
-                    iconAnchor: [clickableSize / 2, clickableSize / 2]
+                    iconAnchor: [clickableSize / 2, clickableSize / 2],
+                    popupAnchor: [0, -clickableSize / 2]
                 });
                 marker.setIcon(divIcon);
             };
@@ -5141,11 +5160,15 @@
             // reducing initial page load time and memory usage when displaying many markers
             const categoryName = CATEGORY_NAMES[location.category] || location.category;
             marker.bindPopup(() => {
-                return `<b>${location.name}</b>
+                return `<div class="popup-nav-bar">
+                            <button class="popup-nav-btn" onclick="navigateProject(-1)">&#9664; Poprzedni</button>
+                            <button class="popup-nav-btn" onclick="navigateProject(1)">Następny &#9654;</button>
+                        </div>
+                        <b>${location.name}</b>
                         <br>Adres: ${location.address}
                         <br>Koszt: ${location.cost.toLocaleString()} zł
                         <br>Dział: ${categoryName}`;
-            });
+            }, { autoPan: false });
 
             return marker;
         }
@@ -5327,6 +5350,18 @@
             currentClusters = clusters;
             updateClusterBoxes();
         }
+
+        // Navigate to the previous (-1) or next (+1) project among currently visible markers.
+        // Wraps around. Respects the active filter since currentMarkers already reflects it.
+        window.navigateProject = function(direction) {
+            const currentIndex = currentMarkers.findIndex(m => m.isPopupOpen());
+            if (currentIndex === -1) return;
+            const newIndex = (currentIndex + direction + currentMarkers.length) % currentMarkers.length;
+            const target = currentMarkers[newIndex];
+            currentMarkers[currentIndex].closePopup();
+            target.openPopup();
+            map.panTo(target.getLatLng());
+        };
 
         const YearSelector = Control.extend({
             options: {
