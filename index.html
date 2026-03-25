@@ -5546,7 +5546,7 @@
                 const el = popup.getElement();
                 if (!el) return;
                 el.querySelector('.leaflet-popup-tip-container')?.remove();
-                popup.options.offset = [0, el.offsetHeight];
+                popup.options.offset = [0, el.offsetHeight + 6];
                 popup.update();
                 const marker = popup._source;
                 if (marker && marker.location) {
