@@ -29,7 +29,11 @@
         }
         #map {
             height: 100vh;
+            height: 100dvh;
             width: 100%;
+        }
+        .leaflet-bottom {
+            padding-bottom: env(safe-area-inset-bottom, 0px);
         }
         .year-selector {
             background: white;
@@ -445,7 +449,7 @@
         #unofficial-watermark {
             position: fixed;
             left: 4px;
-            bottom: 50px;
+            bottom: calc(70px + env(safe-area-inset-bottom, 0px));
             z-index: 9998;
             pointer-events: none;
             font-size: 15px;
@@ -5148,7 +5152,7 @@
                     className: '',
                     iconSize: [clickableSize, clickableSize],
                     iconAnchor: [clickableSize / 2, clickableSize / 2],
-                    popupAnchor: [0, -clickableSize / 2]
+                    popupAnchor: [0, clickableSize / 2]
                 });
                 marker.setIcon(divIcon);
             };
@@ -5536,6 +5540,28 @@
 
             new YearSelector().addTo(map);
             loadYear(currentYear);
+
+            map.on('popupopen', (e) => {
+                const popup = e.popup;
+                const el = popup.getElement();
+                if (!el) return;
+                el.querySelector('.leaflet-popup-tip-container')?.remove();
+                popup.options.offset = [0, el.offsetHeight];
+                popup.update();
+                const marker = popup._source;
+                if (marker && marker.location) {
+                    const div = marker.getElement()?.querySelector('div');
+                    if (div) div.style.filter = 'drop-shadow(0 0 4px #FF0000) drop-shadow(0 0 8px #FF6666)';
+                }
+            });
+
+            map.on('popupclose', (e) => {
+                const marker = e.popup._source;
+                if (marker && marker.location) {
+                    const div = marker.getElement()?.querySelector('div');
+                    if (div) div.style.filter = '';
+                }
+            });
 
             map.on('zoomend', () => {
                 currentMarkers.forEach(marker => {
