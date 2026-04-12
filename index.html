@@ -86,18 +86,28 @@
             flex: 1;
         }
         /*
-         * Search input: narrower than the full control width and centred so it
-         * reads as an interactive field rather than a static line of text.
-         * The explicit border matches the button border style used elsewhere
-         * in the control panel, making the field visually consistent.
+         * Search input stretches to fill the available space next to the
+         * "Szukaj" button.  The explicit border matches the button border
+         * style used elsewhere in the control panel.
          */
         #search-input {
-            width: 75%;
+            flex: 1;
+            min-width: 0;
             border: 2px solid #333;
             border-radius: 4px;
             padding: 4px 8px;
             font-size: 14px;
             box-sizing: border-box;
+        }
+        /*
+         * "Szukaj" button sits to the right of the search input.
+         * width: auto overrides the .toggle-button width: 100% rule so the
+         * button only takes as much space as its label needs.
+         */
+        #search-btn {
+            width: auto;
+            flex-shrink: 0;
+            margin-left: 4px;
         }
         .year-selector .title {
             font-size: 14px;
@@ -5518,20 +5528,36 @@
 
                 // Text search input: filters visible markers by project name, address,
                 // or description within the currently active year and acceptance filter.
+                // Live search fires on every keystroke on all devices.
+                // On mobile the "Szukaj" button additionally blurs the input, which
+                // dismisses the soft keyboard and reveals the map with current results.
                 const searchGroup = document.createElement('div');
                 searchGroup.id = 'search-group';
                 searchGroup.className = 'control-group';
-                searchGroup.style.justifyContent = 'center';
                 const searchInput = document.createElement('input');
                 searchInput.type = 'text';
                 searchInput.id = 'search-input';
                 searchInput.placeholder = 'Wpisz szukane słowo';
-                searchInput.setAttribute('aria-label', 'Szukaj');
+                searchInput.setAttribute('aria-label', 'Wpisz szukane słowo');
                 searchInput.addEventListener('input', () => {
                     searchQuery = searchInput.value;
                     loadYear(currentYear);
                 });
+
+                const searchBtn = document.createElement('button');
+                searchBtn.id = 'search-btn';
+                searchBtn.className = 'toggle-button';
+                searchBtn.textContent = 'Szukaj';
+                searchBtn.setAttribute('aria-label', 'Szukaj');
+                searchBtn.addEventListener('click', () => {
+                    searchQuery = searchInput.value;
+                    loadYear(currentYear);
+                    // Blur dismisses the soft keyboard on mobile, uncovering the map.
+                    searchInput.blur();
+                });
+
                 searchGroup.appendChild(searchInput);
+                searchGroup.appendChild(searchBtn);
                 container.appendChild(searchGroup);
 
                 // Game mode buttons (placed before toggleButton to appear above it)
