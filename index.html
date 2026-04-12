@@ -85,6 +85,20 @@
             width: auto;
             flex: 1;
         }
+        /*
+         * Search input: narrower than the full control width and centred so it
+         * reads as an interactive field rather than a static line of text.
+         * The explicit border matches the button border style used elsewhere
+         * in the control panel, making the field visually consistent.
+         */
+        #search-input {
+            width: 75%;
+            border: 2px solid #333;
+            border-radius: 4px;
+            padding: 4px 8px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
         .year-selector .title {
             font-size: 14px;
             font-weight: 700;
@@ -534,6 +548,8 @@
         let currentClusterBoxes = [];
         let currentClusters = [];
         let acceptanceFilter = { accepted: true, rejected: false };
+        // Empty string means no filter; any non-empty value narrows markers to matching projects.
+        let searchQuery = '';
         let currentYear; // Will be set to latest year from AVAILABLE_YEARS after DATA_BY_YEAR is loaded
         let minCost, maxCost;
 
@@ -607,6 +623,16 @@
         }
 
 
+        /*
+         * Lowercases and strips Unicode combining diacritics (NFD decomposition
+         * then removal of combining-mark range U+0300–U+036F).
+         * "ż" → "z", "ą" → "a", etc., so a query "budze" matches "budżet".
+         * The base letter is always preserved; only the accent mark is dropped.
+         */
+        function normalizeText(text) {
+            return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+        }
+
         // Select 5 random accepted locations
         function selectRandomLocations(allLocations) {
             const accepted = allLocations.filter(l => l.accepted);
@@ -646,6 +672,9 @@
                     menuToggle.style.display = 'none';
                 }
             }
+
+            const searchGroupEl = document.getElementById('search-group');
+            if (searchGroupEl) searchGroupEl.style.display = 'none';
 
             updateGameButton();
             showGameQuestion();
@@ -1211,6 +1240,18 @@
             }
 
             unblockMapInteraction();
+
+            const searchGroupEl = document.getElementById('search-group');
+            if (searchGroupEl) searchGroupEl.style.display = '';
+
+            // updateGameButton() (called above) unconditionally shows gameBtn.
+            // If the menu ended up collapsed after restore, hide it again to stay
+            // consistent with the rule that gameBtn is hidden when menu is collapsed.
+            const menuContentEl = document.querySelector('.menu-content');
+            const gameBtnEl = document.getElementById('game-btn');
+            if (menuContentEl && gameBtnEl && menuContentEl.classList.contains('collapsed')) {
+                gameBtnEl.style.display = 'none';
+            }
 
             // WCAG 2.1.2: Restore focus to element that triggered game
             if (gameState.previousFocusElement && gameState.previousFocusElement.focus) {
@@ -5322,12 +5363,22 @@
             currentYear = year;
 
             const locations = DATA_BY_YEAR[year] || [];
-            const locationsWithCoords = locations.filter(loc => {
+            // Apply acceptance filter, then optionally narrow by search query.
+            // searchQuery is case-insensitive and matched against name, address, and description.
+            let locationsWithCoords = locations.filter(loc => {
                 if (!loc.lat || !loc.lon) return false;
                 if (loc.accepted && acceptanceFilter.accepted) return true;
                 if (!loc.accepted && acceptanceFilter.rejected) return true;
                 return false;
             });
+            if (searchQuery) {
+                const q = normalizeText(searchQuery);
+                locationsWithCoords = locationsWithCoords.filter(loc =>
+                    normalizeText(loc.name || '').includes(q) ||
+                    normalizeText(loc.address || '').includes(q) ||
+                    normalizeText(loc.description || '').includes(q)
+                );
+            }
             
             if (locationsWithCoords.length === 0) return;
 
@@ -5465,6 +5516,24 @@
                 menuContent.appendChild(statusGroup);
                 container.appendChild(menuContent);
 
+                // Text search input: filters visible markers by project name, address,
+                // or description within the currently active year and acceptance filter.
+                const searchGroup = document.createElement('div');
+                searchGroup.id = 'search-group';
+                searchGroup.className = 'control-group';
+                searchGroup.style.justifyContent = 'center';
+                const searchInput = document.createElement('input');
+                searchInput.type = 'text';
+                searchInput.id = 'search-input';
+                searchInput.placeholder = 'Wpisz szukane słowo';
+                searchInput.setAttribute('aria-label', 'Szukaj');
+                searchInput.addEventListener('input', () => {
+                    searchQuery = searchInput.value;
+                    loadYear(currentYear);
+                });
+                searchGroup.appendChild(searchInput);
+                container.appendChild(searchGroup);
+
                 // Game mode buttons (placed before toggleButton to appear above it)
                 const gameBtn = document.createElement('button');
                 gameBtn.id = 'game-btn';
@@ -5487,6 +5556,12 @@
                 toggleButton.onclick = () => {
                     const isCollapsed = menuContent.classList.toggle('collapsed');
                     toggleButton.innerHTML = isCollapsed ? 'Rozwiń menu ▼' : 'Zwiń menu ▲';
+                    // Hide the game button when the menu is collapsed so it does not
+                    // appear to float without context. Only affects the non-game state;
+                    // during a game, updateGameButton already keeps gameBtn hidden.
+                    if (!gameState.active) {
+                        gameBtn.style.display = isCollapsed ? 'none' : 'block';
+                    }
                 };
                 container.appendChild(toggleButton);
 
