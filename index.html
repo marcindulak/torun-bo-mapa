@@ -839,7 +839,11 @@
             projectInfo.style.fontSize = '14px';
             projectInfo.style.color = '#666';
             const categoryName = CATEGORY_NAMES[gameState.currentLocation.category] || gameState.currentLocation.category || 'Nie przypisano';
-            projectInfo.innerHTML = `<strong>Kategoria:</strong> ${categoryName}`;
+            // Use DOM nodes instead of innerHTML to avoid XSS via data-origin category strings.
+            const categoryLabel = document.createElement('strong');
+            categoryLabel.textContent = 'Kategoria:';
+            projectInfo.appendChild(categoryLabel);
+            projectInfo.appendChild(document.createTextNode(' ' + categoryName));
             container.appendChild(projectInfo);
 
             const choices = getClosestInCategory(gameState.currentLocation, allLocations, 2);
@@ -887,7 +891,11 @@
             projectInfo.style.marginBottom = '4px';
             projectInfo.style.fontSize = '14px';
             projectInfo.style.color = '#666';
-            projectInfo.innerHTML = `<strong>Projekt:</strong> ${gameState.currentLocation.name}`;
+            // Use DOM nodes instead of innerHTML to avoid XSS via data-origin project name strings.
+            const projectLabel = document.createElement('strong');
+            projectLabel.textContent = 'Projekt:';
+            projectInfo.appendChild(projectLabel);
+            projectInfo.appendChild(document.createTextNode(' ' + gameState.currentLocation.name));
             container.appendChild(projectInfo);
 
             const costRanges = [
@@ -1080,7 +1088,7 @@
                 costPlaceholder.style.visibility = 'visible';
                 costPlaceholder.style.color = '#333';
                 costPlaceholder.style.textAlign = 'center';
-                costPlaceholder.innerHTML = `Koszt: ${formatCost(gameState.currentLocation.cost)} zł`;
+                costPlaceholder.textContent = `Koszt: ${formatCost(gameState.currentLocation.cost)} zł`;
             }
 
             // Add "Następne" button to advance
